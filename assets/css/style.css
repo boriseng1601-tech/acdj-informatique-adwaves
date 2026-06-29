@@ -236,6 +236,31 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .cinfo .cbox.dark{background:var(--ink);border-color:var(--ink)}
 .cinfo .cbox.dark .l{color:var(--rose)}
 .cinfo .cbox.dark .big,.cinfo .cbox.dark p{color:#fff}
+.cinfo .cbox .big.tel{display:inline-block}
+.cinfo .cbox .big.tel:hover{color:var(--rose)}
+
+/* HORAIRES */
+.horaires{margin-top:4px}
+.horaires .h-row{display:flex;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px dashed var(--border);font-size:.96rem}
+.horaires .h-row:last-child{border-bottom:none}
+.horaires .h-row .d{font-family:var(--display);font-weight:600;color:var(--ink);min-width:88px}
+.horaires .h-row .v{color:var(--ink);text-align:right;flex:1}
+.horaires .h-row.closed .v{color:var(--gray);font-style:italic}
+.cbox.dark .horaires .h-row{border-bottom-color:rgba(255,255,255,.14)}
+.cbox.dark .horaires .h-row .d{color:#fff}
+.cbox.dark .horaires .h-row .v{color:rgba(255,255,255,.78)}
+.cbox.dark .horaires .h-row.closed .v{color:rgba(255,255,255,.5)}
+
+/* ENCART DEVIS DISCRET */
+.cta-devis{margin-top:30px;border:1px solid var(--border);border-radius:var(--r);background:var(--zone-bg);padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.cta-devis .txt h3{font-family:var(--display);font-weight:700;font-size:1.12rem;letter-spacing:-.01em;color:var(--ink)}
+.cta-devis .txt p{font-size:.92rem;color:var(--gray);margin-top:4px;max-width:46ch}
+.cta-devis .btn{padding:12px 20px;font-size:.95rem}
+
+/* PAGE CONTACT — coordonnées en grille */
+.coords-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;padding:60px 0 0;align-items:start}
+.coords-grid .cinfo{gap:18px}
+@media(max-width:920px){.coords-grid{grid-template-columns:1fr;gap:22px;padding-top:40px}}
 
 /* RESPONSIVE */
 @media(max-width:920px){
