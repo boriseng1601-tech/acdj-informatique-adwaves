@@ -5,7 +5,10 @@
   --display:"Bricolage Grotesque",sans-serif;--body:"Hanken Grotesk",sans-serif;--hand:"Fraunces",serif;
   --r:13px;--line:1px solid var(--border);
 }
+/* Page d'accueil : titres en Space Grotesk (les autres pages gardent --display global) */
+.home{--display:"Space Grotesk",sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--body);font-size:18px;line-height:1.6;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
@@ -68,20 +71,15 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:46px}
 .sec-head h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.7rem);letter-spacing:-.025em;line-height:1.05;max-width:16ch}
 .sec-head .intro{color:var(--gray);max-width:28ch;font-size:1rem}
-.feat{display:grid;grid-template-columns:1.25fr 1fr 1fr;border:1px solid var(--prune);border-radius:var(--r);overflow:hidden}
-.svc{padding:34px 30px;border-right:var(--line);display:flex;flex-direction:column}
-.svc:last-child{border-right:none}
-.svc.lead-svc{background:var(--prune);color:#fff;grid-row:span 2}
-.svc .badge{display:inline-block;align-self:flex-start;background:var(--rose);color:var(--prune-hover);font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-bottom:18px}
-.svc h3{font-family:var(--display);font-weight:700;font-size:1.3rem;letter-spacing:-.01em}
-.svc.lead-svc h3{font-size:1.85rem;line-height:1.05}
-.svc p{font-size:.95rem;color:var(--gray);margin-top:11px;flex-grow:1}
-.svc.lead-svc p{color:rgba(255,255,255,.82)}
-.svc .price{font-family:var(--display);font-weight:700;font-size:1.02rem;color:var(--prune);margin-top:22px}
-.svc.lead-svc .price{color:#fff}
-.svc .more{font-weight:600;font-size:.94rem;color:var(--prune);margin-top:13px}
-.svc.lead-svc .more{color:#fff}
-.svc .more .arr{transition:.16s}.svc .more:hover .arr{margin-left:4px}
+/* Liste de prestations en rectangles (réutilisable : accueil = 3, page /services/ = 10) */
+.presta-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.presta-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:30px 28px;transition:.16s ease}
+.presta-card:hover{border-color:var(--prune);background:var(--zone-bg)}
+.presta-card h3{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em;color:var(--ink)}
+.presta-card p{font-size:1rem;color:var(--gray);margin-top:12px;line-height:1.55;flex-grow:1}
+.presta-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--display);font-weight:600;font-size:1rem;color:var(--prune);margin-top:22px}
+.presta-link .arr{transition:.16s}
+.presta-card:hover .presta-link .arr{margin-left:3px}
 .all-svc{margin-top:30px}
 
 /* TARIFS — fiche signature */
@@ -111,11 +109,33 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 .zone-grid .sub{color:var(--gray);margin-top:16px;font-size:1.04rem;max-width:32ch}
 .zone-grid .out{margin-top:22px;font-size:.94rem;color:var(--gray)}
 .zone-grid .out a{color:var(--prune);font-weight:600;border-bottom:1px solid var(--border)}
-.villes{display:flex;flex-wrap:wrap;gap:10px}
-.ville{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:1.04rem;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 17px}
-.ville.main{background:var(--prune);color:#fff;border-color:var(--prune)}
-.ville .dot{width:6px;height:6px;border-radius:50%;background:var(--rose)}
-.ville.main .dot{background:#fff}
+/* Carte du secteur (styles déplacés depuis le <style> du SVG, scopés .zone-svg) */
+.zone-map{border:1px solid var(--border);border-radius:var(--r);background:var(--white);padding:14px}
+.zone-svg{width:100%;height:auto;display:block}
+.zone-svg .zone-outer{fill:#F4F1F3}
+.zone-svg .zone-mid{fill:var(--icon-bg)}
+.zone-svg .zone-core{fill:#EFD8E6}
+.zone-svg .zone-dash{fill:none;stroke:var(--prune);stroke-width:1.5;stroke-dasharray:5 6;stroke-opacity:.45}
+.zone-svg .link{stroke:var(--prune);stroke-width:1.4;stroke-dasharray:4 6;stroke-opacity:.3}
+.zone-svg .dot{fill:var(--prune)}
+.zone-svg .dot-ring{fill:#fff}
+.zone-svg .ref-dot{fill:#fff;stroke:#9B8E96;stroke-width:2}
+.zone-svg .ref-core{fill:#9B8E96}
+.zone-svg .pill{fill:#fff;stroke:var(--border);stroke-width:1}
+.zone-svg .label{font-size:13px;font-weight:600;fill:var(--ink)}
+.zone-svg .label-main{font-size:13.5px;font-weight:700;fill:var(--prune)}
+.zone-svg .ref-pill{fill:#fff;stroke:var(--border);stroke-width:1}
+.zone-svg .ref-label{font-size:12.5px;font-weight:600;fill:#9B8E96}
+.zone-svg .legend{font-size:12px;font-weight:600;fill:var(--gray)}
+.zone-svg .title{font-size:13px;font-weight:700;fill:var(--prune);letter-spacing:.04em;text-transform:uppercase}
+.zone-svg .city{cursor:pointer}
+.zone-svg .city .dot,.zone-svg .city .pill,.zone-svg .city text{transition:.15s ease}
+.zone-svg a:hover .dot,.zone-svg .city:hover .dot{transform:scale(1.3);transform-box:fill-box;transform-origin:center}
+.zone-svg a:hover .pill,.zone-svg .city:hover .pill{stroke:var(--prune)}
+.zone-svg a:focus-visible{outline:none}
+.zone-svg a:focus-visible .pill{stroke:var(--prune);stroke-width:2.5}
+.zone-svg a:focus-visible .dot{transform:scale(1.3);transform-box:fill-box;transform-origin:center}
+@media(prefers-reduced-motion:reduce){.zone-svg .city:hover .dot,.zone-svg a:focus-visible .dot{transform:none}}
 
 /* AVIS */
 .avis{background:var(--zone-bg);padding:90px 0;border-top:var(--line)}
@@ -130,6 +150,23 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 .q blockquote{font-size:1.02rem;line-height:1.55}
 .q .who{margin-top:20px;font-weight:600;color:var(--prune);font-size:.94rem}
 .q .who span{display:block;color:var(--gray);font-weight:400;font-size:.84rem;margin-top:2px}
+/* Carrousel d'avis (navigation manuelle, pas d'auto-défilement) */
+.avis-title{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.avis-title .note{font-family:var(--display);font-weight:700;font-size:2rem;color:var(--prune);line-height:1}
+.avis-title .stars{font-size:1.3rem;color:var(--prune);letter-spacing:2px}
+.avis-title .txt{font-size:1.02rem;color:var(--gray);font-family:var(--body);font-weight:400}
+.car{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px}
+.car-viewport{overflow:hidden;border:1px solid var(--border);border-radius:var(--r);background:var(--white)}
+.car-track{display:flex;transition:transform .25s ease;list-style:none}
+.car-slide{flex:0 0 100%;min-width:100%;padding:40px 46px}
+.car-slide .s{color:var(--prune);letter-spacing:2px;font-size:1rem}
+.car-slide blockquote{font-family:var(--hand);font-style:italic;font-size:1.4rem;line-height:1.5;color:var(--ink);margin-top:14px}
+.car-slide .who{margin-top:24px;font-family:var(--display);font-weight:700;color:var(--prune);font-size:1.05rem}
+.car-slide .who span{display:block;color:var(--gray);font-family:var(--body);font-weight:400;font-size:.86rem;margin-top:3px}
+.car-btn{width:54px;height:54px;flex-shrink:0;border:1px solid var(--border);border-radius:var(--r);background:var(--white);color:var(--prune);font-size:1.7rem;line-height:1;display:grid;place-items:center;cursor:pointer;transition:.15s ease}
+.car-btn:hover:not(:disabled){border-color:var(--prune);background:var(--zone-bg)}
+.car-btn:disabled{opacity:.3;cursor:default}
+.car-actions{margin-top:30px}
 
 /* FINAL */
 .final{padding:100px 0;text-align:center}
@@ -267,8 +304,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .hero-grid{grid-template-columns:1fr;gap:46px}
   .hero-visual{max-width:400px}
   .voix-grid,.tarif-grid,.zone-grid,.detail-grid,.zonepage-grid,.contact-grid{grid-template-columns:1fr;gap:34px}
-  .feat{grid-template-columns:1fr 1fr}
-  .svc.lead-svc{grid-column:span 2;grid-row:auto}
+  .presta-list{grid-template-columns:1fr}
   .quotes{grid-template-columns:1fr}
   .info-card{position:static}
 }
@@ -276,9 +312,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   body{font-size:17px;padding-bottom:64px}
   .nav .links{display:none}.nav .btn-ghost{display:none}
   .tel-top span{display:none}.tel-top svg{width:22px;height:22px}
-  .feat{grid-template-columns:1fr}
-  .svc{border-right:none;border-bottom:var(--line)}.svc:last-child{border-bottom:none}
-  .svc.lead-svc{grid-column:auto}
+  .car{gap:10px}
+  .car-slide{padding:30px 26px}
+  .car-slide blockquote{font-size:1.2rem}
+  .car-btn{width:46px;height:46px;font-size:1.4rem}
   .km-tag{left:0;bottom:16px}
   .cta-row .btn{flex:1;justify-content:center}
   .slip-foot{flex-direction:column;align-items:flex-start;gap:14px}

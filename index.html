@@ -7,10 +7,10 @@
 <meta name="description" content="Djeazon répare vos ordinateurs et vous accompagne à domicile à Vittel, Contrexéville et dans l'ouest des Vosges. Diagnostic gratuit, prix annoncés avant intervention.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body>
+<body class="home">
 <a href="#contenu" class="skip">Aller au contenu</a>
 <header>
   <div class="wrap hd">
@@ -40,7 +40,7 @@
         </div>
         <div class="google-strip">
           <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <span class="meta"><b style="color:var(--ink)">5/5</b> sur Google &middot; 5 avis clients</span>
+          <span class="meta"><b style="color:var(--ink)">5/5</b> sur Google &middot; 32 avis clients</span>
         </div>
       </div>
       <div class="hero-visual">
@@ -73,35 +73,26 @@
     <div class="wrap">
       <div class="sec-head">
         <h2>Les prestations les plus demandées</h2>
-        <p class="intro">Quatre interventions courantes. Toutes mes prestations sont sur la page dédiée.</p>
+        <p class="intro">Trois interventions courantes. Toutes mes prestations sont sur la page dédiée.</p>
       </div>
-      <div class="feat">
-        <div class="svc lead-svc">
-          <span class="badge">Le plus demandé</span><h3>Dépannage informatique</h3>
-          <p>Pannes, lenteurs, virus, Wi-Fi ou logiciels : un diagnostic clair pour remettre vos appareils en état.</p>
-          <div class="price">à partir de 25 €</div>
-          <a href="/services/depannage-informatique/" class="more">En savoir plus <span class="arr">&rarr;</span></a>
-        </div>
-        <div class="svc">
-          <h3>Réparation ordinateur</h3>
-          <p>PC fixe ou portable : recherche de panne, remise en état de Windows, sauvegarde et conseils.</p>
-          <div class="price">sur diagnostic</div>
-          <a href="/services/reparation-ordinateur/" class="more">En savoir plus <span class="arr">&rarr;</span></a>
-        </div>
-        <div class="svc">
+      <div class="presta-list">
+        <a class="presta-card" href="/services/depannage-informatique/">
+          <h3>Dépannage informatique</h3>
+          <p>Pannes, lenteurs, virus ou Wi-Fi : un diagnostic clair pour remettre vos appareils en état.</p>
+          <span class="presta-link">En savoir plus <span class="arr">&rarr;</span></span>
+        </a>
+        <a class="presta-card" href="/services/assistance-a-domicile/">
           <h3>Assistance à domicile</h3>
-          <p>Aide simple et pédagogique pour l'ordinateur, le mail, la box internet et les usages du quotidien.</p>
-          <div class="price">à partir de 25 €</div>
-          <a href="/services/assistance-a-domicile/" class="more">En savoir plus <span class="arr">&rarr;</span></a>
-        </div>
-        <div class="svc">
-          <h3>Récupération de données</h3>
-          <p>Sauvegarde, transfert et récupération de vos fichiers quand le support est encore exploitable.</p>
-          <div class="price">sur devis</div>
-          <a href="/services/recuperation-de-donnees/" class="more">En savoir plus <span class="arr">&rarr;</span></a>
-        </div>
+          <p>Aide simple et pédagogique pour l'ordinateur, le mail et la box internet, chez vous.</p>
+          <span class="presta-link">En savoir plus <span class="arr">&rarr;</span></span>
+        </a>
+        <a class="presta-card" href="/services/reparation-ordinateur/">
+          <h3>Réparation ordinateur</h3>
+          <p>PC fixe ou portable : recherche de panne, remise en état de Windows et sauvegarde.</p>
+          <span class="presta-link">En savoir plus <span class="arr">&rarr;</span></span>
+        </a>
       </div>
-      <div class="all-svc"><a href="/services/" class="btn btn-ghost">Voir toutes mes prestations <span class="arr">&rarr;</span></a></div>
+      <div class="all-svc"><a href="/services/" class="btn btn-ghost">Voir toutes les prestations <span class="arr">&rarr;</span></a></div>
     </div>
   </section>
 
@@ -128,29 +119,150 @@
       <div>
         <h2>Je me déplace dans l'ouest des Vosges</h2>
         <p class="sub">Intervention à domicile dans tout le secteur de Vittel, Contrexéville et l'ouest des Vosges.</p>
+        <p class="sub" style="margin-top:14px">Le déplacement est facturé <b style="color:var(--prune);font-weight:600">0,65 €/km</b>, seulement s'il est nécessaire.</p>
         <p class="out">Votre ville n'est pas listée ? <a href="/contact/">Demandez-moi</a>.</p>
       </div>
-      <div class="villes">
-        <span class="ville main"><span class="dot"></span>Vittel</span>
-        <span class="ville main"><span class="dot"></span>Contrexéville</span>
-        <span class="ville"><span class="dot"></span>Neufchâteau</span>
-        <span class="ville"><span class="dot"></span>Mirecourt</span>
-        <span class="ville"><span class="dot"></span>et alentours</span>
+      <div class="zone-map">
+        <svg class="zone-svg" viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte du secteur d'intervention d'ACDJ Informatique dans l'ouest des Vosges" font-family="'Space Grotesk', 'Hanken Grotesk', sans-serif">
+          <text class="title" x="36" y="44">Zone d'intervention</text>
+          <text class="legend" x="36" y="64">Ouest des Vosges &middot; déplacement 0,65 €/km</text>
+
+          <ellipse class="zone-outer" cx="350" cy="285" rx="325" ry="218"/>
+          <ellipse class="zone-mid"   cx="300" cy="305" rx="218" ry="158"/>
+          <ellipse class="zone-dash"  cx="300" cy="305" rx="218" ry="158"/>
+          <ellipse class="zone-core"  cx="272" cy="318" rx="122" ry="84"/>
+
+          <line class="link" x1="290" y1="288" x2="396" y2="172"/>
+          <line class="link" x1="290" y1="288" x2="500" y2="320"/>
+          <line class="link" x1="290" y1="288" x2="212" y2="206"/>
+          <line class="link" x1="396" y1="172" x2="446" y2="108"/>
+
+          <!-- Repères hors zone (non desservis, non cliquables) -->
+          <g id="ref-nancy">
+            <circle class="ref-dot" cx="446" cy="108" r="6"/>
+            <circle class="ref-core" cx="446" cy="108" r="2"/>
+            <rect class="ref-pill" x="413" y="120" width="66" height="23" rx="7"/>
+            <text class="ref-label" x="446" y="136" text-anchor="middle">Nancy</text>
+          </g>
+          <g id="ref-epinal">
+            <circle class="ref-dot" cx="500" cy="320" r="6"/>
+            <circle class="ref-core" cx="500" cy="320" r="2"/>
+            <rect class="ref-pill" x="468" y="332" width="64" height="23" rx="7"/>
+            <text class="ref-label" x="500" y="348" text-anchor="middle">Épinal</text>
+          </g>
+
+          <!-- Villes desservies (cliquables) -->
+          <a href="/zones/mirecourt/" aria-label="Secteur d'intervention de Mirecourt">
+            <g class="city" id="city-mirecourt">
+              <circle cx="396" cy="172" r="16" fill="transparent"/>
+              <circle class="dot-ring" cx="396" cy="172" r="9"/>
+              <circle class="dot" cx="396" cy="172" r="6"/>
+              <rect class="pill" x="352" y="184" width="88" height="24" rx="7"/>
+              <text class="label" x="396" y="200" text-anchor="middle">Mirecourt</text>
+            </g>
+          </a>
+
+          <a href="/zones/neufchateau/" aria-label="Secteur d'intervention de Neufchâteau">
+            <g class="city" id="city-neufchateau">
+              <circle cx="212" cy="206" r="16" fill="transparent"/>
+              <circle class="dot-ring" cx="212" cy="206" r="9"/>
+              <circle class="dot" cx="212" cy="206" r="6"/>
+              <rect class="pill" x="159" y="218" width="106" height="24" rx="7"/>
+              <text class="label" x="212" y="234" text-anchor="middle">Neufchâteau</text>
+            </g>
+          </a>
+
+          <a href="/zones/vittel/" aria-label="Secteur d'intervention de Vittel">
+            <g class="city" id="city-vittel">
+              <circle cx="290" cy="288" r="18" fill="transparent"/>
+              <circle class="dot-ring" cx="290" cy="288" r="10"/>
+              <circle class="dot" cx="290" cy="288" r="7"/>
+              <rect class="pill" x="270" y="300" width="68" height="24" rx="7"/>
+              <text class="label-main" x="304" y="316" text-anchor="middle">Vittel</text>
+            </g>
+          </a>
+
+          <a href="/zones/contrexeville/" aria-label="Secteur d'intervention de Contrexéville">
+            <g class="city" id="city-contrexeville">
+              <circle cx="246" cy="324" r="18" fill="transparent"/>
+              <circle class="dot-ring" cx="246" cy="324" r="10"/>
+              <circle class="dot" cx="246" cy="324" r="7"/>
+              <rect class="pill" x="190" y="336" width="112" height="24" rx="7"/>
+              <text class="label-main" x="246" y="352" text-anchor="middle">Contrexéville</text>
+            </g>
+          </a>
+
+          <g id="legende" transform="translate(36, 486)">
+            <circle class="dot-ring" cx="7" cy="0" r="7"/>
+            <circle class="dot" cx="7" cy="0" r="4.5"/>
+            <text class="legend" x="20" y="4">Ville desservie</text>
+            <circle class="ref-dot" cx="158" cy="0" r="6"/>
+            <circle class="ref-core" cx="158" cy="0" r="2"/>
+            <text class="legend" x="170" y="4">Repère (hors zone)</text>
+          </g>
+        </svg>
       </div>
     </div>
   </section>
 
   <section class="avis">
     <div class="wrap">
-      <div class="avis-top">
-        <span class="note">5</span>
-        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        <span class="txt">5 avis vérifiés &middot; <a href="https://share.google/fYphF4uqbj5fvhchj" target="_blank" rel="noopener">Voir ma fiche Google</a></span>
+      <h2 class="avis-title">
+        <span class="note">5/5</span>
+        <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="txt">sur 32 avis Google</span>
+      </h2>
+      <!-- Pour ajouter un avis : copier un <li class="car-slide">…</li>. Aucune logique JS à modifier. -->
+      <div class="car" data-carousel role="group" aria-roledescription="carrousel" aria-label="Avis clients Google" tabindex="0">
+        <button type="button" class="car-btn car-prev" aria-label="Avis précédent">&#8249;</button>
+        <div class="car-viewport">
+          <ul class="car-track">
+            <li class="car-slide">
+              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Personne très professionnelle, respectueuse, qui ne profite pas de ses clients côté prix. Répond rapidement, se déplace vite, très gentil, serviable et à l'écoute."</blockquote>
+              <div class="who">Michel Jean<span>5/5 sur Google</span></div>
+            </li>
+            <li class="car-slide">
+              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Très professionnel malgré son jeune âge, très bonnes explications, prend le temps de faire comprendre ses actions. À recommander sans hésitation."</blockquote>
+              <div class="who">Mario SOARES<span>5/5 sur Google</span></div>
+            </li>
+            <li class="car-slide">
+              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"J'ai confié la création de mon site à Jeason : le résultat est largement au-dessus de mes attentes. Il a compris ce que je voulais et a livré un site professionnel."</blockquote>
+              <div class="who">Swen Boutin<span>5/5 sur Google</span></div>
+            </li>
+            <li class="car-slide">
+              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Très bon conseil et très bon service. Prend le temps d'expliquer et reste à l'écoute de toutes les questions."</blockquote>
+              <div class="who">Joelle Gavazzi<span>5/5 sur Google</span></div>
+            </li>
+            <li class="car-slide">
+              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Nous avons été ravis de la visite de Monsieur Jason FARIGU à domicile. Il a fait un excellent travail."</blockquote>
+              <div class="who">nathalie SIMON<span>5/5 sur Google</span></div>
+            </li>
+            <li class="car-slide">
+              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Service compétent, professionnel, aimable et à l'écoute des besoins. Très sérieux."</blockquote>
+              <div class="who">michel hyonne<span>5/5 sur Google</span></div>
+            </li>
+            <li class="car-slide">
+              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Très professionnel et réactif, avec de très bons produits. Un grand merci."</blockquote>
+              <div class="who">Gilles Jardin<span>5/5 sur Google</span></div>
+            </li>
+            <li class="car-slide">
+              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Service au top et réactif. Qualité de la protection et mise en place irréprochable. Merci à ACDJ pour son professionnalisme."</blockquote>
+              <div class="who">Totus<span>5/5 sur Google</span></div>
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="car-btn car-next" aria-label="Avis suivant">&#8250;</button>
+        <p class="sr-only car-status" aria-live="polite"></p>
       </div>
-      <div class="quotes">
-        <div class="q big"><blockquote>"Très professionnel malgré son jeune âge, beaucoup de dextérité, de très bonnes explications. Il prend le temps de bien faire comprendre ses actions. À recommander sans discussion."</blockquote><div class="who">Mario Soares<span>Client à domicile</span></div></div>
-        <div class="q"><blockquote>"Professionnel, sympathique, honnête."</blockquote><div class="who">Aurore Lagarde<span>Cliente du secteur</span></div></div>
-      </div>
+      <div class="car-actions"><a class="btn btn-ghost" href="https://share.google/fYphF4uqbj5fvhchj" target="_blank" rel="noopener">Lire les 32 avis sur Google <span class="arr">&rarr;</span></a></div>
     </div>
   </section>
 
@@ -204,5 +316,36 @@
   </div>
 </footer>
 <a href="tel:+33652246647" class="mobile-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Appeler &middot; 06 52 24 66 47</a>
+<script>
+(function(){
+  var car=document.querySelector('[data-carousel]');
+  if(!car)return;
+  var track=car.querySelector('.car-track');
+  var slides=Array.prototype.slice.call(track.children);
+  var prev=car.querySelector('.car-prev');
+  var next=car.querySelector('.car-next');
+  var status=car.querySelector('.car-status');
+  var i=0;
+  function update(){
+    track.style.transform='translateX(-'+(i*100)+'%)';
+    slides.forEach(function(s,n){
+      var hidden=n!==i;
+      s.setAttribute('aria-hidden',hidden?'true':'false');
+      if(hidden){s.setAttribute('inert','');}else{s.removeAttribute('inert');}
+    });
+    prev.disabled=(i===0);
+    next.disabled=(i===slides.length-1);
+    status.textContent='Avis '+(i+1)+' sur '+slides.length;
+  }
+  function go(d){i=Math.min(Math.max(i+d,0),slides.length-1);update();}
+  prev.addEventListener('click',function(){go(-1);});
+  next.addEventListener('click',function(){go(1);});
+  car.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'){go(-1);}
+    else if(e.key==='ArrowRight'){go(1);}
+  });
+  update();
+})();
+</script>
 </body>
 </html>
