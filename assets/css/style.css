@@ -1,13 +1,18 @@
 
 :root{
-  --ink:#241A24;--gray:#7C6A74;--prune:#6E2A52;--prune-hover:#4F1C3B;--rose:#D98AAE;
-  --border:#ECD9E3;--icon-bg:#F5E6EE;--zone-bg:#FAF4F7;--white:#FFFFFF;
-  --display:"Bricolage Grotesque",sans-serif;--body:"Hanken Grotesk",sans-serif;--hand:"Fraunces",serif;
+  --ink:#111318;--gray:#6b7280;--prune:#e0365f;--prune-hover:#c4294d;--rose:#f4a3b8;
+  --border:#e8e8ec;--icon-bg:#fce7ed;--zone-bg:#f5f5f7;--white:#ffffff;
+  --navy:#1e2235;--navy-text:rgba(255,255,255,0.72);
+  --display:"Inter",sans-serif;--body:"Inter",sans-serif;--hand:"Inter",sans-serif;
   --r:13px;--line:1px solid var(--border);
 }
-/* Page d'accueil : UI en Hanken, titres en Fraunces romain (autres pages gardent --display Bricolage) */
-.home{--display:"Hanken Grotesk",sans-serif}
-body.home h1,body.home h2,body.home h3{font-family:var(--hand);font-style:normal;font-weight:700;letter-spacing:-.01em}
+h1,h2,h3{font-weight:800;letter-spacing:-.03em}
+body{font-weight:400}
+.btn{font-weight:700}
+nav .links a{font-weight:500}
+/* Page d'accueil : Inter uniquement, zéro cursive */
+.home{--display:"Inter",sans-serif}
+body.home h1,body.home h2,body.home h3{font-family:"Inter",sans-serif;font-style:normal;font-weight:800;letter-spacing:-.03em}
 *{box-sizing:border-box;margin:0;padding:0}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth}
@@ -57,7 +62,7 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:v
 .eyebrow::before{content:"";width:30px;height:2px;background:var(--rose)}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.7rem,5.6vw,4.4rem);line-height:1.05;letter-spacing:-.025em;margin:24px 0 0;color:var(--ink)}
 body.home h1{line-height:1.1;font-size:clamp(2.5rem,5.2vw,4rem)}
-h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--prune);font-size:.92em}
+h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:var(--prune);font-size:.92em}
 .lead{font-size:1.16rem;margin-top:24px;max-width:46ch}
 .cta-row{display:flex;align-items:center;gap:14px;margin-top:32px;flex-wrap:wrap}
 .google-strip{display:flex;align-items:center;gap:12px;margin-top:30px;padding-top:26px;border-top:var(--line)}
@@ -77,10 +82,10 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 .voix{background:var(--zone-bg);padding:84px 0;border-top:var(--line);border-bottom:var(--line)}
 .voix-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
 .voix .label{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--prune)}
-.voix .who{font-family:var(--hand);font-style:italic;font-size:1.55rem;color:var(--ink);margin-top:16px;line-height:1.3}
+.voix .who{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;font-size:1.55rem;color:var(--ink);margin-top:16px;line-height:1.3}
 .voix .who b{color:var(--prune);font-style:normal;font-weight:600;font-family:var(--display)}
 .voix p{font-size:1.08rem;margin-top:18px}
-.voix .sign{font-family:var(--hand);font-style:italic;font-size:1.3rem;color:var(--prune);margin-top:24px}
+.voix .sign{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;font-size:1.3rem;color:var(--prune);margin-top:24px}
 
 /* SECTIONS */
 .section{padding:90px 0}
@@ -164,7 +169,7 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 .avis-top .txt a{color:var(--prune);font-weight:600;border-bottom:1px solid var(--border)}
 .quotes{display:grid;grid-template-columns:1.35fr 1fr;gap:28px}
 .q{background:#fff;border:var(--line);border-radius:var(--r);padding:32px}
-.q.big blockquote{font-family:var(--hand);font-style:italic;font-size:1.4rem;line-height:1.45;color:var(--ink)}
+.q.big blockquote{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;font-size:1.4rem;line-height:1.45;color:var(--ink)}
 .q blockquote{font-size:1.02rem;line-height:1.55}
 .q .who{margin-top:20px;font-weight:600;color:var(--prune);font-size:.94rem}
 .q .who span{display:block;color:var(--gray);font-weight:400;font-size:.84rem;margin-top:2px}
@@ -178,7 +183,7 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 .car-track{display:flex;transition:transform .25s ease;list-style:none}
 .car-slide{flex:0 0 100%;min-width:100%;padding:40px 46px}
 .car-slide .s{color:var(--prune);letter-spacing:2px;font-size:1rem}
-.car-slide blockquote{font-family:var(--hand);font-style:italic;font-size:1.4rem;line-height:1.5;color:var(--ink);margin-top:14px}
+.car-slide blockquote{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;font-size:1.4rem;line-height:1.5;color:var(--ink);margin-top:14px}
 .car-slide .who{margin-top:24px;font-family:var(--display);font-weight:700;color:var(--prune);font-size:1.05rem}
 .car-slide .who span{display:block;color:var(--gray);font-family:var(--body);font-weight:400;font-size:.86rem;margin-top:3px}
 .car-btn{width:54px;height:54px;flex-shrink:0;border:1px solid var(--border);border-radius:var(--r);background:var(--white);color:var(--prune);font-size:1.7rem;line-height:1;display:grid;place-items:center;cursor:pointer;transition:.15s ease}
@@ -203,7 +208,7 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 /* FINAL */
 .final{padding:100px 0;text-align:center;border-top:var(--line)}
 .final h2{font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,4.4vw,3.2rem);letter-spacing:-.025em;line-height:1.04;max-width:18ch;margin:0 auto}
-.final h2 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--prune)}
+.final h2 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:var(--prune)}
 .final .sub{color:var(--gray);margin-top:18px;font-size:1.08rem}
 .tel-big{display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-weight:800;font-size:1.55rem;color:var(--prune);margin-top:14px}
 .tel-big svg{width:26px;height:26px}
@@ -229,7 +234,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .page-head .eyebrow{margin-top:18px}
 .page-head h1{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.0;margin:20px 0 0;max-width:18ch}
 .page-head .lead{font-size:1.14rem;color:var(--ink);margin-top:22px;max-width:52ch}
-.page-head .lead .hand{font-family:var(--hand);font-style:italic;color:var(--prune)}
+.page-head .lead .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:var(--prune)}
 
 /* ---- CATALOGUE (hub services) ---- */
 .cat{padding:70px 0 30px}
@@ -251,7 +256,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .go svg{width:18px;height:18px}
 .cta-band{background:var(--ink);border-radius:var(--r);padding:48px 50px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;margin:30px 0 0}
 .cta-band h2{font-family:var(--display);font-weight:800;font-size:1.7rem;color:#fff;letter-spacing:-.02em;max-width:22ch;line-height:1.1}
-.cta-band h2 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--rose)}
+.cta-band h2 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:var(--rose)}
 .cta-band .acts{display:flex;gap:14px;flex-wrap:wrap}
 .cta-band .btn-ghost{color:#fff;border-color:rgba(255,255,255,.3)}
 .cta-band .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
@@ -384,3 +389,26 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .acc-panel ul li a:hover{color:var(--prune)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 :focus-visible{outline:3px solid var(--prune);outline-offset:2px;border-radius:4px}
+
+/* Rose theme — dark navy sections */
+footer{background:var(--navy);border-top:none}
+footer .ft-brand p,footer h4,footer ul li a,footer .ft-bottom,footer .ft-bottom a,footer .ft-bottom span{color:var(--navy-text)}
+footer h4{color:#ffffff;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+footer ul li a:hover{color:var(--rose)}
+footer .ft-brand .brand{color:#ffffff}
+footer .ft-brand .mark{background:var(--prune)}
+footer .ft-bottom{border-top:1px solid rgba(255,255,255,0.1)}
+footer .ft-bottom a:hover{color:var(--rose)}
+.final{background:var(--navy)}
+.final h2{color:#ffffff}
+.final .sub{color:rgba(255,255,255,0.65)}
+.final .tel-big{color:var(--rose)}
+.final .alt{color:rgba(255,255,255,0.55)}
+.final .alt a{color:var(--rose)}
+.tarifs{background:var(--navy)}
+.tarifs h2,.tarifs .tarif-intro{color:rgba(255,255,255,0.85)}
+.zone-svg .zone-outer{fill:#fce7ed;stroke:#f4a3b8}
+.zone-svg .zone-mid{fill:#fad4e0;stroke:var(--prune);stroke-dasharray:6 4}
+.zone-svg .zone-core{fill:#f4a3b8;stroke:var(--prune)}
+.zone-svg .dot{fill:var(--prune)}
+.zone-svg .dot-ring{fill:#fce7ed;stroke:var(--prune)}
