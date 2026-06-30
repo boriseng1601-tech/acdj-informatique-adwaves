@@ -2,7 +2,7 @@
 :root{
   --ink:#111318;--gray:#6b7280;--prune:#e0365f;--prune-hover:#c4294d;--rose:#f4a3b8;
   --border:#e8e8ec;--icon-bg:#fce7ed;--zone-bg:#f5f5f7;--white:#ffffff;
-  --navy:#1e2235;--navy-text:rgba(255,255,255,0.72);
+  --navy:#1e1b4b;--navy-text:rgba(255,255,255,0.72);
   --display:"Inter",sans-serif;--body:"Inter",sans-serif;--hand:"Inter",sans-serif;
   --r:13px;--line:1px solid var(--border);
 }
