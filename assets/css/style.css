@@ -5,8 +5,9 @@
   --display:"Bricolage Grotesque",sans-serif;--body:"Hanken Grotesk",sans-serif;--hand:"Fraunces",serif;
   --r:13px;--line:1px solid var(--border);
 }
-/* Page d'accueil : titres en Space Grotesk (les autres pages gardent --display global) */
-.home{--display:"Space Grotesk",sans-serif}
+/* Page d'accueil : UI en Hanken, titres en Fraunces romain (autres pages gardent --display Bricolage) */
+.home{--display:"Hanken Grotesk",sans-serif}
+body.home h1,body.home h2,body.home h3{font-family:var(--hand);font-style:normal;font-weight:700;letter-spacing:-.01em}
 *{box-sizing:border-box;margin:0;padding:0}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth}
@@ -24,6 +25,9 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:v
 .hd{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:1.18rem;letter-spacing:-.01em;color:var(--ink)}
 .brand .mark{width:32px;height:32px;border-radius:8px;background:var(--prune);color:#fff;display:grid;place-items:center;font-size:.95rem;font-weight:700}
+/* Logo image (accueil uniquement) */
+.brand-logo{display:flex;align-items:center;line-height:0}
+.brand-logo img{height:44px;width:auto;display:block}
 .nav{display:flex;align-items:center;gap:30px}
 .nav .links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
 .nav .links a:hover{color:var(--prune)}
@@ -40,7 +44,8 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:v
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
 .eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--prune)}
 .eyebrow::before{content:"";width:30px;height:2px;background:var(--rose)}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(2.7rem,5.6vw,4.4rem);line-height:.99;letter-spacing:-.025em;margin:24px 0 0;color:var(--ink)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.7rem,5.6vw,4.4rem);line-height:1.05;letter-spacing:-.025em;margin:24px 0 0;color:var(--ink)}
+body.home h1{line-height:1.1;font-size:clamp(2.5rem,5.2vw,4rem)}
 h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--prune);font-size:.92em}
 .lead{font-size:1.16rem;margin-top:24px;max-width:46ch}
 .cta-row{display:flex;align-items:center;gap:14px;margin-top:32px;flex-wrap:wrap}
@@ -103,14 +108,15 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 .slip-foot .note{font-size:.82rem;color:var(--gray);font-style:italic;max-width:30ch}
 .stamp{font-family:var(--display);font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--prune);border:2px solid var(--prune);border-radius:7px;padding:8px 12px;transform:rotate(-5deg);text-align:center;line-height:1.25;opacity:.85}
 
-/* ZONE (accueil) */
-.zone-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.zone-grid h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.5rem);letter-spacing:-.025em;line-height:1.08}
-.zone-grid .sub{color:var(--gray);margin-top:16px;font-size:1.04rem;max-width:32ch}
-.zone-grid .out{margin-top:22px;font-size:.94rem;color:var(--gray)}
+/* ZONE (accueil) — section forte */
+.section-zone{background:var(--zone-bg);border-top:var(--line);border-bottom:var(--line);padding:110px 0}
+.zone-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.zone-grid h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,3.8vw,2.8rem);letter-spacing:-.025em;line-height:1.08}
+.zone-grid .sub{color:var(--gray);margin-top:18px;font-size:1.06rem;max-width:32ch;line-height:1.6}
+.zone-grid .out{margin-top:26px;font-size:.94rem;color:var(--gray)}
 .zone-grid .out a{color:var(--prune);font-weight:600;border-bottom:1px solid var(--border)}
 /* Carte du secteur (styles déplacés depuis le <style> du SVG, scopés .zone-svg) */
-.zone-map{border:1px solid var(--border);border-radius:var(--r);background:var(--white);padding:14px}
+.zone-map{border:1px solid var(--border);border-radius:var(--r);background:var(--white);padding:20px}
 .zone-svg{width:100%;height:auto;display:block}
 .zone-svg .zone-outer{fill:#F4F1F3}
 .zone-svg .zone-mid{fill:var(--icon-bg)}
@@ -138,7 +144,7 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 @media(prefers-reduced-motion:reduce){.zone-svg .city:hover .dot,.zone-svg a:focus-visible .dot{transform:none}}
 
 /* AVIS */
-.avis{background:var(--zone-bg);padding:90px 0;border-top:var(--line)}
+.avis{background:var(--white);padding:100px 0;border-top:var(--line)}
 .avis-top{display:flex;align-items:center;gap:16px;margin-bottom:46px;flex-wrap:wrap}
 .avis-top .note{font-family:var(--display);font-weight:800;font-size:2rem;color:var(--prune);line-height:1}
 .avis-top .stars{font-size:1.25rem}
@@ -168,8 +174,10 @@ h1 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--p
 .car-btn:disabled{opacity:.3;cursor:default}
 .car-actions{margin-top:30px}
 
+/* RÉASSURANCE (ligne discrète sous prestations) */
+.reassurance{font-size:.9rem;color:var(--gray);margin-top:20px;padding-top:20px;border-top:var(--line)}
 /* FINAL */
-.final{padding:100px 0;text-align:center}
+.final{padding:100px 0;text-align:center;border-top:var(--line)}
 .final h2{font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,4.4vw,3.2rem);letter-spacing:-.025em;line-height:1.04;max-width:18ch;margin:0 auto}
 .final h2 .hand{font-family:var(--hand);font-style:italic;font-weight:500;color:var(--prune)}
 .final .sub{color:var(--gray);margin-top:18px;font-size:1.08rem}
@@ -304,6 +312,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .hero-grid{grid-template-columns:1fr;gap:46px}
   .hero-visual{max-width:400px}
   .voix-grid,.tarif-grid,.zone-grid,.detail-grid,.zonepage-grid,.contact-grid{grid-template-columns:1fr;gap:34px}
+  .section-zone{padding:80px 0}
   .presta-list{grid-template-columns:1fr}
   .quotes{grid-template-columns:1fr}
   .info-card{position:static}
