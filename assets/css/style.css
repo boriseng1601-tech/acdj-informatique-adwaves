@@ -1,8 +1,8 @@
 
 :root{
-  --ink:#111318;--gray:#6b7280;--prune:#e0365f;--prune-hover:#c4294d;--rose:#f4a3b8;
-  --border:#e8e8ec;--icon-bg:#fce7ed;--zone-bg:#f5f5f7;--white:#ffffff;
-  --navy:#1e1b4b;--navy-text:rgba(255,255,255,0.72);
+  --ink:#111318;--gray:#6b7280;--prune:#3D4142;--prune-hover:#2A2B2C;--rose:#A8AAAB;
+  --border:#e8e8ec;--icon-bg:#EAEBEC;--zone-bg:#f5f5f7;--white:#ffffff;
+  --navy:#1a1a1a;--navy-text:rgba(255,255,255,0.72);
   --display:"Inter",sans-serif;--body:"Inter",sans-serif;--hand:"Inter",sans-serif;
   --r:13px;--line:1px solid var(--border);
 }
@@ -116,7 +116,7 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .slip-head .ref{font-size:.78rem;color:var(--gray);letter-spacing:.05em}
 .row{display:flex;align-items:baseline;gap:10px;padding:17px 30px;border-bottom:1px dashed var(--border)}
 .row .name{font-family:var(--display);font-weight:700;font-size:1.06rem;white-space:nowrap}
-.row .leader{flex:1;border-bottom:1px dotted #c9b4c0;transform:translateY(-4px)}
+.row .leader{flex:1;border-bottom:1px dotted #BABCBD;transform:translateY(-4px)}
 .row .amt{font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--prune);white-space:nowrap}
 .row .sub2{display:block;font-family:var(--body);font-weight:400;font-size:.82rem;color:var(--gray);margin-top:3px;white-space:normal}
 .row.km{background:var(--zone-bg)}
@@ -135,20 +135,20 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .zone-map{border:1px solid var(--border);border-radius:var(--r);background:var(--white);padding:20px;min-height:420px;display:flex;align-items:stretch}
 .zone-map .zone-svg{flex:1}
 .zone-svg{width:100%;height:auto;display:block}
-.zone-svg .zone-outer{fill:#F4F1F3}
+.zone-svg .zone-outer{fill:#F0F1F2}
 .zone-svg .zone-mid{fill:var(--icon-bg)}
-.zone-svg .zone-core{fill:#EFD8E6}
+.zone-svg .zone-core{fill:#E2E4E6}
 .zone-svg .zone-dash{fill:none;stroke:var(--prune);stroke-width:1.5;stroke-dasharray:5 6;stroke-opacity:.45}
 .zone-svg .link{stroke:var(--prune);stroke-width:1.4;stroke-dasharray:4 6;stroke-opacity:.3}
 .zone-svg .dot{fill:var(--prune)}
 .zone-svg .dot-ring{fill:#fff}
-.zone-svg .ref-dot{fill:#fff;stroke:#9B8E96;stroke-width:2}
-.zone-svg .ref-core{fill:#9B8E96}
+.zone-svg .ref-dot{fill:#fff;stroke:#888C8E;stroke-width:2}
+.zone-svg .ref-core{fill:#888C8E}
 .zone-svg .pill{fill:#fff;stroke:var(--border);stroke-width:1}
 .zone-svg .label{font-size:13px;font-weight:600;fill:var(--ink)}
 .zone-svg .label-main{font-size:13.5px;font-weight:700;fill:var(--prune)}
 .zone-svg .ref-pill{fill:#fff;stroke:var(--border);stroke-width:1}
-.zone-svg .ref-label{font-size:12.5px;font-weight:600;fill:#9B8E96}
+.zone-svg .ref-label{font-size:12.5px;font-weight:600;fill:#888C8E}
 .zone-svg .legend{font-size:15px;font-weight:600;fill:var(--gray)}
 .zone-svg .title{font-size:16px;font-weight:700;fill:var(--prune);letter-spacing:.04em;text-transform:uppercase}
 .zone-svg .city{cursor:pointer}
@@ -268,7 +268,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .detail .intro-p{font-size:1.08rem;margin-bottom:28px}
 .includes{list-style:none;margin-top:6px}
 .includes li{display:flex;align-items:flex-start;gap:13px;padding:15px 0;border-bottom:1px dashed var(--border);font-size:1.05rem}
-.includes li::before{content:"";flex-shrink:0;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--icon-bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236E2A52' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:13px}
+.includes li::before{content:"";flex-shrink:0;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--icon-bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233D4142' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:13px}
 .info-card{border:1px solid var(--prune);border-radius:var(--r);overflow:hidden;position:sticky;top:96px}
 .info-card .ic-head{background:var(--prune);color:#fff;padding:18px 22px;font-family:var(--display);font-weight:800;font-size:1.1rem}
 .info-card .ic-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:15px 22px;border-bottom:1px dashed var(--border)}
