@@ -1,7 +1,7 @@
 
 :root{
-  --ink:#111318;--gray:#6b7280;--prune:#3D4142;--prune-hover:#2A2B2C;--rose:#A8AAAB;
-  --border:#e8e8ec;--icon-bg:#EAEBEC;--zone-bg:#f5f5f7;--white:#ffffff;
+  --ink:#111318;--gray:#6b7280;--prune:#e0365f;--prune-hover:#c4294d;--rose:#f4a3b8;
+  --border:#e8e8ec;--icon-bg:#fce7ed;--zone-bg:#f5f5f7;--white:#ffffff;
   --navy:#1a1a1a;--navy-text:rgba(255,255,255,0.72);
   --display:"Inter",sans-serif;--body:"Inter",sans-serif;--hand:"Inter",sans-serif;
   --r:13px;--line:1px solid var(--border);
@@ -11,7 +11,7 @@ body{font-weight:400}
 .btn{font-weight:700}
 nav .links a{font-weight:500}
 /* Page d'accueil : Inter uniquement, zéro cursive */
-.home{--display:"Inter",sans-serif}
+body.home{--display:"Inter",sans-serif}
 body.home h1,body.home h2,body.home h3{font-family:"Inter",sans-serif;font-style:normal;font-weight:800;letter-spacing:-.03em}
 *{box-sizing:border-box;margin:0;padding:0}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
@@ -116,7 +116,7 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .slip-head .ref{font-size:.78rem;color:var(--gray);letter-spacing:.05em}
 .row{display:flex;align-items:baseline;gap:10px;padding:17px 30px;border-bottom:1px dashed var(--border)}
 .row .name{font-family:var(--display);font-weight:700;font-size:1.06rem;white-space:nowrap}
-.row .leader{flex:1;border-bottom:1px dotted #BABCBD;transform:translateY(-4px)}
+.row .leader{flex:1;border-bottom:1px dotted #c9b4c0;transform:translateY(-4px)}
 .row .amt{font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--prune);white-space:nowrap}
 .row .sub2{display:block;font-family:var(--body);font-weight:400;font-size:.82rem;color:var(--gray);margin-top:3px;white-space:normal}
 .row.km{background:var(--zone-bg)}
@@ -135,20 +135,20 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .zone-map{border:1px solid var(--border);border-radius:var(--r);background:var(--white);padding:20px;min-height:420px;display:flex;align-items:stretch}
 .zone-map .zone-svg{flex:1}
 .zone-svg{width:100%;height:auto;display:block}
-.zone-svg .zone-outer{fill:#F0F1F2}
+.zone-svg .zone-outer{fill:#F4F1F3}
 .zone-svg .zone-mid{fill:var(--icon-bg)}
-.zone-svg .zone-core{fill:#E2E4E6}
+.zone-svg .zone-core{fill:#EFD8E6}
 .zone-svg .zone-dash{fill:none;stroke:var(--prune);stroke-width:1.5;stroke-dasharray:5 6;stroke-opacity:.45}
 .zone-svg .link{stroke:var(--prune);stroke-width:1.4;stroke-dasharray:4 6;stroke-opacity:.3}
 .zone-svg .dot{fill:var(--prune)}
 .zone-svg .dot-ring{fill:#fff}
-.zone-svg .ref-dot{fill:#fff;stroke:#888C8E;stroke-width:2}
-.zone-svg .ref-core{fill:#888C8E}
+.zone-svg .ref-dot{fill:#fff;stroke:#9B8E96;stroke-width:2}
+.zone-svg .ref-core{fill:#9B8E96}
 .zone-svg .pill{fill:#fff;stroke:var(--border);stroke-width:1}
 .zone-svg .label{font-size:13px;font-weight:600;fill:var(--ink)}
 .zone-svg .label-main{font-size:13.5px;font-weight:700;fill:var(--prune)}
 .zone-svg .ref-pill{fill:#fff;stroke:var(--border);stroke-width:1}
-.zone-svg .ref-label{font-size:12.5px;font-weight:600;fill:#888C8E}
+.zone-svg .ref-label{font-size:12.5px;font-weight:600;fill:#9B8E96}
 .zone-svg .legend{font-size:15px;font-weight:600;fill:var(--gray)}
 .zone-svg .title{font-size:16px;font-weight:700;fill:var(--prune);letter-spacing:.04em;text-transform:uppercase}
 .zone-svg .city{cursor:pointer}
@@ -173,23 +173,19 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .q blockquote{font-size:1.02rem;line-height:1.55}
 .q .who{margin-top:20px;font-weight:600;color:var(--prune);font-size:.94rem}
 .q .who span{display:block;color:var(--gray);font-weight:400;font-size:.84rem;margin-top:2px}
-/* Carrousel d'avis (navigation manuelle, pas d'auto-défilement) */
+/* Avis clients — grille statique */
 .avis-title{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:40px}
 .avis-title .note{font-family:var(--display);font-weight:700;font-size:2rem;color:var(--prune);line-height:1}
 .avis-title .stars{font-size:1.3rem;color:var(--prune);letter-spacing:2px}
 .avis-title .txt{font-size:1.02rem;color:var(--gray);font-family:var(--body);font-weight:400}
-.car{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:18px}
-.car-viewport{overflow:hidden;border:1px solid var(--border);border-radius:var(--r);background:var(--white)}
-.car-track{display:flex;transition:transform .25s ease;list-style:none}
-.car-slide{flex:0 0 100%;min-width:100%;padding:40px 46px}
-.car-slide .s{color:var(--prune);letter-spacing:2px;font-size:1rem}
-.car-slide blockquote{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;font-size:1.4rem;line-height:1.5;color:var(--ink);margin-top:14px}
-.car-slide .who{margin-top:24px;font-family:var(--display);font-weight:700;color:var(--prune);font-size:1.05rem}
-.car-slide .who span{display:block;color:var(--gray);font-family:var(--body);font-weight:400;font-size:.86rem;margin-top:3px}
-.car-btn{width:54px;height:54px;flex-shrink:0;border:1px solid var(--border);border-radius:var(--r);background:var(--white);color:var(--prune);font-size:1.7rem;line-height:1;display:grid;place-items:center;cursor:pointer;transition:.15s ease}
-.car-btn:hover:not(:disabled){border-color:var(--prune);background:var(--zone-bg)}
-.car-btn:disabled{opacity:.3;cursor:default}
-.car-actions{margin-top:30px}
+.avis-carousel{overflow:hidden;margin-top:36px}
+.avis-track{display:flex;gap:20px;will-change:transform}
+.avis-card{min-width:340px;max-width:340px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.avis-card .s{color:var(--prune);font-size:1rem;letter-spacing:2px}
+.avis-card blockquote{font-size:.98rem;color:var(--ink);line-height:1.6;flex-grow:1}
+.avis-card .who{font-family:var(--display);font-weight:700;font-size:.9rem;color:var(--ink)}
+.avis-card .who span{display:block;font-weight:400;font-size:.82rem;color:var(--gray);margin-top:3px}
+@media(max-width:680px){.avis-card{min-width:280px;max-width:280px}}
 
 /* RÉASSURANCE (ligne discrète sous prestations) */
 .reassurance{font-size:.9rem;color:var(--gray);margin-top:20px;padding-top:20px;border-top:var(--line)}
@@ -268,7 +264,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .detail .intro-p{font-size:1.08rem;margin-bottom:28px}
 .includes{list-style:none;margin-top:6px}
 .includes li{display:flex;align-items:flex-start;gap:13px;padding:15px 0;border-bottom:1px dashed var(--border);font-size:1.05rem}
-.includes li::before{content:"";flex-shrink:0;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--icon-bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233D4142' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:13px}
+.includes li::before{content:"";flex-shrink:0;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--icon-bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0365f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:13px}
 .info-card{border:1px solid var(--prune);border-radius:var(--r);overflow:hidden;position:sticky;top:96px}
 .info-card .ic-head{background:var(--prune);color:#fff;padding:18px 22px;font-family:var(--display);font-weight:800;font-size:1.1rem}
 .info-card .ic-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:15px 22px;border-bottom:1px dashed var(--border)}
@@ -355,10 +351,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .zone-map{min-height:auto}
   .zones-grid{grid-template-columns:1fr}
   .commune-card .svc-list{grid-template-columns:1fr}
-  .car{gap:10px}
-  .car-slide{padding:30px 26px}
-  .car-slide blockquote{font-size:1.2rem}
-  .car-btn{width:46px;height:46px;font-size:1.4rem}
   .km-tag{left:0;bottom:16px}
   .cta-row .btn{flex:1;justify-content:center}
   .slip-foot{flex-direction:column;align-items:flex-start;gap:14px}
@@ -390,25 +382,21 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 :focus-visible{outline:3px solid var(--prune);outline-offset:2px;border-radius:4px}
 
-/* Rose theme — dark navy sections */
-footer{background:var(--navy);border-top:none}
-footer .ft-brand p,footer h4,footer ul li a,footer .ft-bottom,footer .ft-bottom a,footer .ft-bottom span{color:var(--navy-text)}
+/* Sections sombres */
+footer{background:#1a1a1a;border-top:none}
+footer .ft-brand p,footer h4,footer ul li a,footer .ft-bottom,footer .ft-bottom a,footer .ft-bottom span{color:rgba(255,255,255,0.65)}
 footer h4{color:#ffffff;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 footer ul li a:hover{color:var(--rose)}
 footer .ft-brand .brand{color:#ffffff}
 footer .ft-brand .mark{background:var(--prune)}
 footer .ft-bottom{border-top:1px solid rgba(255,255,255,0.1)}
-footer .ft-bottom a:hover{color:var(--rose)}
-.final{background:var(--navy)}
+.final{background:#1a1a1a}
 .final h2{color:#ffffff}
 .final .sub{color:rgba(255,255,255,0.65)}
 .final .tel-big{color:var(--rose)}
 .final .alt{color:rgba(255,255,255,0.55)}
 .final .alt a{color:var(--rose)}
-.tarifs{background:var(--navy)}
-.tarifs h2,.tarifs .tarif-intro{color:rgba(255,255,255,0.85)}
-.zone-svg .zone-outer{fill:#fce7ed;stroke:#f4a3b8}
-.zone-svg .zone-mid{fill:#fad4e0;stroke:var(--prune);stroke-dasharray:6 4}
-.zone-svg .zone-core{fill:#f4a3b8;stroke:var(--prune)}
-.zone-svg .dot{fill:var(--prune)}
-.zone-svg .dot-ring{fill:#fce7ed;stroke:var(--prune)}
+.tarifs{background:#1a1a1a}
+.tarifs h2{color:#ffffff}
+.tarifs .sub{color:rgba(255,255,255,0.6)}
+.tarifs .sub b{color:var(--rose)}

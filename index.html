@@ -132,7 +132,7 @@
         <p class="out">Votre ville n'est pas listée ? <a href="/contact/">Demandez-moi</a>.</p>
       </div>
       <div class="zone-map">
-        <svg class="zone-svg" viewBox="0 0 720 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte du secteur d'intervention d'ACDJ Informatique dans l'ouest des Vosges" font-family="'Hanken Grotesk', sans-serif">
+        <svg class="zone-svg" viewBox="20 20 660 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte du secteur d'intervention d'ACDJ Informatique dans les Vosges" font-family="'Inter', sans-serif">
           <text class="title" x="36" y="44">Zone d'intervention</text>
           <text class="legend" x="36" y="64">Ouest des Vosges &middot; déplacement 0,65 €/km</text>
 
@@ -207,7 +207,7 @@
             </g>
           </a>
 
-          <g id="legende" transform="translate(36, 515)">
+          <g id="legende" transform="translate(36, 510)">
             <circle class="dot-ring" cx="7" cy="0" r="7"/>
             <circle class="dot" cx="7" cy="0" r="4.5"/>
             <text class="legend" x="20" y="4">Ville desservie</text>
@@ -224,22 +224,46 @@
         <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <span class="txt">sur 32 avis Google</span>
       </h2>
-      <!-- Pour ajouter un avis : copier un <li class="car-slide">…</li>. Aucune logique JS à modifier. -->
-      <div class="car" data-carousel role="group" aria-roledescription="carrousel" aria-label="Avis clients Google" tabindex="0">
-        <button type="button" class="car-btn car-prev" aria-label="Avis précédent">&#8249;</button>
-        <div class="car-viewport">
-          <ul class="car-track">
-            <li class="car-slide">
-              <div class="s" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <blockquote>"Très professionnel malgré son jeune âge, très bonnes explications, prend le temps de faire comprendre ses actions. À recommander sans hésitation."</blockquote>
-              <div class="who">Mario SOARES<span>5/5 sur Google</span></div>
-            </li>
-          </ul>
+      <div class="avis-carousel">
+        <div class="avis-track" id="avis-track">
+          <div class="avis-card">
+            <div class="s">★★★★★</div>
+            <blockquote>"Très professionnel malgré son jeune âge, très bonnes explications, prend le temps de faire comprendre ses actions. À recommander sans hésitation."</blockquote>
+            <div class="who">Mario SOARES<span>5/5 sur Google</span></div>
+          </div>
+          <div class="avis-card">
+            <div class="s">★★★★★</div>
+            <blockquote>"Personne très professionnelle, respectueuse, qui ne profite pas de ses clients côté prix. Répond rapidement, se déplace vite, très gentil, serviable et à l'écoute."</blockquote>
+            <div class="who">Michel Jean<span>5/5 sur Google</span></div>
+          </div>
+          <div class="avis-card">
+            <div class="s">★★★★★</div>
+            <blockquote>"J'ai confié la création de mon site à Jeason : le résultat est largement au-dessus de mes attentes. Il a compris ce que je voulais et a livré un site professionnel."</blockquote>
+            <div class="who">Swen Boutin<span>5/5 sur Google</span></div>
+          </div>
+          <div class="avis-card">
+            <div class="s">★★★★★</div>
+            <blockquote>"Très bon conseil et très bon service. Prend le temps d'expliquer et reste à l'écoute de toutes les questions."</blockquote>
+            <div class="who">Joelle Gavazzi<span>5/5 sur Google</span></div>
+          </div>
+          <div class="avis-card">
+            <div class="s">★★★★★</div>
+            <blockquote>"Service compétent, professionnel, aimable et à l'écoute des besoins. Très sérieux."</blockquote>
+            <div class="who">michel hyonne<span>5/5 sur Google</span></div>
+          </div>
+          <div class="avis-card">
+            <div class="s">★★★★★</div>
+            <blockquote>"Très professionnel et réactif, avec de très bons produits. Un grand merci."</blockquote>
+            <div class="who">Gilles Jardin<span>5/5 sur Google</span></div>
+          </div>
+          <div class="avis-card">
+            <div class="s">★★★★★</div>
+            <blockquote>"Service au top et réactif. Qualité de la protection et mise en place irréprochable. Merci à ACDJ pour son professionnalisme."</blockquote>
+            <div class="who">Totus<span>5/5 sur Google</span></div>
+          </div>
         </div>
-        <button type="button" class="car-btn car-next" aria-label="Avis suivant">&#8250;</button>
-        <p class="sr-only car-status" aria-live="polite"></p>
       </div>
-      <div class="car-actions"><a class="btn btn-ghost" href="https://share.google/fYphF4uqbj5fvhchj" target="_blank" rel="noopener">Lire les 32 avis sur Google <span class="arr">&rarr;</span></a></div>
+      <div style="margin-top:30px"><a class="btn btn-ghost" href="https://share.google/fYphF4uqbj5fvhchj" target="_blank" rel="noopener">Lire les 32 avis sur Google <span class="arr">&rarr;</span></a></div>
     </div>
   </section>
 
@@ -308,33 +332,28 @@
   }
 })();
 (function(){
-  var car=document.querySelector('[data-carousel]');
-  if(!car)return;
-  var track=car.querySelector('.car-track');
-  var slides=Array.prototype.slice.call(track.children);
-  var prev=car.querySelector('.car-prev');
-  var next=car.querySelector('.car-next');
-  var status=car.querySelector('.car-status');
-  var i=0;
-  function update(){
-    track.style.transform='translateX(-'+(i*100)+'%)';
-    slides.forEach(function(s,n){
-      var hidden=n!==i;
-      s.setAttribute('aria-hidden',hidden?'true':'false');
-      if(hidden){s.setAttribute('inert','');}else{s.removeAttribute('inert');}
-    });
-    prev.disabled=(i===0);
-    next.disabled=(i===slides.length-1);
-    status.textContent='Avis '+(i+1)+' sur '+slides.length;
-  }
-  function go(d){i=Math.min(Math.max(i+d,0),slides.length-1);update();}
-  prev.addEventListener('click',function(){go(-1);});
-  next.addEventListener('click',function(){go(1);});
-  car.addEventListener('keydown',function(e){
-    if(e.key==='ArrowLeft'){go(-1);}
-    else if(e.key==='ArrowRight'){go(1);}
+  var track = document.getElementById('avis-track');
+  if(!track) return;
+  var cards = Array.from(track.querySelectorAll('.avis-card'));
+  cards.forEach(function(c){
+    var clone = c.cloneNode(true);
+    track.appendChild(clone);
   });
-  update();
+  var speed = 0.5;
+  var pos = 0;
+  var running = true;
+  function step(){
+    if(!running) return;
+    pos += speed;
+    var cardWidth = track.querySelector('.avis-card').offsetWidth + 20;
+    var totalWidth = cardWidth * cards.length;
+    if(pos >= totalWidth) pos = 0;
+    track.style.transform = 'translateX(-' + pos + 'px)';
+    requestAnimationFrame(step);
+  }
+  track.addEventListener('mouseenter', function(){ running = false; });
+  track.addEventListener('mouseleave', function(){ running = true; requestAnimationFrame(step); });
+  requestAnimationFrame(step);
 })();
 </script>
 </body>
