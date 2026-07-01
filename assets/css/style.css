@@ -384,6 +384,50 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 :focus-visible{outline:3px solid var(--prune);outline-offset:2px;border-radius:4px}
 
+/* ---- BLOC « L'ESSENTIEL » (réponse directe, pages services) ---- */
+.essentiel{border:1px solid var(--border);border-left:4px solid var(--prune);border-radius:var(--r);background:var(--zone-bg);padding:20px 26px;margin:0 0 30px}
+.essentiel .t{font-family:var(--display);font-weight:800;font-size:.98rem;margin-bottom:8px}
+.essentiel ul{list-style:none}
+.essentiel li{padding:3px 0;font-size:.96rem}
+.essentiel b{color:var(--prune);font-weight:700}
+
+/* ---- TEXTE ENRICHI (pages services et zones) ---- */
+.svc-text p{margin:0 0 16px;font-size:1.03rem}
+.svc-text p:last-child{margin-bottom:0}
+.svc-text a{color:var(--prune);font-weight:600}
+.svc-text a:hover{text-decoration:underline}
+.svc-sub{font-family:var(--display);font-weight:700;font-size:1.14rem;letter-spacing:-.01em;margin:26px 0 8px}
+.svc-block{margin-top:38px}
+.svc-block>h2{font-family:var(--display);font-weight:800;font-size:1.4rem;letter-spacing:-.02em;margin-bottom:12px}
+
+/* ---- ÉTAPES (comment ça se passe) ---- */
+.steps{list-style:none;counter-reset:step;margin-top:6px}
+.steps li{position:relative;padding:13px 0 13px 46px;border-bottom:1px dashed var(--border);counter-increment:step;font-size:1rem}
+.steps li::before{content:counter(step);position:absolute;left:0;top:11px;width:30px;height:30px;border-radius:50%;background:var(--icon-bg);color:var(--prune);font-family:var(--display);font-weight:800;display:grid;place-items:center;font-size:.88rem}
+
+/* ---- MINI AVIS (citation client sur page service) ---- */
+.mini-avis{border-left:3px solid var(--rose);padding:4px 0 4px 18px;margin:26px 0;font-style:italic;color:var(--ink)}
+.mini-avis .who{display:block;margin-top:8px;font-style:normal;font-family:var(--display);font-weight:600;color:var(--prune);font-size:.9rem}
+
+/* ---- FAQ ---- */
+.faq-sec{padding:0 0 70px}
+.faq-sec h2{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.02em;margin-bottom:22px}
+.faq-list{max-width:840px}
+.faq-item{border:1px solid var(--border);border-radius:var(--r);background:var(--white);margin-bottom:10px;overflow:hidden;transition:.15s}
+.faq-item:hover{border-color:var(--prune)}
+.faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:17px 22px;font-family:var(--display);font-weight:700;font-size:1.03rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-family:var(--display);font-weight:700;font-size:1.35rem;color:var(--prune);flex-shrink:0;line-height:1}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-item[open] summary{background:var(--zone-bg);border-bottom:1px dashed var(--border)}
+.faq-item .faq-a{padding:16px 22px;font-size:.98rem;color:var(--ink)}
+
+/* ---- CTA FINAL PAGES ZONES ---- */
+.final{padding:70px 0;text-align:center;background:var(--zone-bg);border-top:var(--line)}
+.final h2{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.4vw,2.4rem);letter-spacing:-.02em}
+.final h2 .hand{color:var(--prune)}
+.final .sub{color:var(--gray);margin-top:10px}
+
 /* Sections sombres */
 footer{background:#1a1a1a;border-top:none}
 footer .ft-brand p,footer h4,footer ul li a,footer .ft-bottom,footer .ft-bottom a,footer .ft-bottom span{color:rgba(255,255,255,0.65)}
