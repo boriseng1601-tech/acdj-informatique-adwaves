@@ -38,7 +38,7 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:v
 .ham{display:none;background:none;border:none;padding:6px;cursor:pointer;color:var(--ink);margin-left:8px}
 .ham svg{display:block;width:26px;height:26px}
 /* Menu mobile */
-.mobile-nav{position:fixed;top:72px;left:0;right:0;background:var(--white);border-bottom:var(--line);padding:20px 24px 28px;display:flex;flex-direction:column;gap:0;z-index:99;transform:translateY(-110%);transition:transform .22s ease}
+.mobile-nav{position:fixed;top:72px;left:0;right:0;background:#fff5f7;border-bottom:1px solid #f4a3b8;padding:20px 24px 28px;display:flex;flex-direction:column;gap:0;z-index:99;transform:translateY(-110%);transition:transform .22s ease}
 .mobile-nav.open{transform:translateY(0)}
 .mobile-nav .mnav-link{font-size:1.1rem;font-weight:600;color:var(--ink);padding:16px 0;border-bottom:var(--line);display:block}
 .mobile-nav .mnav-link:hover{color:var(--prune)}
@@ -201,15 +201,8 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .commune-card .svc-list a:hover{text-decoration:underline}
 .cta-zone{margin-top:56px;border:1px solid var(--border);border-radius:var(--r);background:var(--zone-bg);padding:36px;text-align:center}
 .cta-zone p{color:var(--gray);font-size:1rem;margin-bottom:18px}
-/* FINAL */
-.final{padding:100px 0;text-align:center;border-top:var(--line)}
-.final h2{font-family:var(--display);font-weight:800;font-size:clamp(2.1rem,4.4vw,3.2rem);letter-spacing:-.025em;line-height:1.04;max-width:18ch;margin:0 auto}
-.final h2 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:var(--prune)}
-.final .sub{color:var(--gray);margin-top:18px;font-size:1.08rem}
 .tel-big{display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-weight:800;font-size:1.55rem;color:var(--prune);margin-top:14px}
 .tel-big svg{width:26px;height:26px}
-.final .alt{margin-top:18px;font-size:.95rem}
-.final .alt a{color:var(--prune);font-weight:600;border-bottom:1px solid var(--border)}
 
 /* FOOTER */
 footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;font-size:.92rem;margin-top:80px}
@@ -220,7 +213,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .ft-brand p{max-width:30ch;line-height:1.55}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.84rem;color:rgba(255,255,255,.5)}
 .ft-bottom a:hover{color:var(--rose)}
-.mobile-call{display:none}
 
 /* ---- BREADCRUMB + PAGE HEAD ---- */
 .crumb{font-size:.85rem;color:var(--gray);padding-top:34px}
@@ -344,11 +336,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .zones-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:680px){
-  body{font-size:17px;padding-bottom:64px}
+  body{font-size:17px}
   .nav .links{display:none}.nav .btn-ghost{display:none}
-  .tel-top span{display:none}.tel-top svg{width:22px;height:22px}
+  .tel-top span{display:none}.tel-top svg{width:16px;height:16px}
+  .tel-top{font-size:.92rem;gap:6px;letter-spacing:0}
+  .mnav-tel{white-space:nowrap}
   .ham{display:block}
-  .zone-map{min-height:auto}
+  .zone-map{min-height:320px;width:100%}
+  .zone-svg{width:100%;min-height:280px;height:auto}
+  .section-zone .wrap{flex-direction:column}
   .zones-grid{grid-template-columns:1fr}
   .commune-card .svc-list{grid-template-columns:1fr}
   .km-tag{left:0;bottom:16px}
@@ -359,10 +355,16 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .item .price small{text-align:left}
   .cta-band{padding:34px 26px}
   .zlist,.form .two{grid-template-columns:1fr}
-  .ft-grid{grid-template-columns:1fr 1fr;gap:30px}
-  .mobile-call{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:150;background:var(--prune);color:#fff;align-items:center;justify-content:center;gap:10px;padding:15px;font-family:var(--display);font-weight:700;font-size:1.08rem}
-  .mobile-call svg{width:20px;height:20px}
-  .final .tel-big{font-size:1.3rem}
+  .count{white-space:nowrap;font-size:.75rem}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:24px 16px}
+  .ft-brand{grid-column:1 / -1}
+  .ft-bottom{grid-column:1 / -1}
+  footer{margin-top:0}
+  .tarifs{margin-top:0;padding-top:40px}
+  .ville-pills{margin:16px 0 24px}
+  .cta-devis{margin-top:24px;margin-bottom:24px}
+  .section-secteur,.zones-section,.secteur-header{padding-top:24px;padding-bottom:24px}
+  .nav-tel,.nav-tel a,header .tel,header a[href^="tel"]{white-space:nowrap!important;letter-spacing:-.01em;display:inline-block}
 }
 /* ACCORDÉON + PILLS — /zones/ */
 .ville-pills{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 48px}
@@ -390,13 +392,6 @@ footer ul li a:hover{color:var(--rose)}
 footer .ft-brand .brand{color:#ffffff}
 footer .ft-brand .mark{background:var(--prune)}
 footer .ft-bottom{border-top:1px solid rgba(255,255,255,0.1)}
-.final{background:#1a1a1a}
-.final h2{color:#ffffff}
-.final .sub{color:rgba(255,255,255,0.65)}
-.final .tel-big{color:var(--rose)}
-.final .alt{color:rgba(255,255,255,0.55)}
-.final .alt a{color:var(--rose)}
-.tarifs{background:#1a1a1a}
 .tarifs h2{color:#ffffff}
 .tarifs .sub{color:rgba(255,255,255,0.6)}
 .tarifs .sub b{color:var(--rose)}
