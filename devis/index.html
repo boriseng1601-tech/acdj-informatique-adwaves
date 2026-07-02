@@ -61,10 +61,10 @@
         <a href="/services/">Prestations</a>
         <a href="/a-propos/">À propos</a>
         <a href="/zones/">Secteur</a>
-        <a href="/contact/">Contact</a>
+        <a href="/contact/" data-gtm-event="click_contact" data-location="header">Contact</a>
       </div>
-      <a href="/devis/" class="btn btn-ghost active" style="padding:11px 18px;font-size:.94rem">Devis gratuit</a>
-      <a href="tel:+33652246647" class="tel-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>06 52 24 66 47</span></a>
+      <a href="/devis/" class="btn btn-ghost active" style="padding:11px 18px;font-size:.94rem" data-gtm-event="click_quote_request" data-location="header">Devis gratuit</a>
+      <a href="tel:+33652246647" class="tel-top" data-gtm-event="click_phone" data-location="header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>06 52 24 66 47</span></a>
       <button class="ham" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </nav>
   </div>
@@ -73,9 +73,9 @@
   <a href="/services/" class="mnav-link">Prestations</a>
   <a href="/a-propos/" class="mnav-link">À propos</a>
   <a href="/zones/" class="mnav-link">Secteur</a>
-  <a href="/contact/" class="mnav-link">Contact</a>
-  <a href="tel:+33652246647" class="mnav-tel">06 52 24 66 47</a>
-  <a href="/devis/" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Devis gratuit</a>
+  <a href="/contact/" class="mnav-link" data-gtm-event="click_contact" data-location="menu mobile">Contact</a>
+  <a href="tel:+33652246647" class="mnav-tel" data-gtm-event="click_phone" data-location="menu mobile">06 52 24 66 47</a>
+  <a href="/devis/" class="btn btn-primary" data-gtm-event="click_quote_request" data-location="menu mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Devis gratuit</a>
 </nav>
 <main id="contenu">
   <div class="wrap"><nav class="crumb"><a href="/">Accueil</a><span class="sep">/</span>Devis gratuit</nav></div>
@@ -97,8 +97,8 @@
         <li>Réponse en général <b>sous 24 h ouvrées</b></li>
       </ul>
     </div>
-    <!-- TODO: brancher l'action du formulaire sur n8n (endpoint à définir) -->
-    <form class="form" action="#" method="post" style="margin-top:26px">
+    <form class="form" action="/api/devis" method="post" style="margin-top:26px" data-devis-form>
+      <div class="field hp-field" aria-hidden="true"><label for="website">Site web</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <div class="two">
         <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" autocomplete="name" required></div>
         <div class="field"><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" autocomplete="tel" required></div>
@@ -135,6 +135,7 @@
       </div>
       <div class="field"><label for="message">Décrivez votre besoin</label><textarea id="message" name="message" placeholder="Ce qui ne fonctionne pas, depuis quand, sur quel appareil (Windows / Mac, fixe ou portable, marque si vous savez)..." required></textarea></div>
       <button type="submit" class="btn btn-primary">Envoyer ma demande de devis</button>
+      <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
       <p class="formnote">Je vous réponds dès que possible, sans engagement. Le diagnostic est toujours gratuit.</p>
       <p class="formnote">Vos coordonnées servent uniquement à vous répondre : elles ne sont ni partagées, ni utilisées pour de la publicité. Voir la <a href="/politique-confidentialite/" style="color:var(--prune);font-weight:600">politique de confidentialité</a>.</p>
     </form>
@@ -144,12 +145,12 @@
     <div class="cinfo">
       <div class="cbox dark">
         <div class="l">Vous préférez appeler ?</div>
-        <a href="tel:+33652246647" class="big tel">06 52 24 66 47</a>
+        <a href="tel:+33652246647" class="big tel" data-gtm-event="click_phone" data-location="corps de page">06 52 24 66 47</a>
         <p style="margin-top:8px;font-size:.92rem">Appel direct, je décroche si je ne suis pas en intervention.</p>
       </div>
       <div class="cbox">
         <div class="l">Email</div>
-        <p><a href="mailto:contact@acdj-informatique.com" style="color:var(--prune);font-weight:600">contact@acdj-informatique.com</a></p>
+        <p><a href="mailto:contact@acdj-informatique.com" style="color:var(--prune);font-weight:600" data-gtm-event="click_email" data-location="corps de page">contact@acdj-informatique.com</a></p>
       </div>
       <div class="cbox">
         <div class="l">Secteur d'intervention</div>
@@ -183,7 +184,7 @@
       </details>
       <details class="faq-item">
         <summary>Sous quel délai répondez-vous ?</summary>
-        <p class="faq-a">Je réponds en général sous 24&nbsp;h ouvrées, souvent plus vite. Pour une urgence, appelez directement le <a href="tel:+33652246647" style="color:var(--prune);font-weight:600">06&nbsp;52&nbsp;24&nbsp;66&nbsp;47</a>.</p>
+        <p class="faq-a">Je réponds en général sous 24&nbsp;h ouvrées, souvent plus vite. Pour une urgence, appelez directement le <a href="tel:+33652246647" style="color:var(--prune);font-weight:600" data-gtm-event="click_phone" data-location="FAQ">06&nbsp;52&nbsp;24&nbsp;66&nbsp;47</a>.</p>
       </details>
       <details class="faq-item">
         <summary>Le déplacement est-il compris dans le prix ?</summary>
@@ -222,8 +223,8 @@
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a href="tel:+33652246647">06 52 24 66 47</a></li>
-          <li><a href="mailto:contact@acdj-informatique.com">contact@acdj-informatique.com</a></li>
+          <li><a href="tel:+33652246647" data-gtm-event="click_phone" data-location="footer">06 52 24 66 47</a></li>
+          <li><a href="mailto:contact@acdj-informatique.com" data-gtm-event="click_email" data-location="footer">contact@acdj-informatique.com</a></li>
           <li>Déplacement 0,65 &euro;/km</li>
         </ul>
       </div>
@@ -245,6 +246,75 @@
       menu.setAttribute('aria-hidden',open?'false':'true');
     });
   }
+})();
+(function(){
+  var form=document.querySelector('[data-devis-form]');
+  if(!form || !window.fetch || !window.URLSearchParams) return;
+
+  var status=form.querySelector('[data-form-status]');
+  var submit=form.querySelector('button[type="submit"]');
+  var defaultSubmitText=submit ? submit.textContent : '';
+
+  function setStatus(type,message){
+    if(!status) return;
+    status.hidden=false;
+    status.className='form-status ' + type;
+    status.textContent=message;
+  }
+
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    var payload=new URLSearchParams();
+    var data=new FormData(form);
+    data.forEach(function(value,key){
+      payload.append(key,value);
+    });
+
+    if(submit){
+      submit.disabled=true;
+      submit.textContent='Envoi en cours...';
+    }
+    if(status){
+      status.hidden=true;
+      status.textContent='';
+    }
+
+    fetch(form.action,{
+      method:'POST',
+      headers:{
+        'Accept':'application/json',
+        'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body:payload.toString()
+    })
+      .then(function(response){
+        return response.json().catch(function(){ return {}; }).then(function(body){
+          if(!response.ok){
+            throw new Error(body.message || "La demande n'a pas pu être envoyée.");
+          }
+          return body;
+        });
+      })
+      .then(function(body){
+        form.reset();
+        setStatus('success',body.message || 'Votre demande a bien été envoyée. Je vous réponds dès que possible.');
+      })
+      .catch(function(error){
+        setStatus('error',error.message || "La demande n'a pas pu être envoyée. Vous pouvez appeler directement le 06 52 24 66 47.");
+      })
+      .finally(function(){
+        if(submit){
+          submit.disabled=false;
+          submit.textContent=defaultSubmitText;
+        }
+      });
+  });
 })();
 </script>
 </body>
