@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Les robots des assistants IA (GPTBot, ClaudeBot, PerplexityBot, Google-Extended)
+# sont volontairement autorisés : être cité par les assistants est un canal
+# d'acquisition pour une entreprise locale.
+
+# index-bleu.html est une ancienne variante de l'accueil : elle porte une balise
+# meta noindex et n'apparaît pas dans le sitemap. Pas de Disallow ici, pour que
+# les moteurs puissent lire la balise noindex.
+
+Sitemap: https://www.acdj-informatique.com/sitemap.xml
