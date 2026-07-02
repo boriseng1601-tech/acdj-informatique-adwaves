@@ -44,6 +44,7 @@ header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:v
 .mobile-nav .mnav-link:hover{color:var(--prune)}
 .mobile-nav .mnav-tel{color:var(--prune);font-weight:700;font-size:1.08rem;padding:16px 0;border-bottom:var(--line);display:block}
 .mobile-nav .btn-primary{margin-top:16px;width:100%;justify-content:center}
+.mobile-call{display:none !important}
 .nav{display:flex;align-items:center;gap:30px}
 .nav .links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
 .nav .links a:hover{color:var(--prune)}
@@ -370,6 +371,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .cta-devis{margin-top:24px;margin-bottom:24px}
   .section-secteur,.zones-section,.secteur-header{padding-top:24px;padding-bottom:24px}
   .nav-tel,.nav-tel a,header .tel,header a[href^="tel"]{white-space:nowrap!important;letter-spacing:-.01em;display:inline-block}
+  .mobile-call{display:flex !important;position:fixed;left:0;right:0;bottom:0;z-index:150;background:var(--prune);color:#fff;align-items:center;justify-content:center;gap:10px;padding:15px;font-family:var(--display);font-weight:700;font-size:1.08rem}
+  .mobile-call svg{width:20px !important;height:20px !important;flex-shrink:0}
 }
 /* ACCORDÉON + PILLS — /zones/ */
 .ville-pills{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 48px}

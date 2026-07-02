@@ -212,7 +212,7 @@ Observations importantes :
 | `/zones/mirecourt/` | Capter Mirecourt | « informatique Mirecourt » | dépannage informatique Mirecourt | réparation ordinateur Mirecourt, assistance informatique Mirecourt | prompts Mirecourt du fichier AEO | Mirecourt | Moyenne | Petite ville, faible concurrence : contenu unique = top 3 probable. |
 | `/zones/epinal/` | Capter Épinal | « dépannage informatique Épinal » | dépannage informatique Épinal | réparation informatique Épinal Vosges, récupération données Épinal | « réparation informatique Épinal Vosges », « installation Windows ordinateur Epinal » | Épinal | Moyenne | 32k hab. : potentiel réel mais concurrence sur place. Être honnête sur les frais de déplacement. |
 | `/zones/nancy/` | Capter Nancy | « dépannage informatique à domicile Nancy » | dépannage informatique à domicile Nancy | réparation ordinateur Nancy, récupération données Nancy | tous les patterns Nancy du fichier | Nancy | Basse→Moyenne | 103k hab. mais très concurrentiel + éloigné. Ne pas viser la tête, viser « à domicile » + interventions à distance. |
-| `/a-propos/` | Crédibilité + marque | « ACDJ Informatique » / « Djeazon » | ACDJ Informatique | dépanneur informatique Vittel, informaticien indépendant Vosges | — | — | Moyenne | Page E-E-A-T : verrouille la marque (« acdj » pos. 6,79 dans GSC). |
+| `/a-propos/` | Crédibilité + marque | « ACDJ Informatique » / « Jaeson » | ACDJ Informatique | dépanneur informatique Vittel, informaticien indépendant Vosges | — | — | Moyenne | Page E-E-A-T : verrouille la marque (« acdj » pos. 6,79 dans GSC). |
 | `/contact/` | Conversion contact | « contact ACDJ » (navigationnelle) | contact ACDJ Informatique | téléphone dépanneur Vittel, horaires | — | — | Moyenne | Ajouter NAP complet + schema. |
 | `/devis/` | Conversion formulaire | « devis dépannage informatique » | devis dépannage informatique gratuit | tarif dépannage informatique, prix réparation ordinateur | GSC : « tarif dépannage informatique à distance » | Ouest Vosges | **Haute** | ⚠️ Formulaire non branché (`action="#"`). Priorité conversion absolue. |
 | `index-bleu.html` | (doublon de l'accueil) | — | — | — | — | — | **Haute** | À retirer de la production ou bloquer à l'indexation : contenu dupliqué de l'accueil. |
@@ -232,7 +232,7 @@ Observations importantes :
 
 ### Page : Accueil (`/`)
 
-**Objectif actuel** : présenter Djeazon, les prestations phares, les tarifs, la zone, les avis, et déclencher l'appel. La page est déjà bien construite pour la conversion.
+**Objectif actuel** : présenter Jaeson, les prestations phares, les tarifs, la zone, les avis, et déclencher l'appel. La page est déjà bien construite pour la conversion.
 
 **Problème principal** : elle répète « Dépannage informatique Vosges et Grand Est » deux fois (eyebrow + H1) sans jamais développer un vrai paragraphe sur le métier et la zone ; elle porte seule tout le SEO du site (comme l'ancien site) ; aucune donnée structurée ; « Grand Est » dilue le signal local (personne ne cherche « dépannage informatique Grand Est »).
 
@@ -255,7 +255,7 @@ Observations importantes :
 
 **Title recommandé** : `Dépannage informatique à domicile dans les Vosges | ACDJ Informatique — Vittel, Contrexéville`
 
-**Meta description recommandée** : `Djeazon répare vos ordinateurs et téléphones à domicile à Vittel, Contrexéville et dans l'ouest des Vosges. Diagnostic gratuit, prix annoncé avant l'intervention. ☎ 06 52 24 66 47.`
+**Meta description recommandée** : `Jaeson répare vos ordinateurs et téléphones à domicile à Vittel, Contrexéville et dans l'ouest des Vosges. Diagnostic gratuit, prix annoncé avant l'intervention. ☎ 06 52 24 66 47.`
 
 **H1 recommandé** : `Dépannage informatique à domicile dans les Vosges`
 
@@ -583,15 +583,15 @@ Ces 6 pages partagent le même gabarit et les mêmes problèmes : elles sont tra
 
 ### Page : À propos (`/a-propos/`)
 
-**Objectif actuel** : présenter Djeazon. **Problème principal** : H1 sans marque ni ville (« Le dépanneur informatique de votre secteur ») alors que cette page doit verrouiller la requête marque « acdj » (pos. 6,79 dans GSC) ; peu de faits vérifiables (depuis quand, statut, formation, nombre d'interventions).
+**Objectif actuel** : présenter Jaeson. **Problème principal** : H1 sans marque ni ville (« Le dépanneur informatique de votre secteur ») alors que cette page doit verrouiller la requête marque « acdj » (pos. 6,79 dans GSC) ; peu de faits vérifiables (depuis quand, statut, formation, nombre d'interventions).
 
-**Mot-clé principal** : `ACDJ Informatique` (marque). **Secondaires** : Djeazon, dépanneur informatique Vittel, informaticien indépendant Vosges.
+**Mot-clé principal** : `ACDJ Informatique` (marque). **Secondaires** : Jaeson, dépanneur informatique Vittel, informaticien indépendant Vosges.
 
 **Modifications** : intégrer « ACDJ Informatique » et « Vittel » dans le H1 ou le premier paragraphe ; ajouter un bloc « En bref » factuel (nom, statut, base à Vittel, année de début, zone, 32 avis Google 5/5) — exactement le type de bloc que les IA citent ; ajouter le schema `AboutPage` + `Person` lié au `LocalBusiness` ; raconter brièvement le parcours (formation, pourquoi ce métier) pour l'E-E-A-T.
 
-**Title** : `À propos — Djeazon, dépanneur informatique à Vittel (ACDJ Informatique)`
-**Meta description** : `Djeazon, fondateur d'ACDJ Informatique : dépannage et assistance à domicile à Vittel, Contrexéville et dans l'ouest des Vosges. Diagnostic gratuit, explications simples, 32 avis Google 5/5.`
-**H1** : `Djeazon, votre dépanneur informatique à Vittel et dans l'ouest des Vosges`
+**Title** : `À propos — Jaeson, dépanneur informatique à Vittel (ACDJ Informatique)`
+**Meta description** : `Jaeson, fondateur d'ACDJ Informatique : dépannage et assistance à domicile à Vittel, Contrexéville et dans l'ouest des Vosges. Diagnostic gratuit, explications simples, 32 avis Google 5/5.`
+**H1** : `Jaeson, votre dépanneur informatique à Vittel et dans l'ouest des Vosges`
 
 **FAQ** : non nécessaire (la home et les services la portent). **Maillage** : vers /services/ (ancre « toutes mes prestations »), /zones/ et /contact/. **Priorité : moyenne.** **Impact** : marque verrouillée, E-E-A-T renforcé, matière à citation IA (« ACDJ Informatique est une entreprise individuelle basée à Vittel… »).
 
@@ -604,7 +604,7 @@ Ces 6 pages partagent le même gabarit et les mêmes problèmes : elles sont tra
 **Modifications** : aligner la liste des villes sur les pages zones (ou préciser « cœur de secteur : Vittel–Contrexéville ; interventions possibles jusqu'à Épinal et Nancy ») ; afficher la commune de base (au minimum « basé à Vittel (88800) ») pour le NAP ; horaires en `openingHours` schema ; garder le message « vous tombez sur moi, pas sur un standard » (excellent).
 
 **Title** : `Contact — ACDJ Informatique, dépannage à Vittel et Contrexéville | 06 52 24 66 47`
-**Meta description** : `Appelez Djeazon au 06 52 24 66 47 (lun–ven) ou écrivez à contact@acdj-informatique.com. Dépannage informatique à domicile à Vittel, Contrexéville et dans l'ouest des Vosges.`
+**Meta description** : `Appelez Jaeson au 06 52 24 66 47 (lun–ven) ou écrivez à contact@acdj-informatique.com. Dépannage informatique à domicile à Vittel, Contrexéville et dans l'ouest des Vosges.`
 **H1** : garder `Le plus simple, c'est de m'appeler` (bon pour la conversion ; le SEO est porté par title/schema).
 
 **Priorité : moyenne.** **Impact** : NAP cohérent = socle du SEO local et de la fiche Google Business Profile.
@@ -697,11 +697,11 @@ Le ton actuel (première personne, direct, transparent) est un vrai atout : **le
 | **H1** | Un seul H1 par page ✔ ; mais 7 pages ont un H1 quasi identique (« Dépannage informatique à [ville] ») | Différencier selon le rôle (service vs ville), cf. section 4 | **Haute** | — |
 | **H2/H3** | Trop peu de H2/H3 sur les pages services (1 seul H2 de contenu) ; H2 stylés inline | Ajouter la hiérarchie H2 symptômes/process/FAQ ; déplacer les styles inline vers le CSS | Moyenne | — |
 | **Slugs URL** | Propres, courts, en français, avec tirets ✔ | Ne rien changer (éviter toute migration d'URL) | — | — |
-| **Alt text images** | Présents mais génériques (« Djeazon en intervention ») ; seulement 3 images sur tout le site | Alt descriptifs et localisés ; ajouter des photos réelles (interventions, atelier, villes) — un site services sans images locales est un signal faible | Moyenne | `alt="Djeazon, dépanneur informatique ACDJ, en intervention à domicile à Vittel"` |
+| **Alt text images** | Présents mais génériques (« Jaeson en intervention ») ; seulement 3 images sur tout le site | Alt descriptifs et localisés ; ajouter des photos réelles (interventions, atelier, villes) — un site services sans images locales est un signal faible | Moyenne | `alt="Jaeson, dépanneur informatique ACDJ, en intervention à domicile à Vittel"` |
 | **Sitemap** | **Absent** | Créer `/sitemap.xml` listant les ~22 pages indexables et le déclarer dans Search Console | **Haute** | — |
 | **robots.txt** | **Absent** | Créer `/robots.txt` avec `Sitemap:` ; ne pas bloquer les CSS ; y exclure `index-bleu.html` si conservé | **Haute** | `User-agent: *`<br>`Allow: /`<br>`Sitemap: https://www.acdj-informatique.com/sitemap.xml` |
 | **Canonical** | **Absent partout** | Ajouter `<link rel="canonical">` auto-référencé sur chaque page (protège contre les doublons www/non-www, / vs /index.html) | **Haute** | `<link rel="canonical" href="https://www.acdj-informatique.com/services/depannage-informatique/">` |
-| **Open Graph / réseaux** | Absent | Ajouter og:title, og:description, og:image (photo de Djeazon) sur les pages principales : améliore les partages et certains crawlers IA | Basse | — |
+| **Open Graph / réseaux** | Absent | Ajouter og:title, og:description, og:image (photo de Jaeson) sur les pages principales : améliore les partages et certains crawlers IA | Basse | — |
 | **Données structurées** | **Aucune** | Voir bloc dédié ci-dessous | **Haute** | — |
 | **FAQ schema** | Aucune FAQ | Après ajout des FAQ (section 5), les baliser en `FAQPage` (JSON-LD) | **Haute** | — |
 | **Breadcrumbs** | Fil d'Ariane visuel présent ✔ mais sans schema | Ajouter `BreadcrumbList` JSON-LD sur services et zones | Moyenne | — |
@@ -721,7 +721,7 @@ Le ton actuel (première personne, direct, transparent) est un vrai atout : **le
   "url": "https://www.acdj-informatique.com/",
   "telephone": "+33652246647",
   "email": "contact@acdj-informatique.com",
-  "founder": { "@type": "Person", "name": "Djeazon" },
+  "founder": { "@type": "Person", "name": "Jaeson" },
   "address": { "@type": "PostalAddress", "addressLocality": "Vittel", "postalCode": "88800", "addressCountry": "FR" },
   "areaServed": [
     { "@type": "City", "name": "Vittel" },
