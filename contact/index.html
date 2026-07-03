@@ -127,12 +127,20 @@
         <p style="font-size:.86rem;color:var(--gray);margin-top:14px">En dehors de ces horaires, laissez un message, je vous rappelle dès le créneau d'ouverture suivant.</p>
       </div>
 
-      <div class="cta-band" style="margin-top:28px">
-        <h2>Besoin d'un devis ? <span class="hand">Décrivez votre panne.</span></h2>
-        <div class="acts">
-          <a href="/devis/" class="btn btn-primary" data-gtm-event="click_quote_request" data-location="bande CTA">Demander un devis</a>
-          <a href="tel:+33652246647" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.3)" data-gtm-event="click_phone" data-location="bande CTA">06 52 24 66 47</a>
-        </div>
+      <div class="cbox" style="margin-top:28px">
+        <div class="l">Envoyer un message</div>
+        <form class="form" action="/api/devis" method="post" data-devis-form style="margin-top:14px;border:none;padding:0;background:none;border-radius:0">
+          <div class="hp-field" aria-hidden="true" style="display:none"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="service" value="Contact direct">
+          <div class="two">
+            <div class="field"><label for="c-nom">Nom</label><input id="c-nom" name="nom" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="c-tel">Téléphone</label><input id="c-tel" name="tel" type="tel" autocomplete="tel" required></div>
+          </div>
+          <div class="field"><label for="c-message">Votre message</label><textarea id="c-message" name="message" rows="4" placeholder="Décrivez votre besoin..." required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%" data-gtm-event="click_quote_request" data-location="formulaire contact">Envoyer</button>
+          <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+          <p class="formnote">Je vous réponds rapidement. Ou si vous préférez : <a href="/devis/" style="color:var(--prune);font-weight:600">formulaire de devis complet</a>.</p>
+        </form>
       </div>
     </div>
   </div></section>
@@ -141,7 +149,7 @@
   <div class="wrap">
     <div class="ft-grid">
       <div class="ft-brand">
-        <div class="brand"><img src="/assets/images/acdj-logo.png" alt="ACDJ Informatique" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</div>
+        <a href="/" class="brand"><img src="/assets/images/acdj-logo.png" alt="ACDJ Informatique" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</a>
         <p>Dépannage, réparation et assistance informatique à domicile à Vittel, Contrexéville et dans l'ouest des Vosges.</p>
       </div>
       <div>
@@ -176,6 +184,7 @@
     <div class="ft-bottom">
       <span>&copy; 2026 ACDJ Informatique.</span>
       <span><a href="/mentions-legales/">Mentions légales</a> &middot; <a href="/politique-confidentialite/">Confidentialité</a> &middot; <a href="/cgv/">CGV</a></span>
+      <span>Site réalisé par <a href="https://adwaves.fr" target="_blank" rel="noopener" style="color:inherit">Agence Adwaves</a></span>
     </div>
   </div>
 </footer>
@@ -190,6 +199,28 @@
       menu.setAttribute('aria-hidden',open?'false':'true');
     });
   }
+})();
+(function(){
+  var form=document.querySelector('[data-devis-form]');
+  if(!form||!window.fetch||!window.URLSearchParams) return;
+  var status=form.querySelector('[data-form-status]');
+  var submit=form.querySelector('button[type="submit"]');
+  var defaultSubmitText=submit?submit.textContent:'';
+  function setStatus(type,message){if(!status)return;status.hidden=false;status.className='form-status '+type;status.textContent=message;}
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return;}
+    var payload=new URLSearchParams();
+    var data=new FormData(form);
+    data.forEach(function(value,key){payload.append(key,value);});
+    if(submit){submit.disabled=true;submit.textContent='Envoi...';}
+    if(status){status.hidden=true;status.textContent='';}
+    fetch(form.action,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:payload.toString()})
+      .then(function(r){return r.json().catch(function(){return{};}).then(function(b){if(!r.ok)throw new Error(b.message||"Erreur d'envoi.");return b;});})
+      .then(function(b){form.reset();setStatus('success',b.message||'Votre message a bien été envoyé.');})
+      .catch(function(e){setStatus('error',e.message||"Le message n'a pas pu être envoyé. Appelez le 06 52 24 66 47.");})
+      .finally(function(){if(submit){submit.disabled=false;submit.textContent=defaultSubmitText;}});
+  });
 })();
 </script>
 </body>

@@ -46,10 +46,18 @@
         <a href="/contact/">Contact</a>
       </div>
       <a href="/devis/" class="btn btn-ghost" style="padding:11px 18px;font-size:.94rem">Devis gratuit</a>
-      <a href="tel:+33652246647" class="tel-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>06 52 24 66 47</span></a>
+      <a href="tel:+33652246647" class="tel-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><button class="ham" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </nav>
   </div>
 </header>
+<nav id="mobile-menu" class="mobile-nav" aria-hidden="true">
+  <a href="/services/" class="mnav-link">Prestations</a>
+  <a href="/a-propos/" class="mnav-link">À propos</a>
+  <a href="/zones/" class="mnav-link">Secteur</a>
+  <a href="/contact/" class="mnav-link">Contact</a>
+  <a href="tel:+33652246647" class="mnav-tel">06 52 24 66 47</a>
+  <a href="/devis/" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Devis gratuit</a>
+</nav>
 <main id="contenu">
   <div class="wrap"><nav class="crumb"><a href="/">Accueil</a><span class="sep">/</span><a href="/services/">Prestations</a><span class="sep">/</span>Assistance à domicile</nav></div>
   <section class="page-head"><div class="wrap">
@@ -71,12 +79,20 @@
           <li>Conseils personnalisés selon votre niveau et vos besoins</li>
       </ul>
       <h2 style="margin-top:36px">Questions fréquentes</h2>
-      <h3 style="font-size:1rem;font-weight:700;margin-top:18px">Je suis débutant, est-ce que vous avez la patience d'expliquer ?</h3>
-      <p style="color:var(--gray);margin-top:8px">C'est exactement pour ça que j'interviens à domicile. On prend le temps qu'il faut, sans pression et sans jugement.</p>
-      <h3 style="font-size:1rem;font-weight:700;margin-top:18px">Combien de temps dure une séance d'assistance ?</h3>
-      <p style="color:var(--gray);margin-top:8px">En général entre 1h et 2h selon ce que vous voulez apprendre ou régler. On s'adapte à votre rythme.</p>
-      <h3 style="font-size:1rem;font-weight:700;margin-top:18px">Vous pouvez revenir si j'ai d'autres questions après ?</h3>
-      <p style="color:var(--gray);margin-top:8px">Bien sûr. Vous pouvez rappeler pour une nouvelle intervention ou poser une question rapide par téléphone si c'est simple.</p>
+      <div class="faq-list" style="margin-top:16px">
+        <details class="faq-item">
+          <summary>Je suis débutant, est-ce que vous avez la patience d'expliquer ?</summary>
+          <p class="faq-a">C'est exactement pour ça que j'interviens à domicile. On prend le temps qu'il faut, sans pression et sans jugement.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Combien de temps dure une séance d'assistance ?</summary>
+          <p class="faq-a">En général entre 1h et 2h selon ce que vous voulez apprendre ou régler. On s'adapte à votre rythme.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Vous pouvez revenir si j'ai d'autres questions après ?</summary>
+          <p class="faq-a">Bien sûr. Vous pouvez rappeler pour une nouvelle intervention ou poser une question rapide par téléphone si c'est simple.</p>
+        </details>
+      </div>
     </div>
     <aside>
       <div class="info-card">
@@ -107,7 +123,7 @@
   <div class="wrap">
     <div class="ft-grid">
       <div class="ft-brand">
-        <div class="brand"><img src="/assets/images/acdj-logo.png" alt="ACDJ Informatique" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</div>
+        <a href="/" class="brand"><img src="/assets/images/acdj-logo.png" alt="ACDJ Informatique" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</a>
         <p>Dépannage, réparation et assistance informatique à domicile dans les Vosges et le Grand Est.</p>
       </div>
       <div>
@@ -142,9 +158,23 @@
     <div class="ft-bottom">
       <span>&copy; 2026 ACDJ Informatique.</span>
       <span><a href="/mentions-legales/">Mentions légales</a> &middot; <a href="/politique-confidentialite/">Confidentialité</a> &middot; <a href="/cgv/">CGV</a></span>
+      <span>Site réalisé par <a href="https://adwaves.fr" target="_blank" rel="noopener" style="color:inherit">Agence Adwaves</a></span>
     </div>
   </div>
 </footer>
 <a href="tel:+33652246647" class="mobile-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Appeler &middot; 06 52 24 66 47</a>
+<script>
+(function(){
+  var ham=document.querySelector('.ham');
+  var menu=document.getElementById('mobile-menu');
+  if(ham&&menu){
+    ham.addEventListener('click',function(){
+      var open=menu.classList.toggle('open');
+      ham.setAttribute('aria-expanded',open?'true':'false');
+      menu.setAttribute('aria-hidden',open?'false':'true');
+    });
+  }
+})();
+</script>
 </body>
 </html>

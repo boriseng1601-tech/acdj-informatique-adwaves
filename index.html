@@ -137,9 +137,8 @@
         <p class="who">Moi c'est <b>Jaeson</b>, je dépanne vos ordinateurs dans l'ouest des Vosges.</p>
       </div>
       <div>
-        <p>La technique, c'est mon métier, pas le vôtre. Quand je viens chez vous, je prends le temps de regarder le vrai problème, je vous explique en français simple, et je vous annonce le prix avant de commencer.</p>
+        <p>ACDJ Informatique est une entreprise locale basée à Vittel, dans les Vosges. Informaticien indépendant, j'interviens à domicile pour le <a href="/services/depannage-informatique/" style="color:var(--prune);font-weight:600">dépannage et la réparation d'ordinateurs</a>, la suppression de virus, l'installation de nouveaux équipements (PC, imprimante, box) et l'assistance aux particuliers comme aux professionnels. Je me déplace à <a href="/zones/vittel/" style="color:var(--prune);font-weight:600">Vittel</a>, <a href="/zones/contrexeville/" style="color:var(--prune);font-weight:600">Contrexéville</a>, <a href="/zones/mirecourt/" style="color:var(--prune);font-weight:600">Mirecourt</a>, <a href="/zones/neufchateau/" style="color:var(--prune);font-weight:600">Neufchâteau</a>, et jusqu'à <a href="/zones/epinal/" style="color:var(--prune);font-weight:600">Épinal</a> et <a href="/zones/nancy/" style="color:var(--prune);font-weight:600">Nancy</a> pour certaines prestations. Le déplacement est facturé 0,65&nbsp;€/km uniquement s'il est nécessaire.</p>
         <p>Le diagnostic est gratuit. Vous savez où vous allez avant de dire oui.</p>
-        <p>ACDJ Informatique est une entreprise locale basée à Vittel, dans les Vosges. Informaticien indépendant, j'interviens à domicile pour le <a href="/services/depannage-informatique/" style="color:var(--prune);font-weight:600">dépannage et la réparation d'ordinateurs</a>, la suppression de virus, l'installation de nouveaux équipements (PC, imprimante, box) et l'assistance aux particuliers comme aux professionnels. Je me déplace à <a href="/zones/vittel/" style="color:var(--prune);font-weight:600">Vittel</a>, <a href="/zones/contrexeville/" style="color:var(--prune);font-weight:600">Contrexéville</a>, <a href="/zones/mirecourt/" style="color:var(--prune);font-weight:600">Mirecourt</a>, <a href="/zones/neufchateau/" style="color:var(--prune);font-weight:600">Neufchâteau</a>, et jusqu'à <a href="/zones/epinal/" style="color:var(--prune);font-weight:600">Épinal</a> et <a href="/zones/nancy/" style="color:var(--prune);font-weight:600">Nancy</a> pour certaines prestations. Le diagnostic est gratuit, le prix est annoncé avant de commencer, et le déplacement est facturé 0,65&nbsp;€/km uniquement s'il est nécessaire.</p>
         <p class="sign">&mdash; Jaeson, ACDJ Informatique</p>
       </div>
     </div>
@@ -240,8 +239,8 @@
               <circle cx="290" cy="288" r="18" fill="transparent"/>
               <circle class="dot-ring" cx="290" cy="288" r="10"/>
               <circle class="dot" cx="290" cy="288" r="7"/>
-              <rect class="pill" x="270" y="300" width="68" height="24" rx="7"/>
-              <text class="label-main" x="304" y="316" text-anchor="middle">Vittel</text>
+              <rect class="pill" x="256" y="300" width="68" height="24" rx="7"/>
+              <text class="label-main" x="290" y="316" text-anchor="middle">Vittel</text>
             </g>
           </a>
 
@@ -379,7 +378,7 @@
   <div class="wrap">
     <div class="ft-grid">
       <div class="ft-brand">
-        <div class="brand"><img src="/assets/images/acdj-logo.png" alt="ACDJ Informatique" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</div>
+        <a href="/" class="brand"><img src="/assets/images/acdj-logo.png" alt="ACDJ Informatique" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</a>
         <p>Dépannage, réparation et assistance informatique à domicile à Vittel, Contrexéville et dans l'ouest des Vosges.</p>
       </div>
       <div>
@@ -414,9 +413,30 @@
     <div class="ft-bottom">
       <span>&copy; 2026 ACDJ Informatique.</span>
       <span><a href="/mentions-legales/">Mentions légales</a> &middot; <a href="/politique-confidentialite/">Confidentialité</a> &middot; <a href="/cgv/">CGV</a></span>
+      <span>Site réalisé par <a href="https://adwaves.fr" target="_blank" rel="noopener" style="color:inherit">Agence Adwaves</a></span>
     </div>
   </div>
 </footer>
+<div class="popup-overlay" id="lead-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div class="popup-modal">
+    <button class="popup-close" id="popup-close" aria-label="Fermer">&times;</button>
+    <div class="popup-eyebrow">Contact rapide</div>
+    <p class="popup-title" id="popup-title">Un problème ? Laissez votre numéro, je vous rappelle.</p>
+    <form class="form" action="/api/devis" method="post" data-devis-form id="popup-form" style="border:none;padding:0;background:none;border-radius:0">
+      <div class="hp-field" aria-hidden="true" style="display:none"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <input type="hidden" name="service" value="Rappel popup home">
+      <input type="hidden" name="message" value="Demande de rappel via la popup du site">
+      <div class="two">
+        <div class="field"><label for="p-nom">Nom</label><input id="p-nom" name="nom" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="p-tel">Téléphone</label><input id="p-tel" name="tel" type="tel" autocomplete="tel" required></div>
+      </div>
+      <div class="field"><label for="p-email">Email (optionnel)</label><input id="p-email" name="email" type="email" autocomplete="email"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%" data-gtm-event="submit_popup" data-location="popup home">Envoyer ma demande</button>
+      <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+      <p class="formnote" style="text-align:center;margin-top:12px">Pas d'engagement. Je réponds rapidement.</p>
+    </form>
+  </div>
+</div>
 <script>
 (function(){
   var ham=document.querySelector('.ham');
@@ -452,6 +472,48 @@
   track.addEventListener('mouseenter', function(){ running = false; });
   track.addEventListener('mouseleave', function(){ running = true; requestAnimationFrame(step); });
   requestAnimationFrame(step);
+})();
+(function(){
+  var form=document.querySelector('[data-devis-form]');
+  if(!form||!window.fetch||!window.URLSearchParams) return;
+  var status=form.querySelector('[data-form-status]');
+  var submit=form.querySelector('button[type="submit"]');
+  var defaultSubmitText=submit?submit.textContent:'';
+  function setStatus(type,message){if(!status)return;status.hidden=false;status.className='form-status '+type;status.textContent=message;}
+  form.addEventListener('submit',function(event){
+    event.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return;}
+    var payload=new URLSearchParams();
+    var data=new FormData(form);
+    data.forEach(function(value,key){payload.append(key,value);});
+    if(submit){submit.disabled=true;submit.textContent='Envoi...';}
+    if(status){status.hidden=true;status.textContent='';}
+    fetch(form.action,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:payload.toString()})
+      .then(function(r){return r.json().catch(function(){return{};}).then(function(b){if(!r.ok)throw new Error(b.message||"Erreur d'envoi.");return b;});})
+      .then(function(b){form.reset();setStatus('success',b.message||'Votre demande a bien été envoyée.');})
+      .catch(function(e){setStatus('error',e.message||"La demande n'a pas pu être envoyée. Appelez le 06 52 24 66 47.");})
+      .finally(function(){if(submit){submit.disabled=false;submit.textContent=defaultSubmitText;}});
+  });
+})();
+(function(){
+  var overlay=document.getElementById('lead-popup');
+  var closeBtn=document.getElementById('popup-close');
+  if(!overlay||sessionStorage.getItem('popup_seen')) return;
+  function open(){
+    overlay.classList.add('open');
+    sessionStorage.setItem('popup_seen','1');
+    if(window.dataLayer) window.dataLayer.push({event:'popup_open',popup:'lead_home'});
+  }
+  function close(){overlay.classList.remove('open');}
+  var shown=false;
+  window.addEventListener('scroll',function(){
+    if(shown) return;
+    var pct=(window.scrollY+window.innerHeight)/document.body.scrollHeight;
+    if(pct>0.55){shown=true;setTimeout(open,400);}
+  },{passive:true});
+  closeBtn.addEventListener('click',close);
+  overlay.addEventListener('click',function(e){if(e.target===overlay) close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
 })();
 </script>
 </body>

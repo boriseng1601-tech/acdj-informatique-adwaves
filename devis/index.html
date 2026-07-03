@@ -86,17 +86,7 @@
   </div></section>
 
   <section><div class="wrap" style="padding:60px 0 0">
-    <div class="essentiel" style="max-width:820px">
-      <div class="t">Mes tarifs, pour vous situer avant d'écrire</div>
-      <ul>
-        <li><b>Diagnostic : gratuit</b> — je regarde le problème avant de chiffrer</li>
-        <li>Forfaits : <b>25 &euro;</b> (30 min) &middot; <b>45 &euro;</b> (60 min) &middot; <b>75 &euro;</b> (120 min)</li>
-        <li>Déplacement : <b>0,65 &euro;/km</b>, chiffré et inclus dans le devis</li>
-        <li>Panne lourde ou récupération de données : <b>devis précis</b> avant d'intervenir — voir le <a href="/services/depannage-informatique/" style="color:var(--prune);font-weight:600">détail du dépannage</a></li>
-        <li>Réponse en général <b>sous 24 à 48 h ouvrées</b></li>
-      </ul>
-    </div>
-    <form class="form" action="/api/devis" method="post" style="margin-top:26px" data-devis-form>
+    <form class="form" action="/api/devis" method="post" data-devis-form>
       <div class="field hp-field" aria-hidden="true"><label for="website">Site web</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <div class="two">
         <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" autocomplete="name" required></div>
@@ -196,7 +186,7 @@
   <div class="wrap">
     <div class="ft-grid">
       <div class="ft-brand">
-        <div class="brand"><img src="/assets/images/acdj-logo.png" alt="ACDJ Informatique" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</div>
+        <a href="/" class="brand"><img src="/assets/images/acdj-logo.png" alt="ACDJ Informatique" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</a>
         <p>Dépannage, réparation et assistance informatique à domicile à Vittel, Contrexéville et dans l'ouest des Vosges.</p>
       </div>
       <div>
@@ -231,6 +221,7 @@
     <div class="ft-bottom">
       <span>&copy; 2026 ACDJ Informatique.</span>
       <span><a href="/mentions-legales/">Mentions légales</a> &middot; <a href="/politique-confidentialite/">Confidentialité</a> &middot; <a href="/cgv/">CGV</a></span>
+      <span>Site réalisé par <a href="https://adwaves.fr" target="_blank" rel="noopener" style="color:inherit">Agence Adwaves</a></span>
     </div>
   </div>
 </footer>
