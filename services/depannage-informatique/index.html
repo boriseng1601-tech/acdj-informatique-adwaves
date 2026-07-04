@@ -79,13 +79,49 @@
           <li>Mises à jour bloquées ou logiciels qui ne s'ouvrent plus</li>
           <li>Récupération de fichiers supprimés par erreur</li>
       </ul>
+
+      <div class="tab-group">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="pc-lent">PC lent / plantage</button>
+          <button class="tab-btn" data-tab="virus">Virus / pubs</button>
+          <button class="tab-btn" data-tab="wifi">Wi-Fi / Internet</button>
+          <button class="tab-btn" data-tab="ecran-bleu">Écran bleu / crash</button>
+          <button class="tab-btn" data-tab="donnees">Données perdues</button>
+        </div>
+        <div class="tab-panel active" id="pc-lent">
+          <p><strong>Votre PC rame depuis des semaines, les programmes se ferment tout seuls, ou l'écran bleu apparaît ?</strong></p>
+          <p>C'est souvent un problème de mémoire vive saturée, de disque dur encrassé, ou d'un virus qui consomme les ressources en arrière-plan. Je démarre votre machine en mode sans échec, je vérifie les processus actifs, j'élimine les programmes inutiles et je nettoie la mémoire cache.</p>
+          <p>Si c'est un disque dur usé, je vous le dis et on décide ensemble : remplacer ou prolonger temporairement. Panne au démarrage ou Windows qui refuse de lancer ? C'est généralement un fichier système corrompu. Je récupère d'abord vos données, puis je réinstalle Windows.</p>
+        </div>
+        <div class="tab-panel" id="virus">
+          <p><strong>Votre navigateur s'ouvre sur des pages de casino, des pubs s'affichent toutes les 5 secondes ?</strong></p>
+          <p>Votre page d'accueil a changé sans vous, et votre PC est devenu un escargot ? C'est un virus, un trojan, ou un adware. L'antivirus standard (Windows Defender) ne suffit pas toujours.</p>
+          <p>Je scanne votre machine en mode sans échec avec des outils spécialisés, j'élimine chaque menace à la racine, et je réactive vos paramètres navigateur. Après l'intervention, votre PC retrouve toute sa fluidité.</p>
+        </div>
+        <div class="tab-panel" id="wifi">
+          <p><strong>Pas de Wi-Fi du tout, ou une connexion qui coupe toutes les 10 minutes ?</strong></p>
+          <p>Avant de blâmer votre fournisseur d'accès, il faut tester : la position de la box, la fréquence (2.4 GHz ou 5 GHz), un canal saturé par les voisins, ou un logiciel qui bloque la connexion.</p>
+          <p>Je teste votre box, je vérifie la connexion filaire, je change le canal Wi-Fi si besoin, et je réactive les drivers réseau. Souvent, c'est réglé en 30 minutes. Si c'est vraiment la box qui faiblit, je vous le dis.</p>
+        </div>
+        <div class="tab-panel" id="ecran-bleu">
+          <p><strong>L'écran bleu au démarrage, des codes d'erreur cryptiques, des redémarrages en boucle ?</strong></p>
+          <p>Disque dur défaillant, driver incompatible, mémoire vive défectueuse, ou Windows corrompu. Je diagnostique quel composant pose problème, je sauvegarde d'abord vos données, puis je répare ou réinstalle Windows en fonction de la cause.</p>
+          <p>Vous avez une vraie solution, pas un pansement temporaire.</p>
+        </div>
+        <div class="tab-panel" id="donnees">
+          <p><strong>Vous avez vidé la corbeille en pensant effacer un dossier anodin ?</strong></p>
+          <p>Mais vous avez supprimé des photos ou des documents importants ? Si vous n'avez pas trop utilisé le PC depuis, il y a de bonnes chances de les récupérer avec des outils spécialisés.</p>
+          <p>Je branche votre disque dur à un autre ordinateur et je lance la récupération. Pas de garantie 100%, mais si le disque n'est pas trop abîmé, vous avez 70-80% de chances de retrouver vos fichiers.</p>
+        </div>
+      </div>
+
       <h2 style="margin-top:36px">Comment se passe une intervention</h2>
       <div class="timeline" id="tl-depannage">
-        <div class="tl-item"><div class="tl-num">1</div><div class="tl-text">Vous appelez ou remplissez le formulaire de devis</div></div>
-        <div class="tl-item"><div class="tl-num">2</div><div class="tl-text">On convient d'un créneau à votre domicile, souvent sous 48&nbsp;h</div></div>
+        <div class="tl-item"><div class="tl-num">1</div><div class="tl-text">Vous appelez le 06 52 24 66 47 ou remplissez le formulaire de devis gratuit en 30 secondes</div></div>
+        <div class="tl-item"><div class="tl-num">2</div><div class="tl-text">On convient d'un créneau à votre domicile, souvent sous 48&nbsp;h. À Vittel, c'est parfois le jour même</div></div>
         <div class="tl-item"><div class="tl-num">3</div><div class="tl-text">Je diagnostique le problème et vous explique ce qu'il en est</div></div>
         <div class="tl-item"><div class="tl-num">4</div><div class="tl-text">On répare sur place si possible, sinon je reprends l'appareil en atelier</div></div>
-        <div class="tl-item"><div class="tl-num">5</div><div class="tl-text">Vous réglez uniquement si le problème est résolu</div></div>
+        <div class="tl-item"><div class="tl-num">5</div><div class="tl-text">Vous réglez uniquement si le problème est résolu. Pas de paiement à l'essai</div></div>
       </div>
       <h2 style="margin-top:36px">Questions fréquentes</h2>
       <div class="faq-list" style="margin-top:16px">
@@ -100,6 +136,14 @@
         <details class="faq-item">
           <summary>Est-ce que vous intervenez sur Mac aussi ?</summary>
           <p class="faq-a">Oui, on intervient sur PC Windows, Mac et ordinateurs portables toutes marques.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Quelle garantie après la réparation ?</summary>
+          <p class="faq-a">Si le problème réapparaît dans les 7 jours (virus qui revient, Windows qui replante, Wi-Fi qui recoupe), vous m'appelez, je reviens, pas de frais supplémentaires.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Intervenez-vous aussi à distance ?</summary>
+          <p class="faq-a">Oui, pour certains problèmes logiciels (configuration, installation, lenteurs). Je prends la main sur votre ordinateur avec votre accord, via un outil sécurisé. Vous voyez tout ce que je fais à l'écran.</p>
         </details>
       </div>
     </div>
@@ -214,6 +258,21 @@
   }
   window.addEventListener('scroll',function(){if(raf)return;raf=requestAnimationFrame(function(){raf=null;update();});},{passive:true});
   update();
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.tab-nav').forEach(function(nav){
+    nav.addEventListener('click',function(e){
+      var btn=e.target.closest('.tab-btn');if(!btn)return;
+      var group=nav.parentElement;
+      group.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+      group.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active')});
+      btn.classList.add('active');
+      var panel=group.querySelector('#'+btn.dataset.tab);
+      if(panel)panel.classList.add('active');
+    });
+  });
 })();
 </script>
 </body>
