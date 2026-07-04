@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260704-service-timeline">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260704-chat-widget">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -438,22 +438,28 @@
 </button>
 <div class="popup-overlay" id="lead-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
   <div class="popup-modal">
-    <button class="popup-close" id="popup-close" aria-label="Fermer">&times;</button>
-    <div class="popup-eyebrow">Contact rapide</div>
-    <p class="popup-title" id="popup-title">Un problème ? Laissez votre numéro, je vous rappelle.</p>
-    <form class="form" action="/api/devis" method="post" data-devis-form id="popup-form" style="border:none;padding:0;background:none;border-radius:0">
-      <div class="hp-field" aria-hidden="true" style="display:none"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>
-      <input type="hidden" name="service" value="Rappel popup home">
-      <input type="hidden" name="message" value="Demande de rappel via la popup du site">
-      <div class="two">
-        <div class="field"><label for="p-nom">Nom</label><input id="p-nom" name="nom" type="text" autocomplete="name" required></div>
-        <div class="field"><label for="p-tel">Téléphone</label><input id="p-tel" name="tel" type="tel" autocomplete="tel" required></div>
+    <div class="popup-chat-head">
+      <span class="popup-chat-avatar"><img src="/assets/images/acdj-logo.png" alt=""></span>
+      <div>
+        <div class="popup-chat-title" id="popup-title">Une question ?</div>
+        <div class="popup-chat-sub">Je vous réponds directement</div>
       </div>
-      <div class="field"><label for="p-email">Email (optionnel)</label><input id="p-email" name="email" type="email" autocomplete="email"></div>
-      <button type="submit" class="btn btn-primary" style="width:100%" data-gtm-event="submit_popup" data-location="popup home">Envoyer ma demande</button>
-      <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
-      <p class="formnote" style="text-align:center;margin-top:12px">Pas d'engagement. Je réponds rapidement.</p>
-    </form>
+      <button class="popup-close" id="popup-close" aria-label="Fermer" type="button">&times;</button>
+    </div>
+    <div class="popup-chat-body">
+      <div class="popup-message"><img src="/assets/images/acdj-logo.png" alt=""><p>Votre message arrive sur mon téléphone. Décrivez le souci, je vous rappelle dès que je suis disponible.</p></div>
+      <form class="form popup-chat-form" action="/api/devis" method="post" data-devis-form id="popup-form">
+        <div class="hp-field" aria-hidden="true" style="display:none"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="service" value="Rappel popup home">
+        <div class="field"><label class="sr-only" for="p-nom">Nom</label><input id="p-nom" name="nom" type="text" autocomplete="name" placeholder="Votre nom" required></div>
+        <div class="field"><label class="sr-only" for="p-tel">Téléphone</label><input id="p-tel" name="tel" type="tel" autocomplete="tel" placeholder="06 52 24 66 47" required></div>
+        <div class="field"><label class="sr-only" for="p-message">Message</label><textarea id="p-message" name="message" rows="4" placeholder="Votre message" required></textarea></div>
+        <label class="popup-consent"><input name="consentement" type="checkbox" checked required><span>J'accepte d'être recontacté par téléphone ou e-mail pour cette demande.</span></label>
+        <button type="submit" class="btn btn-primary" data-gtm-event="submit_popup" data-location="popup home">Envoyer</button>
+        <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+        <p class="formnote">Pas d'engagement. Diagnostic gratuit.</p>
+      </form>
+    </div>
   </div>
 </div>
 <script>
@@ -519,6 +525,7 @@
   var btn=document.getElementById('chat-btn');
   var closeBtn=document.getElementById('popup-close');
   if(!overlay) return;
+  overlay.dataset.floatingBound='true';
   function openModal(){
     overlay.classList.add('open');
     if(window.dataLayer) window.dataLayer.push({event:'popup_click_open',location:'floating_button'});
@@ -528,22 +535,30 @@
   overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
   if(btn){
+    btn.dataset.floatingBound='true';
     btn.addEventListener('click',openModal);
     if(sessionStorage.getItem('chat_submitted')) return;
-    var trigger=document.querySelector('.section-zone');
     function showBtn(){
+      if(btn.classList.contains('visible')) return;
       btn.classList.add('visible');
       btn.removeAttribute('aria-hidden');
-      if(window.dataLayer) window.dataLayer.push({event:'popup_btn_appear',location:'section_zone'});
+      if(window.dataLayer) window.dataLayer.push({event:'popup_btn_appear',location:'scroll_20_percent'});
     }
-    if(trigger&&'IntersectionObserver' in window){
-      var obs=new IntersectionObserver(function(entries){
-        if(entries[0].isIntersecting){showBtn();obs.disconnect();}
-      },{threshold:0.15});
-      obs.observe(trigger);
-    } else {
-      showBtn();
+    function scrolledEnough(){
+      var doc=document.documentElement;
+      var max=Math.max((doc.scrollHeight||0)-window.innerHeight,1);
+      return (window.pageYOffset||doc.scrollTop||0)/max>=.2;
     }
+    function checkScroll(){
+      if(scrolledEnough()){
+        showBtn();
+        window.removeEventListener('scroll',checkScroll);
+        window.removeEventListener('resize',checkScroll);
+      }
+    }
+    window.addEventListener('scroll',checkScroll,{passive:true});
+    window.addEventListener('resize',checkScroll);
+    checkScroll();
   }
 })();
 
@@ -611,6 +626,6 @@
   },{passive:true});
 })();
 </script>
-<script src="/assets/js/site-enhancements.js?v=20260704-service-timeline" defer></script>
+<script src="/assets/js/site-enhancements.js?v=20260704-chat-widget" defer></script>
 </body>
 </html>
