@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260704-service-points-desktop">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260704-zone-sticky">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -104,12 +104,6 @@
         <p><a href="mailto:contact@acdj-informatique.com" style="color:var(--prune);font-weight:600" data-gtm-event="click_email" data-location="corps de page">contact@acdj-informatique.com</a></p>
         <p style="font-size:.88rem;color:var(--gray);margin-top:6px">Pour les pièces jointes (capture d'écran, photo de la panne) ou si vous préférez l'écrit.</p>
       </div>
-      <div class="cbox">
-        <div class="l">Secteur d'intervention</div>
-        <p><b>Basé à Vittel (88800)</b>, dans les Vosges.</p>
-        <p style="margin-top:6px">Cœur de secteur : <a href="/zones/vittel/" style="color:var(--prune);font-weight:600">Vittel</a> et <a href="/zones/contrexeville/" style="color:var(--prune);font-weight:600">Contrexéville</a>. Interventions régulières à <a href="/zones/mirecourt/" style="color:var(--prune);font-weight:600">Mirecourt</a>, <a href="/zones/neufchateau/" style="color:var(--prune);font-weight:600">Neufchâteau</a> et dans l'ouest des Vosges ; possibles jusqu'à <a href="/zones/epinal/" style="color:var(--prune);font-weight:600">Épinal</a> et <a href="/zones/nancy/" style="color:var(--prune);font-weight:600">Nancy</a> pour certaines prestations.</p>
-        <p style="font-size:.88rem;color:var(--gray);margin-top:6px">Déplacement annoncé d'avance, facturé 0,65 &euro;/km seulement s'il est nécessaire.</p>
-      </div>
     </div>
 
     <div class="cinfo">
@@ -127,7 +121,7 @@
         <p style="font-size:.86rem;color:var(--gray);margin-top:14px">En dehors de ces horaires, laissez un message, je vous rappelle dès le créneau d'ouverture suivant.</p>
       </div>
 
-      <div class="cbox" style="margin-top:28px">
+      <div class="cbox">
         <div class="l">Envoyer un message</div>
         <form class="form" action="/api/devis" method="post" data-devis-form style="margin-top:14px;border:none;padding:0;background:none;border-radius:0">
           <div class="hp-field" aria-hidden="true" style="display:none"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>
@@ -141,6 +135,17 @@
           <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
           <p class="formnote">Je vous réponds rapidement. Ou si vous préférez : <a href="/devis/" style="color:var(--prune);font-weight:600">formulaire de devis complet</a>.</p>
         </form>
+      </div>
+    </div>
+
+    <div class="cbox sector-card">
+      <div>
+        <div class="l">Secteur d'intervention</div>
+        <p><b>Basé à Vittel (88800)</b>, dans les Vosges.</p>
+        <p style="font-size:.88rem;color:var(--gray);margin-top:6px">Déplacement annoncé d'avance, facturé 0,65 &euro;/km seulement s'il est nécessaire.</p>
+      </div>
+      <div class="sector-copy">
+        <p>Cœur de secteur : <a href="/zones/vittel/">Vittel</a> et <a href="/zones/contrexeville/">Contrexéville</a>. Interventions régulières à <a href="/zones/mirecourt/">Mirecourt</a>, <a href="/zones/neufchateau/">Neufchâteau</a> et dans l'ouest des Vosges ; possibles jusqu'à <a href="/zones/epinal/">Épinal</a> et <a href="/zones/nancy/">Nancy</a> pour certaines prestations.</p>
       </div>
     </div>
   </div></section>

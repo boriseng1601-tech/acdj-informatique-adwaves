@@ -272,7 +272,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 /* D2 — aside stretches to full row height so info-card sticky has scroll distance */
 .detail-grid > aside,.zonepage-grid > aside{align-self:stretch}
 @media(min-width:921px){
-  .detail-grid > aside .info-card{position:sticky;top:96px}
+  .detail-grid > aside .info-card,
+  .zonepage-grid > aside .info-card{position:sticky;top:96px}
 }
 
 /* ---- ZONE PAGE ---- */
@@ -337,7 +338,17 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 /* PAGE CONTACT — coordonnées en grille */
 .coords-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;padding:60px 0 0;align-items:start}
 .coords-grid .cinfo{gap:18px}
-@media(max-width:920px){.coords-grid{grid-template-columns:1fr;gap:22px;padding-top:40px}}
+.coords-grid .sector-card{grid-column:1 / -1;display:grid;grid-template-columns:minmax(210px,.72fr) minmax(0,1.28fr);gap:26px;align-items:start;background:var(--zone-bg);border:1px solid var(--border);border-radius:var(--r);padding:22px}
+.sector-card .l{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--prune);margin-bottom:8px}
+.sector-card p{color:var(--ink)}
+.sector-card .sector-copy{border-left:1px solid var(--border);padding-left:26px}
+.sector-card .sector-copy a{color:var(--prune);font-weight:600}
+.sector-card .sector-copy a:hover{text-decoration:underline}
+@media(max-width:920px){
+  .coords-grid{grid-template-columns:1fr;gap:22px;padding-top:40px}
+  .coords-grid .sector-card{grid-template-columns:1fr;gap:12px}
+  .sector-card .sector-copy{border-left:0;border-top:1px solid var(--border);padding-left:0;padding-top:12px}
+}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -555,7 +566,6 @@ footer .ft-bottom{border-top:1px solid rgba(255,255,255,0.1)}
 @media (min-width: 769px) {
   .coords-grid{align-items:stretch}
   .coords-grid .cinfo{display:flex;flex-direction:column;gap:14px}
-  .coords-grid .cinfo .cbox:last-child{flex-grow:1}
 }
 
 /* svc-block h3 styling (section "en bref") */
