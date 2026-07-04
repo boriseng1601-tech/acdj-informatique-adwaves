@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260704-fixed-header-3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,48 +144,13 @@
     </div>
   </section>
 
-  <section class="section" style="padding-bottom:40px">
+  <section class="section" style="padding:48px 0 40px">
     <div class="wrap">
-      <h2 style="font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.02em">Les problèmes qu'on résout le plus souvent</h2>
-      <p style="color:var(--muted);margin-top:8px;font-size:.95rem">Diagnostic gratuit, prix annoncé avant l'intervention.</p>
-      <div class="icon-cards">
-        <div class="icon-card">
-          <span class="ic-icon">🖥️</span>
-          <h4>Ordinateur lent ou qui plante</h4>
-          <p>Votre PC rame, gèle ou met 10 minutes à démarrer&nbsp;? Souvent un virus, un disque dur plein ou de la mémoire saturée. Je nettoie, je désinfecte, on repart.</p>
-        </div>
-        <div class="icon-card">
-          <span class="ic-icon">🛡️</span>
-          <h4>Virus et publicités intempestives</h4>
-          <p>Pubs pop-up, navigateur détourné, barres de recherche bizarres&nbsp;? Je scanne en profondeur et j'élimine chaque menace à la racine.</p>
-        </div>
-        <div class="icon-card">
-          <span class="ic-icon">📶</span>
-          <h4>Wi-Fi instable ou absent</h4>
-          <p>Connexion qui coupe, signal faible&nbsp;? Avant de changer la box, je teste le canal, la position, les drivers. Souvent réglé en 30 minutes.</p>
-        </div>
-        <div class="icon-card">
-          <span class="ic-icon">💾</span>
-          <h4>Récupération de fichiers supprimés</h4>
-          <p>Photos, documents effacés par erreur&nbsp;? Si le disque n'est pas trop abîmé, j'ai les outils pour récupérer vos fichiers.</p>
-        </div>
-        <div class="icon-card">
-          <span class="ic-icon">🖨️</span>
-          <h4>Installation d'équipements</h4>
-          <p>Imprimante, routeur, nouveau PC&nbsp;? Je l'installe, je le configure, je transfère vos données et je vous montre comment ça marche.</p>
-        </div>
-        <div class="icon-card">
-          <span class="ic-icon">📱</span>
-          <h4>Réparation de téléphone</h4>
-          <p>Écran cassé, batterie fatiguée, téléphone lent&nbsp;? Je diagnostique et je vous dis si la réparation vaut le coup.</p>
-        </div>
-      </div>
-
       <div class="stats-strip">
-        <div class="stat-item"><span class="stat-num">5</span><span class="stat-label">ans d'expérience</span></div>
-        <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">machines réparées</span></div>
-        <div class="stat-item"><span class="stat-num">5/5</span><span class="stat-label">sur 32 avis Google</span></div>
-        <div class="stat-item"><span class="stat-num">24-48h</span><span class="stat-label">délai d'intervention</span></div>
+        <div class="stat-item"><span class="stat-num" data-count="5">5</span><span class="stat-label">ans d'expérience</span></div>
+        <div class="stat-item"><span class="stat-num" data-count="100" data-suffix="+">100+</span><span class="stat-label">machines réparées</span></div>
+        <div class="stat-item"><span class="stat-num" data-count="5" data-suffix="/5">5/5</span><span class="stat-label">sur 32 avis Google</span></div>
+        <div class="stat-item"><span class="stat-num" data-count-min="24" data-count-max="48" data-suffix="h">24-48h</span><span class="stat-label">délai d'intervention</span></div>
       </div>
 
       <div style="text-align:center;margin-top:8px">
@@ -580,6 +545,70 @@
       showBtn();
     }
   }
+})();
+
+(function(){
+  var nums=document.querySelectorAll('.stat-num[data-count], .stat-num[data-count-min][data-count-max]');
+  if(!nums.length)return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function format(n){return Math.round(n).toLocaleString('fr-FR');}
+  function finalValue(el){
+    if(el.dataset.countMax){
+      el.textContent=format(Number(el.dataset.countMin||0))+'-'+format(Number(el.dataset.countMax||0))+(el.dataset.suffix||'');
+    }else{
+      el.textContent=format(Number(el.dataset.count||0))+(el.dataset.suffix||'');
+    }
+  }
+  function setValue(el,p){
+    if(el.dataset.countMax){
+      var min=Number(el.dataset.countMin||0), max=Number(el.dataset.countMax||0);
+      el.textContent=format(min*p)+'-'+format(max*p)+(el.dataset.suffix||'');
+    }else{
+      el.textContent=format(Number(el.dataset.count||0)*p)+(el.dataset.suffix||'');
+    }
+  }
+  function animate(el){
+    if(el.dataset.animated)return;
+    el.dataset.animated='true';
+    if(reduce||Number(el.dataset.count||el.dataset.countMax||0)===0){finalValue(el);return;}
+    setValue(el,0);
+    window.setTimeout(function(){
+      var start=performance.now(), duration=1100;
+      function tick(now){
+        var p=Math.min((now-start)/duration,1);
+        p=1-Math.pow(1-p,3);
+        setValue(el,p);
+        if(p<1)requestAnimationFrame(tick);else finalValue(el);
+      }
+      requestAnimationFrame(tick);
+    },220);
+  }
+  if(reduce||!('IntersectionObserver' in window)){nums.forEach(animate);return;}
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){animate(entry.target);observer.unobserve(entry.target);}
+    });
+  },{threshold:.35});
+  nums.forEach(function(el){observer.observe(el);});
+})();
+
+(function(){
+  var hdr=document.querySelector('header');
+  if(!hdr)return;
+  var last=window.pageYOffset||0, ticking=false;
+  window.addEventListener('scroll',function(){
+    if(ticking)return;
+    ticking=true;
+    window.requestAnimationFrame(function(){
+      var y=window.pageYOffset||0;
+      var menu=document.getElementById('mobile-menu');
+      var menuOpen=menu&&menu.classList.contains('open');
+      if(!menuOpen&&y>90&&y>last+4){hdr.classList.add('nav-hidden');}
+      else if(y<last||y<=90){hdr.classList.remove('nav-hidden');}
+      last=y;
+      ticking=false;
+    });
+  },{passive:true});
 })();
 </script>
 </body>

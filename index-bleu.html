@@ -306,6 +306,25 @@
   }
 })();
 (function(){
+  var hdr=document.querySelector('header');
+  if(!hdr)return;
+  var last=window.pageYOffset||0, ticking=false;
+  window.addEventListener('scroll',function(){
+    if(ticking)return;
+    ticking=true;
+    window.requestAnimationFrame(function(){
+      var y=window.pageYOffset||0;
+      var menu=document.getElementById('mobile-menu');
+      var menuOpen=menu&&menu.classList.contains('open');
+      if(!menuOpen&&y>90&&y>last+4){hdr.classList.add('nav-hidden');}
+      else if(y<last||y<=90){hdr.classList.remove('nav-hidden');}
+      last=y;
+      ticking=false;
+    });
+  },{passive:true});
+})();
+
+(function(){
   var car=document.querySelector('[data-carousel]');
   if(!car)return;
   var track=car.querySelector('.car-track');

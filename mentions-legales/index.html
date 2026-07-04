@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260704-fixed-header-3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -161,6 +161,25 @@
       menu.setAttribute('aria-hidden',open?'false':'true');
     });
   }
+})();
+
+(function(){
+  var hdr=document.querySelector('header');
+  if(!hdr)return;
+  var last=window.pageYOffset||0, ticking=false;
+  window.addEventListener('scroll',function(){
+    if(ticking)return;
+    ticking=true;
+    window.requestAnimationFrame(function(){
+      var y=window.pageYOffset||0;
+      var menu=document.getElementById('mobile-menu');
+      var menuOpen=menu&&menu.classList.contains('open');
+      if(!menuOpen&&y>90&&y>last+4){hdr.classList.add('nav-hidden');}
+      else if(y<last||y<=90){hdr.classList.remove('nav-hidden');}
+      last=y;
+      ticking=false;
+    });
+  },{passive:true});
 })();
 </script>
 </body>
