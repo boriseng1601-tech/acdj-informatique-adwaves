@@ -214,7 +214,7 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .tel-big svg{width:26px;height:26px}
 
 /* FOOTER */
-footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;font-size:.92rem;margin-top:80px}
+footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;font-size:.92rem;margin-top:0}
 .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
 .ft-grid h4{font-family:var(--display);color:#fff;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;font-weight:700}
 .ft-grid a:hover{color:var(--rose)}.ft-grid li{list-style:none;margin-bottom:9px}
@@ -341,9 +341,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .cta-devis .btn{padding:12px 20px;font-size:.95rem}
 
 /* PAGE CONTACT — coordonnées en grille */
-.coords-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;padding:60px 0 0;align-items:start}
+.coords-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;padding:60px 0;align-items:start}
 .coords-grid .cinfo{gap:18px}
 .coords-grid .sector-card{grid-column:1 / -1;display:grid;grid-template-columns:minmax(210px,.72fr) minmax(0,1.28fr);gap:26px;align-items:start;background:var(--zone-bg);border:1px solid var(--border);border-radius:var(--r);padding:22px}
+.cinfo .sector-card{grid-template-columns:1fr;gap:16px}
+.cinfo .sector-card .sector-copy{border-left:0;border-top:var(--line);padding-left:0;padding-top:14px}
 .sector-card .l{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--prune);margin-bottom:8px}
 .sector-card p{color:var(--ink)}
 .sector-card .sector-copy{border-left:1px solid var(--border);padding-left:26px}
@@ -495,7 +497,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .faq-item .faq-a{padding:16px 22px;font-size:.98rem;color:var(--ink)}
 
 /* ---- CTA FINAL PAGES ZONES ---- */
-.final{padding:70px 0;text-align:center;background:var(--zone-bg);border-top:var(--line)}
+.final{padding:70px 0;text-align:center;background:var(--zone-bg);border-top:var(--line);margin-top:60px}
 .final h2{font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.4vw,2.4rem);letter-spacing:-.02em}
 .final h2 .hand{color:var(--prune)}
 .final .sub{color:var(--gray);margin-top:10px}
@@ -607,6 +609,7 @@ footer .ft-bottom{border-top:1px solid rgba(255,255,255,0.1)}
 @media (min-width: 769px) {
   .coords-grid{align-items:stretch}
   .coords-grid .cinfo{display:flex;flex-direction:column;gap:14px}
+  .coords-grid .cinfo .sector-card{flex-grow:1}
 }
 
 /* svc-block h3 styling (section "en bref") */
