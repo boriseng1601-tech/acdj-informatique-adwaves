@@ -172,12 +172,16 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .avis-top .stars{font-size:1.25rem}
 .avis-top .txt{font-size:.92rem;color:var(--gray)}
 .avis-top .txt a{color:var(--prune);font-weight:600;border-bottom:1px solid var(--border)}
-.quotes{display:grid;grid-template-columns:1.35fr 1fr;gap:28px}
-.q{background:#fff;border:var(--line);border-radius:var(--r);padding:32px}
-.q.big blockquote{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;font-size:1.4rem;line-height:1.45;color:var(--ink)}
+.avis-intro{max-width:760px;margin:-24px 0 34px;color:var(--gray);font-size:1.02rem;line-height:1.7}
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.q{background:#fff;border:var(--line);border-radius:var(--r);padding:32px;display:flex;flex-direction:column}
+.q.big blockquote{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;font-size:1.18rem;line-height:1.48;color:var(--ink)}
 .q blockquote{font-size:1.02rem;line-height:1.55}
-.q .who{margin-top:20px;font-weight:600;color:var(--prune);font-size:.94rem}
+.q .who{margin-top:auto;padding-top:20px;font-weight:600;color:var(--prune);font-size:.94rem}
 .q .who span{display:block;color:var(--gray);font-weight:400;font-size:.84rem;margin-top:2px}
+.quotes.quotes-reveal-ready .q{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1);transition-delay:var(--reveal-delay,0ms)}
+.quotes.quotes-reveal-ready .q.is-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.quotes.quotes-reveal-ready .q{opacity:1;transform:none;transition:none}}
 /* Avis clients — grille statique */
 .avis-title{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:40px}
 .avis-title .note{font-family:var(--display);font-weight:700;font-size:2rem;color:var(--prune);line-height:1}
