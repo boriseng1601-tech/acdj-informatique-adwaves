@@ -1,5 +1,8 @@
 (function(){
   var phone='06 52 24 66 47';
+  function track(eventName,params){
+    if(window.acdjTrack)window.acdjTrack(eventName,params);
+  }
   function makeButton(){
     var existing=document.getElementById('chat-btn');
     if(existing)return existing;
@@ -24,7 +27,7 @@
     overlay.setAttribute('role','dialog');
     overlay.setAttribute('aria-modal','true');
     overlay.setAttribute('aria-labelledby','popup-title');
-    overlay.innerHTML='<div class="popup-modal"><div class="popup-chat-head"><span class="popup-chat-avatar"><img src="/assets/images/acdj-logo.png" alt=""></span><div><div class="popup-chat-title" id="popup-title">Une question ?</div><div class="popup-chat-sub">Je vous r&eacute;ponds directement</div></div><button class="popup-close" id="popup-close" aria-label="Fermer" type="button">&times;</button></div><div class="popup-chat-body"><div class="popup-message"><img src="/assets/images/acdj-logo.png" alt=""><p>Votre message arrive sur mon t&eacute;l&eacute;phone. D&eacute;crivez le souci, je vous rappelle d&egrave;s que je suis disponible.</p></div><form class="form popup-chat-form" action="/api/devis" method="post" data-devis-form data-floating-contact-form><div class="hp-field" aria-hidden="true" style="display:none"><input name="website" type="text" tabindex="-1" autocomplete="off"></div><input type="hidden" name="service" value="Rappel popup site"><div class="field"><label class="sr-only" for="floating-nom">Nom</label><input id="floating-nom" name="nom" type="text" autocomplete="name" placeholder="Votre nom" required></div><div class="field"><label class="sr-only" for="floating-tel">T&eacute;l&eacute;phone</label><input id="floating-tel" name="tel" type="tel" autocomplete="tel" placeholder="06 52 24 66 47" required></div><div class="field"><label class="sr-only" for="floating-message">Message</label><textarea id="floating-message" name="message" rows="4" placeholder="Votre message" required></textarea></div><label class="popup-consent"><input name="consentement" type="checkbox" checked required><span>J&apos;accepte d&apos;&ecirc;tre recontact&eacute; par t&eacute;l&eacute;phone ou e-mail pour cette demande.</span></label><button type="submit" class="btn btn-primary" data-gtm-event="submit_popup" data-location="popup globale">Envoyer</button><p class="form-status" data-form-status role="status" aria-live="polite" hidden></p><p class="formnote">Pas d&apos;engagement. Devis gratuit.</p></form></div></div>';
+    overlay.innerHTML='<div class="popup-modal"><div class="popup-chat-head"><span class="popup-chat-avatar"><img src="/assets/images/acdj-logo.webp" alt=""></span><div><div class="popup-chat-title" id="popup-title">Une question ?</div><div class="popup-chat-sub">Je vous r&eacute;ponds directement</div></div><button class="popup-close" id="popup-close" aria-label="Fermer" type="button">&times;</button></div><div class="popup-chat-body"><div class="popup-message"><img src="/assets/images/acdj-logo.webp" alt=""><p>Votre message arrive sur mon t&eacute;l&eacute;phone. D&eacute;crivez le souci, je vous rappelle d&egrave;s que je suis disponible.</p></div><form class="form popup-chat-form" action="/api/devis" method="post" data-devis-form data-floating-contact-form><div class="hp-field" aria-hidden="true" style="display:none"><input name="website" type="text" tabindex="-1" autocomplete="off"></div><input type="hidden" name="service" value="Rappel popup site"><div class="field"><label class="sr-only" for="floating-nom">Nom</label><input id="floating-nom" name="nom" type="text" autocomplete="name" placeholder="Votre nom" required></div><div class="field"><label class="sr-only" for="floating-tel">T&eacute;l&eacute;phone</label><input id="floating-tel" name="tel" type="tel" autocomplete="tel" placeholder="06 52 24 66 47" required></div><div class="field"><label class="sr-only" for="floating-message">Message</label><textarea id="floating-message" name="message" rows="4" placeholder="Votre message" required></textarea></div><label class="popup-consent"><input name="consentement" type="checkbox" checked required><span>J&apos;accepte d&apos;&ecirc;tre recontact&eacute; par t&eacute;l&eacute;phone ou e-mail pour cette demande.</span></label><button type="submit" class="btn btn-primary" data-gtm-event="submit_popup" data-location="popup globale">Envoyer</button><p class="form-status" data-form-status role="status" aria-live="polite" hidden></p><p class="formnote">Pas d&apos;engagement. Devis gratuit.</p></form></div></div>';
     document.body.appendChild(overlay);
     return {overlay:overlay,created:true};
   }
@@ -52,6 +55,7 @@
       fetch(form.action,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:payload.toString()})
         .then(function(r){return r.json().catch(function(){return{};}).then(function(b){if(!r.ok)throw new Error(b.message||"Erreur d'envoi.");return b;});})
         .then(function(b){
+          if(window.acdjTrackLead)window.acdjTrackLead(form,{form_name:'popup_global'});
           form.reset();
           setStatus('success',b.message||'Votre demande a bien ete envoyee.');
           sessionStorage.setItem('chat_submitted','1');
@@ -72,7 +76,7 @@
       overlay.classList.add('open');
       var first=overlay.querySelector('input[name="nom"]');
       if(first)window.setTimeout(function(){first.focus();},80);
-      if(window.dataLayer)window.dataLayer.push({event:'popup_click_open',location:'floating_button'});
+      track('popup_click_open',{location:'floating_button'});
     }
     function closeModal(){overlay.classList.remove('open');}
     if(!btn.dataset.floatingBound){
@@ -91,7 +95,7 @@
       if(btn.classList.contains('visible'))return;
       btn.classList.add('visible');
       btn.removeAttribute('aria-hidden');
-      if(window.dataLayer)window.dataLayer.push({event:'popup_btn_appear',location:source||'early_site'});
+      track('popup_btn_appear',{location:source||'early_site'});
     }
     function scrolledEnough(){
       var doc=document.documentElement;
