@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260704-chat-widget">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260708-map-svg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -216,12 +216,12 @@
         <h2>Nous intervenons à domicile depuis Contrexéville, dans l'ouest des Vosges</h2>
         <p class="sub">Intervention à domicile à <a href="/zones/contrexeville/" style="color:var(--prune);font-weight:600">Contrexéville</a>, <a href="/zones/vittel/" style="color:var(--prune);font-weight:600">Vittel</a>, <a href="/zones/mirecourt/" style="color:var(--prune);font-weight:600">Mirecourt</a> et <a href="/zones/neufchateau/" style="color:var(--prune);font-weight:600">Neufchâteau</a>, et jusqu'à <a href="/zones/epinal/" style="color:var(--prune);font-weight:600">Épinal</a> et <a href="/zones/nancy/" style="color:var(--prune);font-weight:600">Nancy</a> pour certaines prestations.</p>
         <p class="sub" style="margin-top:14px">Le déplacement est facturé <b style="color:var(--prune);font-weight:600">0,65 €/km</b> selon la prestation, seulement s'il est nécessaire.</p>
-        <p class="out">Votre village n'est pas listé ? ACDJ Informatique intervient aussi dans l'ouest des Vosges et peut étendre le rayon sur devis : <a href="/contact/" data-gtm-event="click_contact" data-location="corps de page">appelez, nous vous confirmons le déplacement</a>.</p>
+        <p class="out zone-callout"><strong>Votre commune n'est pas listée ?</strong> ACDJ Informatique intervient aussi dans l'ouest des Vosges et peut étendre le rayon sur devis : <a href="/contact/" data-gtm-event="click_contact" data-location="corps de page">appelez, nous vous confirmons le déplacement</a>.</p>
       </div>
       <div class="zone-map">
         <svg class="zone-svg" viewBox="40 20 640 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte du secteur d'intervention d'ACDJ Informatique dans les Vosges" font-family="'Inter', sans-serif">
           <text class="title" x="350" y="44" text-anchor="middle">Zone d'intervention</text>
-          <text class="legend" x="350" y="64" text-anchor="middle">Ouest des Vosges &middot; déplacement 0,65 €/km</text>
+          <text class="legend" x="350" y="64" text-anchor="middle">Ouest des Vosges &middot; 0,65 €/km selon prestation</text>
 
           <ellipse class="zone-outer" cx="350" cy="270" rx="295" ry="190"/>
           <ellipse class="zone-mid"   cx="300" cy="295" rx="210" ry="150"/>
@@ -232,6 +232,34 @@
           <line class="link" x1="290" y1="288" x2="500" y2="320"/>
           <line class="link" x1="290" y1="288" x2="212" y2="206"/>
           <line class="link" x1="396" y1="172" x2="446" y2="108"/>
+
+          <g class="villages" aria-label="Communes alentours desservies selon la prestation">
+            <g class="village" id="village-bulgneville">
+              <circle class="village-ring" cx="334" cy="246" r="7"/>
+              <circle class="village-dot" cx="334" cy="246" r="4"/>
+              <text class="village-label" x="334" y="234" text-anchor="middle">Bulgnéville</text>
+            </g>
+            <g class="village" id="village-chatenois">
+              <circle class="village-ring" cx="248" cy="250" r="7"/>
+              <circle class="village-dot" cx="248" cy="250" r="4"/>
+              <text class="village-label" x="248" y="275" text-anchor="middle">Châtenois</text>
+            </g>
+            <g class="village" id="village-lamarche">
+              <circle class="village-ring" cx="164" cy="358" r="7"/>
+              <circle class="village-dot" cx="164" cy="358" r="4"/>
+              <text class="village-label" x="164" y="383" text-anchor="middle">Lamarche</text>
+            </g>
+            <g class="village" id="village-darney">
+              <circle class="village-ring" cx="344" cy="402" r="7"/>
+              <circle class="village-dot" cx="344" cy="402" r="4"/>
+              <text class="village-label" x="344" y="427" text-anchor="middle">Darney</text>
+            </g>
+            <g class="village" id="village-dompaire">
+              <circle class="village-ring" cx="414" cy="326" r="7"/>
+              <circle class="village-dot" cx="414" cy="326" r="4"/>
+              <text class="village-label" x="414" y="351" text-anchor="middle">Dompaire</text>
+            </g>
+          </g>
 
           <!-- Villes desservies (cliquables) -->
           <a href="/zones/mirecourt/" aria-label="Secteur d'intervention de Mirecourt">
@@ -260,7 +288,7 @@
               <circle class="dot-ring" cx="290" cy="288" r="10"/>
               <circle class="dot" cx="290" cy="288" r="7"/>
               <rect class="pill" x="256" y="300" width="68" height="24" rx="7"/>
-              <text class="label-main" x="290" y="316" text-anchor="middle">Vittel</text>
+              <text class="label" x="290" y="316" text-anchor="middle">Vittel</text>
             </g>
           </a>
 
