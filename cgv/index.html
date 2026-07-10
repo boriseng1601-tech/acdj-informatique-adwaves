@@ -41,10 +41,14 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <script src="/assets/js/analytics.js?v=20260710-gtm" defer></script>
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];var loaded=false;
+function load(){if(loaded)return;loaded=true;w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);}
+var ev=['scroll','mousemove','touchstart','keydown','click'];
+function t(){ev.forEach(function(e){w.removeEventListener(e,t,{passive:true});});load();}
+ev.forEach(function(e){w.addEventListener(e,t,{passive:true});});
+w.addEventListener('load',function(){w.setTimeout(load,3000);});
 })(window,document,'script','dataLayer','GTM-NTXNSDKW');</script>
 <!-- End Google Tag Manager -->
 </head>
