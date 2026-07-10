@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260710-main-map">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260710-custom-form-errors">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -457,7 +457,7 @@
         <div class="hp-field" aria-hidden="true" style="display:none"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>
         <input type="hidden" name="service" value="Rappel popup home">
         <div class="field"><label class="sr-only" for="p-nom">Nom</label><input id="p-nom" name="nom" type="text" autocomplete="name" placeholder="Votre nom" required></div>
-        <div class="field"><label class="sr-only" for="p-tel">Téléphone</label><input id="p-tel" name="tel" type="tel" autocomplete="tel" placeholder="06 52 24 66 47" required></div>
+        <div class="field"><label class="sr-only" for="p-tel">Téléphone</label><input id="p-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="06 52 24 66 47" pattern="(?:\+33|0033|0)[1-9](?:[ .-]?\d{2}){4}" title="Numéro invalide, vérifiez le numéro" required></div>
         <div class="field"><label class="sr-only" for="p-message">Message</label><textarea id="p-message" name="message" rows="4" placeholder="Votre message" required></textarea></div>
         <label class="popup-consent"><input name="consentement" type="checkbox" checked required><span>J'accepte d'être recontacté par téléphone ou e-mail pour cette demande.</span></label>
         <button type="submit" class="btn btn-primary" data-gtm-event="submit_popup" data-location="popup home">Envoyer</button>
@@ -519,7 +519,7 @@
     if(submit){submit.disabled=true;submit.textContent='Envoi...';}
     if(status){status.hidden=true;status.textContent='';}
     fetch(form.action,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:payload.toString()})
-      .then(function(r){return r.json().catch(function(){return{};}).then(function(b){if(!r.ok)throw new Error(b.message||"Erreur d'envoi.");return b;});})
+      .then(function(r){return r.json().catch(function(){return{};}).then(function(b){if(!r.ok)throw new Error(b.message||'Vérifiez les champs indiqués puis réessayez.');return b;});})
       .then(function(b){form.reset();setStatus('success',b.message||'Votre demande a bien été envoyée.');sessionStorage.setItem('chat_submitted','1');var cb=document.getElementById('chat-btn');if(cb){cb.classList.remove('visible');cb.style.pointerEvents='none';}})
       .catch(function(e){setStatus('error',e.message||"La demande n'a pas pu être envoyée. Appelez le 06 52 24 66 47.");})
       .finally(function(){if(submit){submit.disabled=false;submit.textContent=defaultSubmitText;}});
@@ -631,6 +631,6 @@
   },{passive:true});
 })();
 </script>
-<script src="/assets/js/site-enhancements.js?v=20260704-chat-widget" defer></script>
+<script src="/assets/js/site-enhancements.js?v=20260710-custom-form-errors" defer></script>
 </body>
 </html>

@@ -324,9 +324,13 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 .form .btn-primary:disabled{opacity:.65;cursor:wait}
 .form .formnote{font-size:.82rem;color:var(--gray)}
 .form .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.form .form-status{border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:.9rem}
+.form .field input.is-invalid,.form .field textarea.is-invalid{border-color:var(--prune);box-shadow:0 0 0 3px rgba(224,54,95,.12);background:#fff8fa}
+.form .form-status{border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:.9rem;display:flex;align-items:flex-start;gap:10px}
+.form .form-status::before{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;font-family:var(--display);font-weight:800;font-size:.82rem;line-height:1}
 .form .form-status.success{border-color:#b7dec2;background:#edf8f1;color:#1f6b37}
+.form .form-status.success::before{content:"OK";background:#1f6b37;color:#fff;font-size:.62rem}
 .form .form-status.error{border-color:#f0b6c2;background:#fff1f3;color:#8a2538}
+.form .form-status.error::before{content:"!";background:var(--prune);color:#fff}
 .cinfo{display:grid;gap:14px}
 .cinfo .cbox{border:1px solid var(--border);border-radius:var(--r);padding:22px}
 .cinfo .cbox .l{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--prune);margin-bottom:8px}

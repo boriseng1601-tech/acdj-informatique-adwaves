@@ -2,6 +2,7 @@ const MAX_BODY_BYTES = 16 * 1024;
 const DEFAULT_TO_EMAIL = 'contact@acdj-informatique.com';
 const DEFAULT_FROM_EMAIL = 'ACDJ Informatique <devis@adwaves.pro>';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const FRENCH_PHONE_RE = /^(?:0[1-9]\d{8}|(?:\+?33|0033)[1-9]\d{8})$/;
 
 module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') {
@@ -95,7 +96,7 @@ function normalizeSubmission(body) {
     nom: field(body, 'nom', 120),
     tel: field(body, 'tel', 40),
     email: field(body, 'email', 160),
-    ville: field(body, 'ville', 120),
+    adresse: field(body, 'adresse', 240) || field(body, 'ville', 120),
     service: field(body, 'service', 120),
     message: field(body, 'message', 3000),
     website: field(body, 'website', 200),
@@ -114,8 +115,12 @@ function validateSubmission(submission) {
     errors.push('Le nom est obligatoire.');
   }
 
-  if (!submission.tel || digitsOnly(submission.tel).length < 8) {
-    errors.push('Le téléphone est obligatoire.');
+  if (!submission.tel && !submission.email) {
+    errors.push('Indiquez un téléphone ou un email valide pour être recontacté.');
+  }
+
+  if (submission.tel && !isValidPhone(submission.tel)) {
+    errors.push('Numéro invalide, vérifiez le numéro.');
   }
 
   if (submission.email && !EMAIL_RE.test(submission.email)) {
@@ -129,8 +134,8 @@ function validateSubmission(submission) {
   return errors;
 }
 
-function digitsOnly(value) {
-  return value.replace(/\D/g, '');
+function isValidPhone(value) {
+  return FRENCH_PHONE_RE.test(value.replace(/[\s.-]/g, ''));
 }
 
 function buildEmailPayload(submission) {
@@ -145,7 +150,7 @@ function buildEmailPayload(submission) {
     ['Nom', submission.nom],
     ['Téléphone', submission.tel],
     ['Email', submission.email || 'Non précisé'],
-    ['Ville', submission.ville || 'Non précisée'],
+    ['Adresse', submission.adresse || 'Non précisée'],
     ['Service', service],
     ['Message', submission.message],
   ];
