@@ -29,15 +29,15 @@ img{display:block;max-width:100%}
 body{padding-top:72px}
 header{position:fixed;top:0;left:0;right:0;z-index:999;background:var(--white);border-bottom:var(--line);transition:none}
 header.nav-hidden{transform:none}
-.hd{display:flex;align-items:center;justify-content:space-between;height:72px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:800;font-size:1.18rem;letter-spacing:-.01em;color:var(--ink)}
 .brand .mark{width:32px;height:32px;border-radius:8px;background:var(--prune);color:#fff;display:grid;place-items:center;font-size:.95rem;font-weight:700}
 /* Logo image — taille canonique 44px dans le header, 32px dans le footer */
-.brand-logo{display:flex;align-items:center;gap:10px;line-height:0;text-decoration:none}
+.brand-logo{display:flex;align-items:center;gap:10px;line-height:0;text-decoration:none;min-width:0;flex:0 1 auto}
 .brand-logo img{height:44px;width:auto;display:block}
 header .brand img{height:44px;width:auto;display:block}
 .ft-brand .brand img{height:32px;width:auto;display:block}
-.brand-name{font-family:var(--display);font-weight:800;font-size:1.18rem;color:var(--ink);white-space:nowrap;line-height:1.2}
+.brand-name{font-family:var(--display);font-weight:800;font-size:1.18rem;color:var(--ink);white-space:nowrap;line-height:1.2;overflow:hidden;text-overflow:ellipsis}
 /* Hamburger */
 .ham{display:none;background:none;border:none;padding:6px;cursor:pointer;color:var(--ink);margin-left:8px}
 .ham svg{display:block;width:26px;height:26px}
@@ -49,7 +49,7 @@ header .brand img{height:44px;width:auto;display:block}
 .mobile-nav .mnav-tel{color:var(--prune);font-weight:700;font-size:1.08rem;padding:16px 0;border-bottom:var(--line);display:block}
 .mobile-nav .btn-primary{margin-top:16px;width:100%;justify-content:center}
 .mobile-call{display:none !important}
-.nav{display:flex;align-items:center;gap:30px}
+.nav{display:flex;align-items:center;gap:30px;min-width:0;flex:0 0 auto}
 .nav .links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
 .nav .links a:hover{color:var(--prune)}
 .nav .links a.active{color:var(--prune);font-weight:600}
@@ -59,6 +59,20 @@ header .brand img{height:44px;width:auto;display:block}
 .btn-primary{background:var(--prune);color:#fff}.btn-primary:hover{background:var(--prune-hover)}
 .btn-primary svg{width:18px;height:18px}
 .btn-ghost{background:transparent;color:var(--prune);border-color:var(--border)}.btn-ghost:hover{border-color:var(--prune);background:var(--zone-bg)}
+
+@media(max-width:1120px){
+  .hd{gap:18px}
+  .nav{gap:18px}
+  .nav .links{gap:18px;font-size:.91rem}
+  .brand,.brand-name{font-size:1.06rem}
+  .tel-top{font-size:1rem;gap:7px}
+  .nav>.btn-ghost{padding:10px 14px!important;font-size:.88rem!important}
+}
+@media(max-width:920px){
+  .nav .links,.nav>.btn-ghost{display:none}
+  .ham{display:block}
+  .nav{gap:12px}
+}
 
 /* HERO (accueil) */
 .hero{padding:78px 0 56px}
@@ -154,9 +168,6 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .zone-svg .pill{fill:#fff;stroke:var(--border);stroke-width:1}
 .zone-svg .label{font-size:14px;font-weight:650;fill:var(--ink)}
 .zone-svg .label-main{font-size:14.6px;font-weight:800;fill:var(--prune)}
-.zone-svg .village-ring{fill:#fff;stroke:#c8c3c7;stroke-width:1.4}
-.zone-svg .village-dot{fill:#9b8e96}
-.zone-svg .village-label{font-size:11.4px;font-weight:650;fill:var(--ink)}
 .zone-svg .ref-pill{fill:#fff;stroke:var(--border);stroke-width:1}
 .zone-svg .ref-label{font-size:12.5px;font-weight:600;fill:#9B8E96}
 .zone-svg .legend{font-size:15.5px;font-weight:650;fill:var(--gray)}
@@ -383,12 +394,13 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   /* D2 mobile — sticky bottom CTA bar */
   .info-card .ic-cta{position:fixed;bottom:0;left:0;right:0;z-index:160;display:flex!important;gap:8px;padding:10px 14px;background:#fff;border-top:1px solid var(--border);box-shadow:0 -2px 10px rgba(0,0,0,.09)}
   .info-card .ic-cta .btn{flex:1;justify-content:center;padding:13px 8px;font-size:.88rem;gap:6px;width:auto}
+  .info-card .ic-cta .btn[href^="tel"]{flex:1.35;white-space:nowrap}
+  .info-card .ic-cta .btn:not([href^="tel"]){flex:.85}
   .zones-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:680px){
   body{font-size:17px}
   .wrap{padding-left:28px;padding-right:28px}
-  .nav .links{display:none}.nav .btn-ghost{display:none}
   .nav{gap:6px}
   .tel-top span{display:none}.tel-top svg{width:24px;height:24px}
   .tel-top{padding:10px;gap:0;letter-spacing:0}
@@ -398,13 +410,13 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .zone-svg{width:100%;min-height:340px;height:auto}
   .zone-svg .label{font-size:14.8px}
   .zone-svg .label-main{font-size:15.4px}
-  .zone-svg .village-label{font-size:12.2px}
   .zone-svg .legend{font-size:16px}
   .section-zone .wrap{flex-direction:column}
   .zones-grid{grid-template-columns:1fr}
   .commune-card .svc-list{grid-template-columns:1fr}
   .km-tag{left:0;bottom:16px}
-  .cta-row .btn{flex:1;justify-content:center}
+  .cta-row .btn{flex:1 1 100%;justify-content:center;min-width:0;text-align:center}
+  .cta-row .btn[href^="tel"]{white-space:nowrap;font-size:clamp(.92rem,4vw,1rem);padding-left:14px;padding-right:14px}
   .slip-foot{flex-direction:column;align-items:flex-start;gap:14px}
   .item{grid-template-columns:1fr;gap:14px}
   .item .rhs{justify-self:start;width:100%;justify-content:space-between}
@@ -423,7 +435,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .cta-devis{margin-top:24px;margin-bottom:24px}
   .section-secteur,.zones-section,.secteur-header{padding-top:24px;padding-bottom:24px}
   .nav-tel,.nav-tel a,header .tel,header a[href^="tel"]{white-space:nowrap!important;letter-spacing:-.01em;display:inline-block}
-  .mobile-call{display:flex !important;position:fixed;left:0;right:0;bottom:0;z-index:150;background:var(--prune);color:#fff;align-items:center;justify-content:center;gap:10px;padding:15px;font-family:var(--display);font-weight:700;font-size:1.08rem}
+  .mobile-call{display:flex !important;position:fixed;left:0;right:0;bottom:0;z-index:150;background:var(--prune);color:#fff;align-items:center;justify-content:center;gap:8px;width:100%;min-width:0;padding:14px max(12px,env(safe-area-inset-right)) calc(14px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));font-family:var(--display);font-weight:700;font-size:clamp(.88rem,4vw,1.05rem);line-height:1.15;white-space:nowrap;text-align:center}
   .mobile-call svg{width:20px !important;height:20px !important;flex-shrink:0}
   /* Tâche 3 — réduction padding sections sur mobile */
   .hero{padding:44px 0 30px}
@@ -713,8 +725,10 @@ html,body{max-width:100%;overflow-x:clip}
 @media(max-width:680px){
   header .wrap.hd{padding-left:22px;padding-right:22px}
   .hd{gap:10px}
-  header .brand{flex:1;min-width:0;gap:8px;font-size:clamp(.94rem,4vw,1.05rem);line-height:1.1;white-space:nowrap;overflow:hidden}
+  header .brand,header .brand-logo{flex:1;min-width:0;gap:8px;font-size:clamp(.94rem,4vw,1.05rem);line-height:1.1;white-space:nowrap;overflow:hidden}
+  header .brand-name{font-size:clamp(.94rem,4vw,1.05rem)}
   header .brand img{height:36px;flex:0 0 auto}
+  header .brand-logo img{height:36px;flex:0 0 auto}
   .nav{flex:0 0 auto;min-width:0}
   .tel-top{padding:8px}
   .ham{margin-left:0}
@@ -730,8 +744,10 @@ html,body{max-width:100%;overflow-x:clip}
 
 @media(max-width:340px){
   header .wrap.hd{padding-left:18px;padding-right:18px}
-  header .brand{font-size:.9rem;gap:7px}
+  header .brand,header .brand-logo{font-size:.9rem;gap:7px}
+  header .brand-name{font-size:.9rem}
   header .brand img{height:32px}
+  header .brand-logo img{height:32px}
   .tel-top svg{width:21px;height:21px}
   .tel-top{padding:7px}
   .info-card .ic-cta{padding:10px 8px;gap:6px}
@@ -747,7 +763,7 @@ html,body{max-width:100%;overflow-x:clip}
 .galerie-carousel::before{left:0;background:linear-gradient(to right,var(--zone-bg),transparent)}
 .galerie-carousel::after{right:0;background:linear-gradient(to left,var(--zone-bg),transparent)}
 .galerie-track{display:flex;gap:12px;will-change:transform}
-.galerie-photo-card{flex-shrink:0;width:280px;height:200px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border)}
+.galerie-photo-card{flex-shrink:0;width:280px;height:200px;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);cursor:zoom-in}
 .galerie-photo-card img{width:100%;height:100%;object-fit:cover;display:block}
 .galerie-lb-trigger{display:block;width:-webkit-fit-content;width:fit-content;margin:32px auto 0}
 .galerie-lightbox{position:fixed;inset:0;background:rgba(17,19,24,.93);z-index:1500;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -763,11 +779,20 @@ html,body{max-width:100%;overflow-x:clip}
 .galerie-zoom{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:1600;display:none;align-items:center;justify-content:center;padding:20px}
 .galerie-zoom.open{display:flex}
 .galerie-zoom img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:8px}
+.galerie-zoom-nav{position:fixed;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#fff;font-size:2.3rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1610;transition:background .15s ease,transform .15s ease}
+.galerie-zoom-nav:hover{background:rgba(255,255,255,.23);transform:translateY(-50%) scale(1.04)}
+.galerie-zoom-nav:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.galerie-zoom-prev{left:22px}
+.galerie-zoom-next{right:22px}
 .galerie-zoom-close{position:fixed;top:14px;right:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:50%;width:44px;height:44px;font-size:1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1610;transition:.15s ease}
 .galerie-zoom-close:hover{background:rgba(255,255,255,.22)}
 @media(max-width:680px){
   .galerie-photo-card{width:220px;height:160px}
   .galerie-carousel::before,.galerie-carousel::after{width:40px}
   .galerie-lb-grid{grid-template-columns:repeat(2,1fr)}
+  .galerie-zoom{padding:16px 56px}
+  .galerie-zoom-nav{width:42px;height:42px;font-size:2rem}
+  .galerie-zoom-prev{left:8px}
+  .galerie-zoom-next{right:8px}
 }
 @media(max-width:360px){.galerie-lb-grid{grid-template-columns:1fr}}

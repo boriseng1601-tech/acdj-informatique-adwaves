@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=20260705-avis-scroll">
+<link rel="stylesheet" href="/assets/css/style.css?v=20260710-main-map">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -186,7 +186,6 @@
         <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-05-pendant-deux.jpg" alt="Deux téléphones ouverts en réparation" loading="lazy"></div>
         <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-06-pendant-macro.jpg" alt="Carte mère vue macro" loading="lazy"></div>
         <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-07-pendant-batterie-1.jpg" alt="Téléphone ouvert, batterie vue 1" loading="lazy"></div>
-        <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-08-pendant-batterie-2.jpg" alt="Téléphone ouvert, batterie vue 2" loading="lazy"></div>
         <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-09-pendant-table.jpg" alt="Réparation smartphone sur table atelier" loading="lazy"></div>
         <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-10-pendant-microscope.jpg" alt="Diagnostic microscope carte mère" loading="lazy"></div>
         <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-11-apres-ecran.jpg" alt="Écran remplacé, smartphone fonctionnel" loading="lazy"></div>
@@ -196,6 +195,11 @@
         <div class="galerie-photo-card"><img src="/assets/images/galerie/pc-gamer-01-face.jpg" alt="PC gamer RGB monté vue de face" loading="lazy"></div>
         <div class="galerie-photo-card"><img src="/assets/images/galerie/pc-gamer-02-cote.jpg" alt="PC gamer RGB monté vue de côté" loading="lazy"></div>
         <div class="galerie-photo-card"><img src="/assets/images/galerie/electrique-01-tableau.jpg" alt="Tableau électrique câblé sur chantier" loading="lazy"></div>
+        <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-14-apres-iphone-dos.jpg" alt="iPhone réparé tenu en main dans l'atelier" loading="lazy"></div>
+        <div class="galerie-photo-card"><img src="/assets/images/galerie/smrtp-15-pendant-dos-demontage.jpg" alt="Dos de smartphone démonté pendant une réparation" loading="lazy"></div>
+        <div class="galerie-photo-card"><img src="/assets/images/galerie/caisse-01-poste-magasin.jpg" alt="Poste de caisse installé en magasin" loading="lazy"></div>
+        <div class="galerie-photo-card"><img src="/assets/images/galerie/caisse-02-installation-scanner.jpg" alt="Installation d'un scanner et d'une caisse en magasin" loading="lazy"></div>
+        <div class="galerie-photo-card"><img src="/assets/images/galerie/caisse-03-postes-encaissement.jpg" alt="Postes d'encaissement configurés en magasin" loading="lazy"></div>
       </div>
     </div>
     <div class="wrap">
@@ -206,12 +210,14 @@
   <div class="galerie-lightbox" id="galerie-lightbox" role="dialog" aria-modal="true" aria-label="Galerie complète">
     <button class="galerie-lb-close" id="galerie-lb-close" aria-label="Fermer la galerie">&times;</button>
     <div class="galerie-lb-inner">
-      <p class="galerie-lb-title">17 photos d'interventions</p>
+      <p class="galerie-lb-title">21 photos d'interventions</p>
       <div class="galerie-lb-grid" id="galerie-lb-grid"></div>
     </div>
   </div>
   <div class="galerie-zoom" id="galerie-zoom">
     <img id="galerie-zoom-img" src="" alt="">
+    <button class="galerie-zoom-nav galerie-zoom-prev" id="galerie-zoom-prev" aria-label="Photo précédente" type="button">&lsaquo;</button>
+    <button class="galerie-zoom-nav galerie-zoom-next" id="galerie-zoom-next" aria-label="Photo suivante" type="button">&rsaquo;</button>
     <button class="galerie-zoom-close" id="galerie-zoom-close" aria-label="Fermer">&times;</button>
   </div>
 
@@ -389,18 +395,31 @@
   var zoom=document.getElementById('galerie-zoom');
   var zoomImg=document.getElementById('galerie-zoom-img');
   var zoomClose=document.getElementById('galerie-zoom-close');
+  var zoomPrev=document.getElementById('galerie-zoom-prev');
+  var zoomNext=document.getElementById('galerie-zoom-next');
+  var carouselTrack=document.getElementById('galerie-track');
+  var sourceImgs=[];
+  var currentZoomIndex=0;
   if(!openBtn||!lightbox||!zoom)return;
   if(grid){
-    var sourceImgs=document.querySelectorAll('#galerie-track .galerie-photo-card:not([data-gallery-clone]) img');
-    sourceImgs.forEach(function(img){
+    sourceImgs=Array.prototype.slice.call(document.querySelectorAll('#galerie-track .galerie-photo-card:not([data-gallery-clone]) img'));
+    sourceImgs.forEach(function(img,index){
       var thumb=document.createElement('button');
       var thumbImg=img.cloneNode();
       thumb.type='button';
       thumb.className='galerie-lb-thumb';
       thumb.setAttribute('aria-label',img.alt||'Voir la photo');
       thumb.appendChild(thumbImg);
-      thumb.addEventListener('click',function(){openZoom(img.src,img.alt);});
+      thumb.addEventListener('click',function(){openZoom(index);});
       grid.appendChild(thumb);
+    });
+  }
+  if(carouselTrack){
+    carouselTrack.addEventListener('click',function(e){
+      var img=e.target.closest&&e.target.closest('.galerie-photo-card img');
+      if(!img)return;
+      var index=sourceImgs.findIndex(function(source){return source.getAttribute('src')===img.getAttribute('src');});
+      if(index>-1)openZoom(index);
     });
   }
 
@@ -414,27 +433,39 @@
     document.body.style.overflow='';
     openBtn.focus();
   }
-  function openZoom(src,alt){
-    zoomImg.src=src;
-    zoomImg.alt=alt||'';
+  function openZoom(index,focusClose){
+    if(!sourceImgs.length)return;
+    currentZoomIndex=(index+sourceImgs.length)%sourceImgs.length;
+    zoomImg.src=sourceImgs[currentZoomIndex].src;
+    zoomImg.alt=sourceImgs[currentZoomIndex].alt||'';
     zoom.classList.add('open');
-    zoomClose.focus();
+    document.body.style.overflow='hidden';
+    if(focusClose!==false)zoomClose.focus();
+  }
+  function showZoomOffset(offset){
+    if(!zoom.classList.contains('open'))return;
+    openZoom(currentZoomIndex+offset,false);
   }
   function closeZoom(){
     zoom.classList.remove('open');
     zoomImg.src='';
+    if(!lightbox.classList.contains('open'))document.body.style.overflow='';
   }
 
   openBtn.addEventListener('click',openLightbox);
   closeBtn.addEventListener('click',closeLightbox);
   lightbox.addEventListener('click',function(e){if(e.target===lightbox)closeLightbox();});
   zoomClose.addEventListener('click',closeZoom);
+  if(zoomPrev)zoomPrev.addEventListener('click',function(e){e.stopPropagation();showZoomOffset(-1);});
+  if(zoomNext)zoomNext.addEventListener('click',function(e){e.stopPropagation();showZoomOffset(1);});
   zoom.addEventListener('click',function(e){if(e.target===zoom)closeZoom();});
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){
       if(zoom.classList.contains('open'))closeZoom();
       else if(lightbox.classList.contains('open'))closeLightbox();
     }
+    if(e.key==='ArrowLeft')showZoomOffset(-1);
+    if(e.key==='ArrowRight')showZoomOffset(1);
   });
 
 })();
