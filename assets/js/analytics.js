@@ -1,21 +1,9 @@
 (function(){
-  var GA_ID='G-NXYL9X0H7C';
-
+  // Envoi des évènements vers Google Tag Manager (dataLayer).
+  // GTM (conteneur GTM-NTXNSDKW) est la source unique de tracking : il charge
+  // GA4 et relaie les évènements. On ne charge plus gtag.js/GA4 en direct pour
+  // éviter le double chargement des scripts Google.
   window.dataLayer=window.dataLayer||[];
-  window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
-
-  if(!document.querySelector('script[data-acdj-ga4]')){
-    var script=document.createElement('script');
-    script.async=true;
-    script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GA_ID);
-    script.setAttribute('data-acdj-ga4','true');
-    document.head.appendChild(script);
-  }
-
-  window.gtag('js',new Date());
-  window.gtag('config',GA_ID,{
-    send_page_view:true
-  });
 
   function pagePath(){
     return window.location.pathname||'/';
@@ -48,10 +36,11 @@
   }
 
   window.acdjTrack=function(eventName,params){
-    if(!eventName||!window.gtag)return;
-    window.gtag('event',eventName,cleanParams(Object.assign({
+    if(!eventName)return;
+    window.dataLayer.push(Object.assign({
+      event:eventName,
       page_path:pagePath()
-    },params||{})));
+    },cleanParams(params||{})));
   };
 
   window.acdjTrackLead=function(form,params){

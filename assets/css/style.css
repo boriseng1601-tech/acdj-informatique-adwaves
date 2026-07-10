@@ -1,6 +1,14 @@
 
+@font-face{
+  font-family:'Inter';
+  font-style:normal;
+  font-weight:100 900;
+  font-display:swap;
+  src:url('/assets/fonts/inter-latin-variable.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
 :root{
-  --ink:#111318;--gray:#6b7280;--muted:#6b7280;--prune:#e0365f;--prune-hover:#c4294d;--rose:#f4a3b8;
+  --ink:#111318;--gray:#5c6370;--muted:#5c6370;--prune:#c4294d;--prune-hover:#a01f3c;--rose:#f4a3b8;
   --border:#e8e8ec;--icon-bg:#fce7ed;--zone-bg:#f5f5f7;--bg2:#f5f5f7;--white:#ffffff;
   --navy:#1a1a1a;--navy-text:rgba(255,255,255,0.72);
   --display:"Inter",sans-serif;--body:"Inter",sans-serif;--hand:"Inter",sans-serif;
@@ -232,7 +240,7 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 /* FOOTER */
 footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;font-size:.92rem;margin-top:0}
 .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-.ft-grid h4{font-family:var(--display);color:#fff;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;font-weight:700}
+.ft-grid h3,.ft-grid h4{font-family:var(--display);color:#fff;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;font-weight:700}
 .ft-grid a:hover{color:var(--rose)}.ft-grid li{list-style:none;margin-bottom:9px}
 .ft-brand .brand{color:#fff;margin-bottom:14px}.ft-brand .brand .mark{background:var(--rose);color:var(--prune-hover)}
 .ft-brand p{max-width:30ch;line-height:1.55}
@@ -525,8 +533,8 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
 
 /* Sections sombres */
 footer{background:#1a1a1a;border-top:none}
-footer .ft-brand p,footer h4,footer ul li a,footer .ft-bottom,footer .ft-bottom a,footer .ft-bottom span{color:rgba(255,255,255,0.65)}
-footer h4{color:#ffffff;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+footer .ft-brand p,footer h3,footer h4,footer ul li a,footer .ft-bottom,footer .ft-bottom a,footer .ft-bottom span{color:rgba(255,255,255,0.72)}
+footer h3,footer h4{color:#ffffff;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 footer ul li a:hover{color:var(--rose)}
 footer .ft-brand .brand{color:#ffffff}
 footer .ft-brand .mark{background:var(--prune)}
