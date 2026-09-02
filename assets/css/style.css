@@ -58,7 +58,8 @@ header .brand img{height:44px;width:auto;display:block}
 .mobile-nav .btn-primary{margin-top:16px;width:100%;justify-content:center}
 .mobile-call{display:none !important}
 .nav{display:flex;align-items:center;gap:30px;min-width:0;flex:0 0 auto}
-.nav .links{display:flex;gap:26px;font-weight:500;font-size:.95rem}
+.nav .links{display:flex;align-items:center;gap:26px;font-weight:500;font-size:.95rem}
+.nav .links>a{display:inline-flex;align-items:center;height:100%}
 .nav .links a:hover{color:var(--prune)}
 .nav .links a.active{color:var(--prune);font-weight:600}
 .tel-top{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:1.12rem;color:var(--prune);white-space:nowrap}
@@ -847,4 +848,199 @@ html,body{max-width:100%;overflow-x:clip}
   .not-found-screen{padding:28px 22px 32px}
   .not-found-code{font-size:4.6rem}
   .not-found-note{position:relative;right:auto;bottom:auto;width:100%}
+}
+
+/* ===== NAVIGATION PRESTATIONS À DEUX NIVEAUX ===== */
+.site-services-menu,.site-repair-menu{position:relative}
+.site-services-trigger,.site-repair-trigger,.mobile-services-trigger,.mobile-repair-trigger{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer}
+.site-services-trigger{display:inline-flex;align-items:center;gap:5px;padding:10px 0;font-weight:inherit;white-space:nowrap}
+.site-services-trigger:hover,.site-services-trigger:focus-visible,.site-services-trigger[aria-current="page"]{color:var(--prune)}
+.site-services-chevron{display:inline-block;width:8px;height:8px;margin-left:2px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;font-size:0;line-height:0;transform:translateY(-2px) rotate(45deg);transform-origin:center;transition:transform .16s ease}
+.site-services-menu[data-open="true"] .site-services-chevron{transform:translateY(2px) rotate(225deg)}
+.site-services-panel,.site-repair-panel{position:absolute;z-index:1000;display:grid;padding:9px;border:1px solid var(--border);border-radius:12px;background:#fff;box-shadow:0 18px 50px rgba(17,19,24,.14);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .16s ease,transform .16s ease,visibility .16s ease}
+.site-services-panel{top:calc(100% + 9px);left:-18px;width:310px;transform:translateY(-5px)}
+.site-services-menu[data-open="true"]>.site-services-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+.site-services-panel a,.site-repair-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:10px 12px;border-radius:8px;color:var(--ink);font-size:14px;line-height:1.4;text-align:left}
+.site-repair-trigger>span[aria-hidden="true"]{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;flex:0 0 20px;font-size:20px;line-height:1;transform-origin:center;transition:transform .16s ease}
+.site-repair-menu[data-open="true"]>.site-repair-trigger>span[aria-hidden="true"]{transform:rotate(90deg)}
+.site-services-panel a:hover,.site-services-panel a:focus-visible,.site-repair-trigger:hover,.site-repair-trigger:focus-visible,.site-repair-menu[data-open="true"]>.site-repair-trigger{background:var(--zone-bg);color:var(--prune);outline:none}
+.site-repair-panel{top:-9px;left:calc(100% + 8px);width:286px;transform:translateX(-5px)}
+.site-repair-menu[data-open="true"]>.site-repair-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0)}
+.site-services-all{margin-top:5px;border-top:1px solid var(--border);border-radius:0 0 8px 8px!important;color:var(--prune)!important;font-weight:800}
+.mobile-services-trigger,.mobile-repair-trigger{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 0;font-weight:750;text-align:left}
+.mobile-services-trigger{font-size:1.1rem}
+.mobile-services-panel,.mobile-repair-panel{display:grid;padding-left:14px;border-left:2px solid rgba(196,41,77,.18)}
+.mobile-services-panel[hidden],.mobile-repair-panel[hidden]{display:none}
+.mobile-services-panel .mnav-link,.mobile-repair-panel .mnav-link{font-size:.92rem}
+.mobile-repair-panel{margin-left:9px;border-left-color:var(--rose)}
+.mobile-repair-trigger{font-size:.96rem}
+@media(max-width:1150px) and (min-width:901px){.site-repair-panel{right:calc(100% + 8px);left:auto;transform:translateX(5px)}.site-repair-menu[data-open="true"]>.site-repair-panel{transform:translateX(0)}}
+@media(max-width:900px){
+  .nav .links,.nav>.btn-ghost{display:none}
+  .ham{display:block}
+}
+@media(prefers-reduced-motion:reduce){.site-services-chevron,.site-repair-trigger>span[aria-hidden="true"],.site-services-panel,.site-repair-panel{transition:none}}
+
+/* ===== LIENS CONTEXTUELS DES NOUVELLES PRESTATIONS ===== */
+.epinal-service-link,.business-service-link{margin:18px 0;padding:15px 17px;border-left:4px solid var(--prune);border-radius:0 10px 10px 0;background:var(--zone-bg);color:var(--gray)}
+.epinal-service-link a,.business-service-link a{color:var(--prune);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.home .presta-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.service-city-links{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px}
+.service-city-links a{color:var(--prune);font-family:var(--display);font-size:.9rem;font-weight:700;text-decoration:underline;text-decoration-color:var(--rose);text-underline-offset:4px}
+.service-city-links a:hover{color:var(--prune-hover);text-decoration-color:var(--prune)}
+.service-city-item:hover{background:var(--zone-bg)}
+
+/* ===== DÉPLIANT VILLE : CARTE RÉPARATION ORDINATEUR ===== */
+.repair-disclosure-card{position:relative;overflow:visible}
+.repair-disclosure-card:hover,.repair-disclosure-card:focus-within{z-index:30}
+.presta-card-repair{padding:0}
+.presta-card-main{display:flex;flex:1;flex-direction:column;min-height:100%;padding:30px 28px}
+.repair-disclosure-card .repair-card-arrow{transform-origin:center;transition:transform 150ms ease 150ms,background-color 150ms ease,border-color 150ms ease,color 150ms ease}
+.presta-card-repair:hover .presta-link .arr,.presta-card-repair:focus-within .presta-link .arr{margin-left:0}
+.repair-disclosure-card:hover .repair-card-arrow,.repair-disclosure-card:focus-within .repair-card-arrow{transform:rotate(90deg);transition:transform 200ms ease,background-color 150ms ease,border-color 150ms ease,color 150ms ease}
+.repair-city-panel{position:absolute;top:calc(100% - 12px);right:18px;left:18px;z-index:3;display:grid;grid-template-rows:0fr;overflow:hidden;border:1px solid var(--border);border-radius:var(--r);background:var(--white);box-shadow:0 16px 36px rgba(17,19,24,.14);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:grid-template-rows 150ms ease 150ms,opacity 150ms ease 150ms,transform 150ms ease 150ms,visibility 0s linear 300ms}
+.repair-city-panel-inner{display:block;min-height:0;overflow:hidden;padding:16px 16px 12px}
+.repair-city-panel-inner::before{content:"";display:block;width:100%;height:1px;margin-bottom:12px;background:var(--border)}
+.repair-city-panel-label{display:block;margin-bottom:8px;color:var(--gray);font-family:var(--display);font-size:.7rem;font-weight:800;line-height:1.3;letter-spacing:.09em;text-transform:uppercase}
+.repair-card-city-link{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;padding:10px 12px;border-radius:var(--r);background:transparent;color:var(--prune);font-family:var(--display);font-size:.9rem;font-weight:600;line-height:1.35;opacity:0;transform:translateY(-5px);transition:opacity 150ms ease 150ms,transform 150ms ease 150ms,background-color 150ms ease,color 150ms ease}
+.repair-card-city-link+.repair-card-city-link{margin-top:8px}
+.repair-card-city-link:hover,.repair-card-city-link:focus-visible{background:var(--icon-bg);color:var(--prune-hover);outline:none}
+.repair-city-link-arrow{flex:0 0 auto;transition:transform 150ms ease}
+.repair-card-city-link:hover .repair-city-link-arrow,.repair-card-city-link:focus-visible .repair-city-link-arrow{transform:translateX(3px)}
+.repair-disclosure-card:hover .repair-city-panel,.repair-disclosure-card:focus-within .repair-city-panel{grid-template-rows:1fr;opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition:grid-template-rows 200ms ease-out,opacity 200ms ease-out,transform 200ms ease-out,visibility 0s linear}
+.repair-disclosure-card:hover .repair-card-city-link,.repair-disclosure-card:focus-within .repair-card-city-link{opacity:1;transform:translateY(0);transition:opacity 200ms ease-out,transform 200ms ease-out,background-color 150ms ease,color 150ms ease}
+.repair-disclosure-card:hover .repair-card-city-link:nth-of-type(1),.repair-disclosure-card:focus-within .repair-card-city-link:nth-of-type(1){transition-delay:40ms,40ms,0ms,0ms}
+.repair-disclosure-card:hover .repair-card-city-link:nth-of-type(2),.repair-disclosure-card:focus-within .repair-card-city-link:nth-of-type(2){transition-delay:80ms,80ms,0ms,0ms}
+.service-repair-item{display:block;padding:0}
+.service-repair-main{display:grid;grid-template-columns:1fr auto;gap:8px 30px;align-items:center;padding:26px 4px}
+.service-repair-city-panel{right:18px;left:18px;width:auto}
+
+@media(max-width:920px){
+  .repair-disclosure-card{overflow:hidden}
+  .repair-disclosure-card .repair-card-arrow,.repair-disclosure-card:hover .repair-card-arrow,.repair-disclosure-card:focus-within .repair-card-arrow{transform:none;transition:none}
+  .presta-card-main{flex:0 0 auto;min-height:0;padding-bottom:15px}
+  .repair-city-panel{position:static;display:grid;flex:0 0 auto;grid-template-rows:1fr;margin:0 28px 25px;border:1px solid var(--border);border-radius:var(--r);background:var(--zone-bg);box-shadow:none;opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:none}
+  .repair-card-city-link{opacity:1;transform:none;transition:none}
+  .repair-city-link-arrow{transition:none}
+  .service-repair-main{grid-template-columns:1fr;gap:14px;padding-bottom:14px}
+  .service-repair-main .rhs{justify-self:start;width:100%;justify-content:space-between}
+  .service-repair-city-panel{width:auto;margin:0 4px 24px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .repair-card-arrow,.repair-city-panel,.repair-card-city-link,.repair-city-link-arrow{transition:none!important}
+}
+
+/* ===== DEUX NOUVELLES PAGES SERVICES ===== */
+.static-service-page .page-head .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.static-service-page .btn svg{width:18px;height:18px;flex:0 0 auto}
+.static-service-page .hero-actions .btn[href^="tel"]{white-space:nowrap}
+.static-service-page .content-column{min-width:0}
+.static-service-page .content-section{margin:0 0 40px;padding:0 0 40px;border-bottom:1px solid var(--border)}
+.static-service-page .content-section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:0}
+.static-service-page .content-section h2{margin:0 0 14px;font-size:1.5rem;line-height:1.25;letter-spacing:-.025em}
+.static-service-page .content-section h3{margin:24px 0 8px;font-size:1.08rem;line-height:1.35;letter-spacing:-.015em}
+.static-service-page .content-section p{margin:0 0 18px}
+.static-service-page .content-section p:last-child{margin-bottom:0}
+.static-service-page .list-intro{display:block;margin:0 0 12px;color:#32353b;font-size:.94rem}
+.static-service-page .content-section ul{margin:18px 0 21px;padding:0;list-style:none}
+.static-service-page .content-section li{position:relative;margin:10px 0;padding-left:28px}
+.static-service-page .content-section li::before{content:"";position:absolute;left:2px;top:.72em;width:8px;height:8px;border-radius:50%;background:var(--prune)}
+.static-service-page .section-label{margin-bottom:8px!important;color:var(--prune);font-size:12px;line-height:1.4;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+.static-service-page .text-link{color:var(--prune);font-weight:700;text-decoration:underline;text-decoration-color:var(--rose);text-underline-offset:4px}
+.static-service-page .text-link:hover{text-decoration-color:var(--prune)}
+.static-service-page .faq-item p{margin:0;padding:16px 22px;color:#32353b;font-size:.94rem;line-height:1.65}
+.static-service-page .mid-page-cta{margin:-5px 0 34px}
+.static-service-page .final-service-cta{padding:0 0 30px}
+.static-service-page .final-service-cta .cta-band{margin-top:0}
+
+/* Frise d'audit : isolation des styles de liste et animation au défilement */
+.static-service-page .content-section .audit-timeline{--tl-fill:0%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:relative;margin:25px 0 22px;padding:0;list-style:none}
+.static-service-page .content-section .audit-timeline::before,.static-service-page .content-section .audit-timeline::after{content:"";position:absolute;top:15px;left:12.5%;width:75%;height:2px;border-radius:999px;background:var(--border);z-index:0}
+.static-service-page .content-section .audit-timeline::after{width:var(--tl-fill);max-width:75%;background:var(--prune);transition:width 640ms ease-out}
+.static-service-page .content-section .audit-timeline .tl-item{display:flex;flex-direction:column;align-items:center;min-width:0;margin:0;padding:0 8px;position:relative;z-index:1;text-align:center;opacity:1;transform:none}
+.static-service-page .content-section .audit-timeline .tl-item::before{display:none}
+.static-service-page .content-section .audit-timeline.audit-timeline-ready .tl-item{opacity:.34;transform:translateY(8px);transition:opacity 220ms ease-out,transform 220ms ease-out}
+.static-service-page .content-section .audit-timeline .tl-item.tl-active{opacity:1;transform:translateY(0)}
+.static-service-page .content-section .audit-timeline .tl-item:nth-child(2){transition-delay:140ms}
+.static-service-page .content-section .audit-timeline .tl-item:nth-child(3){transition-delay:280ms}
+.static-service-page .content-section .audit-timeline .tl-item:nth-child(4){transition-delay:420ms}
+.static-service-page .content-section .audit-timeline .tl-num{flex:0 0 auto;margin:0}
+.static-service-page .content-section .audit-timeline .tl-text{margin-top:10px;font-size:.82rem;line-height:1.45}
+
+/* Étapes horizontales : dépannage sur site */
+.intervention-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:25px 0 17px!important;padding:0!important;list-style:none}
+.static-service-page .content-section .intervention-steps li{display:flex;flex-direction:column;gap:12px;min-height:160px;margin:0;padding:18px;border:1px solid var(--border);border-radius:var(--r);background:var(--zone-bg);color:#32353b;font-size:.82rem;line-height:1.5;font-weight:720}
+.static-service-page .content-section .intervention-steps li::before{display:none}
+.step-number{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--prune);color:#fff;font-size:.82rem;font-weight:850}
+
+/* Gestion du parc : grille deux colonnes */
+.park-service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0 21px}
+.park-service-card{display:flex;align-items:center;gap:14px;min-height:94px;padding:17px 18px;border:1px solid var(--border);border-radius:var(--r);background:#fff;box-shadow:0 7px 22px rgba(17,19,24,.035)}
+.park-service-card:last-child{grid-column:1/-1}
+.park-service-card>svg{flex:0 0 auto;width:43px;height:43px;padding:10px;border-radius:11px;background:var(--icon-bg);color:var(--prune);stroke-width:1.9}
+.park-service-card strong,.park-service-card .text-link{color:var(--ink);font-size:.9rem;line-height:1.4;font-weight:800}
+.maintenance-mid-cta{margin:-8px 0 42px!important;padding-bottom:42px;border-bottom:1px solid var(--border)}
+
+/* Schéma réseau SVG statique */
+.network-diagram{overflow:hidden;margin:25px 0 21px;padding:18px;border:1px solid var(--border);border-radius:16px;background:radial-gradient(circle at 50% 50%,rgba(196,41,77,.07),transparent 35%),var(--zone-bg)}
+.network-diagram svg{display:block;width:100%;height:auto}
+.network-diagram-mobile{display:none!important}
+.network-link{fill:none;stroke:var(--prune);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:8 10;opacity:.48}
+.network-node{opacity:1}
+.network-node rect{fill:#fff;stroke:var(--border);stroke-width:1.5;filter:drop-shadow(0 7px 12px rgba(17,19,24,.06))}
+.network-node path{fill:none;stroke:var(--prune);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.network-node text{fill:var(--ink);font-family:inherit;font-size:13px;font-weight:800}
+.network-hub rect{fill:var(--prune);stroke:var(--prune)}
+.network-hub path{stroke:#fff}
+.network-hub text{fill:#fff}
+
+/* Badges cochés : traitement à distance */
+.compact-service-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-block:18px 0!important}
+.static-service-page .compact-service-list li{margin:0;padding:13px 13px 13px 34px;border:1px solid var(--border);border-radius:10px;background:var(--zone-bg);font-size:.82rem;line-height:1.45;font-weight:700}
+.static-service-page .compact-service-list li::before{left:14px;top:1.4em;width:7px;height:7px;background:var(--rose)}
+.distance-card{margin-top:20px;padding:20px;border:1px solid #e2b2be;border-radius:var(--r);background:#fff8fa}
+.static-service-page .content-section .distance-card h3{margin:0 0 14px;color:var(--prune);font-size:1rem}
+.distance-badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.distance-badges span{padding:10px 12px;border:1px solid var(--border);border-radius:999px;background:#fff;color:#343841;font-size:.82rem;line-height:1.35;font-weight:720}
+.distance-badges span::before{content:"✓";margin-right:8px;color:var(--prune);font-weight:900}
+.static-service-page .content-section .distance-link{margin:14px 0 0;color:var(--gray);font-size:.82rem;line-height:1.5}
+
+/* Hero illustré de la page Épinal */
+.service-page-epinal .page-head{padding-block:34px 54px}
+.service-page-epinal .service-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);align-items:center;gap:48px}
+.service-page-epinal .service-hero-visual{overflow:hidden;border:1px solid var(--border);border-radius:var(--r);background:var(--zone-bg);aspect-ratio:3/2}
+.service-page-epinal .service-hero-visual img{width:100%;height:100%;object-fit:cover}
+
+@media(max-width:920px){
+  body.static-service-page{padding-bottom:84px}
+  .service-page-epinal .service-hero-grid{grid-template-columns:1fr;gap:30px}
+  .service-page-epinal .service-hero-visual{max-width:620px}
+}
+@media(max-width:680px){
+  .home .presta-list{grid-template-columns:1fr}
+  .intervention-steps{grid-template-columns:1fr}
+  .static-service-page .content-section .intervention-steps li{flex-direction:row;align-items:flex-start;min-height:0}
+  .step-number{flex:0 0 auto}
+  .park-service-grid{grid-template-columns:1fr}
+  .park-service-card:last-child{grid-column:auto}
+  .network-diagram{padding:12px}
+  .network-diagram-desktop{display:none!important}
+  .network-diagram-mobile{display:block!important}
+  .compact-service-list{grid-template-columns:1fr}
+  .distance-badges{grid-template-columns:1fr}
+  .static-service-page .content-section .audit-timeline{grid-template-columns:1fr;margin:20px 0 22px}
+  .static-service-page .content-section .audit-timeline::before,.static-service-page .content-section .audit-timeline::after{display:none}
+  .static-service-page .content-section .audit-timeline .tl-item{display:grid;grid-template-columns:32px minmax(0,1fr);gap:14px;align-items:center;margin:0;padding:12px 0;border-bottom:1px dashed var(--border);text-align:left}
+  .static-service-page .content-section .audit-timeline .tl-item:last-child{padding-bottom:12px;border-bottom:0}
+  .static-service-page .content-section .audit-timeline.audit-timeline-ready .tl-item{transform:translateX(-8px)}
+  .static-service-page .content-section .audit-timeline .tl-item.tl-active{transform:translateX(0)}
+  .static-service-page .content-section .audit-timeline .tl-text{margin:0}
+  .static-service-page .page-head .hero-actions{display:grid}
+  .static-service-page .page-head .hero-actions .btn{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .static-service-page .content-section .audit-timeline::after{width:75%;transition:none}
+  .static-service-page .content-section .audit-timeline.audit-timeline-ready .tl-item{opacity:1;transform:none;transition:none}
+  .static-service-page .content-section .audit-timeline .tl-num{background:var(--prune)!important;color:#fff!important;border-color:var(--prune)!important}
 }

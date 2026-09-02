@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.acdj-informatique.com/assets/images/og-preview.webp">
 <link rel="preload" href="/assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=20260710-custom-form-errors">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260902-repair-card-v2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,7 +53,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/" class="brand"><img src="/assets/images/acdj-logo-88.webp" alt="" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</a>
     <nav class="nav">
       <div class="links">
-        <a href="/services/" class="active">Prestations</a>
+        <div class="site-services-menu" data-site-services-menu data-open="false">
+          <button type="button" class="site-services-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="site-services-panel" aria-current="page">Prestations <span class="site-services-chevron" aria-hidden="true">⌄</span></button>
+          <div id="site-services-panel" class="site-services-panel" aria-label="Prestations">
+            <a href="/services/depannage-informatique/">Dépannage</a>
+            <div class="site-repair-menu" data-site-repair-menu data-open="false">
+              <button type="button" class="site-repair-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="site-repair-panel">Réparation ordinateur <span aria-hidden="true">›</span></button>
+              <div id="site-repair-panel" class="site-repair-panel" aria-label="Réparation ordinateur par ville">
+                <a href="/services/reparation-ordinateur/" title="Réparation ordinateur à Vittel et Contrexéville">À Vittel et Contrexéville</a>
+                <a href="/services/reparation-ordinateur-epinal/" title="Réparation ordinateur à Épinal">À Épinal</a>
+              </div>
+            </div>
+            <a href="/services/assistance-a-domicile/">Assistance</a>
+            <a href="/services/maintenance-informatique-entreprise/">Maintenance entreprise</a>
+            <a class="site-services-all" href="/services/">Tout voir</a>
+          </div>
+        </div>
         <a href="/a-propos/">À propos</a>
         <a href="/zones/">Secteur</a>
         <a href="/contact/" data-gtm-event="click_contact" data-location="header">Contact</a>
@@ -65,7 +80,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 <nav id="mobile-menu" class="mobile-nav" aria-hidden="true" inert>
-  <a href="/services/" class="mnav-link">Prestations</a>
+  <div class="mobile-services-menu" data-mobile-services>
+    <button type="button" class="mobile-services-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-panel">Prestations <span aria-hidden="true">+</span></button>
+    <div id="mobile-services-panel" class="mobile-services-panel" hidden>
+      <a href="/services/depannage-informatique/" class="mnav-link">Dépannage</a>
+      <div class="mobile-repair-menu" data-mobile-repair>
+        <button type="button" class="mobile-repair-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-repair-panel">Réparation ordinateur <span aria-hidden="true">+</span></button>
+        <div id="mobile-repair-panel" class="mobile-repair-panel" hidden>
+          <a href="/services/reparation-ordinateur/" class="mnav-link" title="Réparation ordinateur à Vittel et Contrexéville">À Vittel et Contrexéville</a>
+          <a href="/services/reparation-ordinateur-epinal/" class="mnav-link" title="Réparation ordinateur à Épinal">À Épinal</a>
+        </div>
+      </div>
+      <a href="/services/assistance-a-domicile/" class="mnav-link">Assistance</a>
+      <a href="/services/maintenance-informatique-entreprise/" class="mnav-link">Maintenance entreprise</a>
+      <a href="/services/" class="mnav-link">Tout voir</a>
+    </div>
+  </div>
   <a href="/a-propos/" class="mnav-link">À propos</a>
   <a href="/zones/" class="mnav-link">Secteur</a>
   <a href="/contact/" class="mnav-link" data-gtm-event="click_contact" data-location="menu mobile">Contact</a>
@@ -87,10 +117,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="lhs"><h3>Dépannage informatique <span class="badge">Le plus demandé</span></h3><p>Pannes, lenteurs, virus, Wi-Fi ou logiciels : un diagnostic clair pour remettre vos appareils en état.</p></div>
           <div class="rhs"><div class="price">dès 25 €<small>à domicile / à distance</small></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
         </a>
-        <a href="/services/reparation-ordinateur/" class="item">
-          <div class="lhs"><h3>Réparation ordinateur</h3><p>PC fixe ou portable : recherche de panne, remise en état de Windows, sauvegarde et conseils.</p></div>
-          <div class="rhs"><div class="price">sur diagnostic<small>fixe ou portable</small></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </a>
+        <article class="item service-city-item service-repair-item repair-disclosure-card">
+          <a class="service-repair-main" href="/services/reparation-ordinateur/">
+            <div class="lhs"><h3>Réparation ordinateur</h3><p>PC fixe ou portable : recherche de panne, remise en état de Windows, sauvegarde et conseils.</p></div>
+            <div class="rhs"><div class="price">sur diagnostic<small>fixe ou portable</small></div><span class="go repair-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          </a>
+          <div class="repair-city-panel service-repair-city-panel" aria-label="Réparation ordinateur par ville">
+            <div class="repair-city-panel-inner">
+              <span class="repair-city-panel-label">Choisir votre secteur</span>
+              <a class="repair-card-city-link" href="/services/reparation-ordinateur/"><span>À Vittel et Contrexéville</span><span class="repair-city-link-arrow" aria-hidden="true">&rarr;</span></a>
+              <a class="repair-card-city-link" href="/services/reparation-ordinateur-epinal/"><span>À Épinal</span><span class="repair-city-link-arrow" aria-hidden="true">&rarr;</span></a>
+            </div>
+          </div>
+        </article>
         <a href="/services/reparation-smartphone/" class="item">
           <div class="lhs"><h3>Réparation smartphone</h3><p>Écran, batterie, connectique ou problème logiciel : diagnostic du smartphone selon le modèle.</p></div>
           <div class="rhs"><div class="price">dès 50 €<small>hors pièces</small></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
@@ -121,8 +160,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
       </div>
       <div class="grp">
-        <div class="grp-head"><h2>Pour les professionnels</h2><span class="count">4 prestations</span></div>
-        <p style="color:var(--gray);font-size:.95rem;margin:12px 0 4px">Artisans, commerçants et indépendants des Vosges : site internet, caisse, images aériennes, en direct avec la personne qui fait le travail.</p>
+        <div class="grp-head"><h2>Pour les professionnels</h2><span class="count">5 prestations</span></div>
+        <p style="color:var(--gray);font-size:.95rem;margin:12px 0 4px">Artisans, commerçants et indépendants des Vosges : maintenance informatique, site internet, caisse, images aériennes, en direct avec la personne qui fait le travail.</p>
+        <a href="/services/maintenance-informatique-entreprise/" class="item">
+          <div class="lhs"><h3>Maintenance informatique entreprise</h3><p>Maintenance, dépannage sur site, réseau, sauvegardes et suivi du parc informatique pour les TPE et PME.</p></div>
+          <div class="rhs"><div class="price">sur devis</div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        </a>
         <a href="/services/creation-site-web/" class="item">
           <div class="lhs"><h3>Création de site web</h3><p>Site vitrine clair et responsive pour les entreprises locales qui veulent être trouvées et contactées.</p></div>
           <div class="rhs"><div class="price">sur devis</div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
@@ -173,8 +216,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>Prestations</h3>
         <ul>
           <li><a href="/services/depannage-informatique/">Dépannage</a></li>
-          <li><a href="/services/reparation-ordinateur/">Réparation</a></li>
+          <li><a href="/services/reparation-ordinateur/">Réparation ordinateur Vittel et Contrexéville</a></li>
+          <li><a href="/services/reparation-ordinateur-epinal/">Réparation ordinateur Épinal</a></li>
           <li><a href="/services/assistance-a-domicile/">Assistance</a></li>
+          <li><a href="/services/maintenance-informatique-entreprise/">Maintenance entreprise</a></li>
           <li><a href="/services/">Tout voir</a></li>
         </ul>
       </div>
@@ -237,6 +282,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   },{passive:true});
 })();
 </script>
-<script src="/assets/js/site-enhancements.js?v=20260710-custom-form-errors" defer></script>
+<script src="/assets/js/site-enhancements.js?v=20260902-repair-card-v1" defer></script>
 </body>
 </html>

@@ -133,6 +133,13 @@
 })();
 
 (function(){
+  document.addEventListener('click',function(event){
+    var cityLink=event.target.closest&&event.target.closest('.repair-card-city-link');
+    if(cityLink)event.stopPropagation();
+  });
+})();
+
+(function(){
   var phone='06 52 24 66 47';
   function track(eventName,params){
     if(window.acdjTrack)window.acdjTrack(eventName,params);
@@ -365,4 +372,141 @@
   },{threshold:.25,rootMargin:'0px 0px -12% 0px'});
 
   groups.forEach(function(group){observer.observe(group);});
+})();
+
+(function(){
+  var timelines=Array.prototype.slice.call(document.querySelectorAll('.audit-timeline'));
+  if(!timelines.length)return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function reveal(timeline){
+    var items=Array.prototype.slice.call(timeline.querySelectorAll('.tl-item'));
+    items.forEach(function(item){item.classList.add('tl-active');});
+    timeline.style.setProperty('--tl-fill','75%');
+  }
+
+  timelines.forEach(function(timeline){timeline.classList.add('audit-timeline-ready');});
+
+  if(reduce||!('IntersectionObserver' in window)){
+    timelines.forEach(reveal);
+    return;
+  }
+
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting)return;
+      reveal(entry.target);
+      observer.unobserve(entry.target);
+    });
+  },{threshold:.35,rootMargin:'0px 0px -8% 0px'});
+
+  timelines.forEach(function(timeline){observer.observe(timeline);});
+})();
+
+(function(){
+  var services=document.querySelector('[data-site-services-menu]');
+  var servicesButton=services&&services.querySelector(':scope > .site-services-trigger');
+  var repair=services&&services.querySelector('[data-site-repair-menu]');
+  var repairButton=repair&&repair.querySelector(':scope > .site-repair-trigger');
+  var mobileServices=document.querySelector('[data-mobile-services]');
+  var mobileServicesButton=mobileServices&&mobileServices.querySelector(':scope > .mobile-services-trigger');
+  var mobileServicesPanel=mobileServices&&mobileServices.querySelector(':scope > .mobile-services-panel');
+  var mobileRepair=mobileServices&&mobileServices.querySelector('[data-mobile-repair]');
+  var mobileRepairButton=mobileRepair&&mobileRepair.querySelector(':scope > .mobile-repair-trigger');
+  var mobileRepairPanel=mobileRepair&&mobileRepair.querySelector(':scope > .mobile-repair-panel');
+  var ham=document.querySelector('.ham');
+  var mobileMenu=document.getElementById('mobile-menu');
+  var servicesCloseTimer=null;
+  var repairCloseTimer=null;
+
+  function setServices(open){
+    if(!services||!servicesButton)return;
+    services.dataset.open=open?'true':'false';
+    servicesButton.setAttribute('aria-expanded',open?'true':'false');
+    if(!open)setRepair(false);
+  }
+  function setRepair(open){
+    if(!repair||!repairButton)return;
+    repair.dataset.open=open?'true':'false';
+    repairButton.setAttribute('aria-expanded',open?'true':'false');
+  }
+  function setMobileServices(open){
+    if(!mobileServicesButton||!mobileServicesPanel)return;
+    mobileServicesButton.setAttribute('aria-expanded',open?'true':'false');
+    mobileServicesPanel.hidden=!open;
+    if(!open)setMobileRepair(false);
+  }
+  function setMobileRepair(open){
+    if(!mobileRepairButton||!mobileRepairPanel)return;
+    mobileRepairButton.setAttribute('aria-expanded',open?'true':'false');
+    mobileRepairPanel.hidden=!open;
+  }
+  function closeMobileMenu(){
+    if(!ham||!mobileMenu)return;
+    mobileMenu.classList.remove('open');
+    ham.setAttribute('aria-expanded','false');
+    mobileMenu.setAttribute('aria-hidden','true');
+    mobileMenu.setAttribute('inert','');
+    setMobileServices(false);
+  }
+
+  if(services&&servicesButton){
+    services.addEventListener('mouseenter',function(){
+      if(servicesCloseTimer)window.clearTimeout(servicesCloseTimer);
+      setServices(true);
+    });
+    services.addEventListener('mouseleave',function(){
+      if(servicesCloseTimer)window.clearTimeout(servicesCloseTimer);
+      servicesCloseTimer=window.setTimeout(function(){setServices(false);},180);
+    });
+    services.addEventListener('focusin',function(){setServices(true);});
+    services.addEventListener('focusout',function(event){
+      if(!services.contains(event.relatedTarget))setServices(false);
+    });
+    servicesButton.addEventListener('click',function(){
+      setServices(true);
+    });
+  }
+  if(repair&&repairButton){
+    repair.addEventListener('mouseenter',function(){
+      if(repairCloseTimer)window.clearTimeout(repairCloseTimer);
+      setRepair(true);
+    });
+    repair.addEventListener('mouseleave',function(){
+      if(repairCloseTimer)window.clearTimeout(repairCloseTimer);
+      repairCloseTimer=window.setTimeout(function(){setRepair(false);},180);
+    });
+    repair.addEventListener('focusin',function(){setRepair(true);});
+    repair.addEventListener('focusout',function(event){
+      if(!repair.contains(event.relatedTarget))setRepair(false);
+    });
+    repairButton.addEventListener('click',function(){
+      setRepair(true);
+    });
+  }
+  if(mobileServicesButton){
+    mobileServicesButton.addEventListener('click',function(){
+      setMobileServices(mobileServicesButton.getAttribute('aria-expanded')!=='true');
+    });
+  }
+  if(mobileRepairButton){
+    mobileRepairButton.addEventListener('click',function(){
+      setMobileRepair(mobileRepairButton.getAttribute('aria-expanded')!=='true');
+    });
+  }
+  document.addEventListener('click',function(event){
+    if(services&&services.dataset.open==='true'&&!services.contains(event.target))setServices(false);
+  });
+  document.addEventListener('keydown',function(event){
+    if(event.key!=='Escape')return;
+    if(mobileMenu&&mobileMenu.classList.contains('open')){
+      closeMobileMenu();
+      if(ham)ham.focus();
+      return;
+    }
+    if(services&&services.dataset.open==='true'){
+      servicesButton.focus();
+      setServices(false);
+    }
+  });
 })();

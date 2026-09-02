@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Aide informatique patiente et sans jargon à domicile : ordinateur, mail, box internet, tablette et téléphone. Pour débutants et seniors à Vittel, Contrexéville et dans l'ouest des Vosges.">
 <meta name="twitter:image" content="https://www.acdj-informatique.com/assets/images/og-preview.webp">
 <link rel="preload" href="/assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=20260710-custom-form-errors">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260902-services-pages-v3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -68,7 +68,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/" class="brand"><img src="/assets/images/acdj-logo-88.webp" alt="" height="32" width="32" style="border-radius:6px;display:block;"> ACDJ Informatique</a>
     <nav class="nav">
       <div class="links">
-        <a href="/services/" class="active">Prestations</a>
+        <div class="site-services-menu" data-site-services-menu data-open="false">
+          <button type="button" class="site-services-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="site-services-panel" aria-current="page">Prestations <span class="site-services-chevron" aria-hidden="true">⌄</span></button>
+          <div id="site-services-panel" class="site-services-panel" aria-label="Prestations">
+            <a href="/services/depannage-informatique/">Dépannage</a>
+            <div class="site-repair-menu" data-site-repair-menu data-open="false">
+              <button type="button" class="site-repair-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="site-repair-panel">Réparation ordinateur <span aria-hidden="true">›</span></button>
+              <div id="site-repair-panel" class="site-repair-panel" aria-label="Réparation ordinateur par ville">
+                <a href="/services/reparation-ordinateur/" title="Réparation ordinateur à Vittel et Contrexéville">À Vittel et Contrexéville</a>
+                <a href="/services/reparation-ordinateur-epinal/" title="Réparation ordinateur à Épinal">À Épinal</a>
+              </div>
+            </div>
+            <a href="/services/assistance-a-domicile/">Assistance</a>
+            <a href="/services/maintenance-informatique-entreprise/">Maintenance entreprise</a>
+            <a class="site-services-all" href="/services/">Tout voir</a>
+          </div>
+        </div>
         <a href="/a-propos/">À propos</a>
         <a href="/zones/">Secteur</a>
         <a href="/contact/">Contact</a>
@@ -80,7 +95,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 <nav id="mobile-menu" class="mobile-nav" aria-hidden="true" inert>
-  <a href="/services/" class="mnav-link">Prestations</a>
+  <div class="mobile-services-menu" data-mobile-services>
+    <button type="button" class="mobile-services-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-panel">Prestations <span aria-hidden="true">+</span></button>
+    <div id="mobile-services-panel" class="mobile-services-panel" hidden>
+      <a href="/services/depannage-informatique/" class="mnav-link">Dépannage</a>
+      <div class="mobile-repair-menu" data-mobile-repair>
+        <button type="button" class="mobile-repair-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-repair-panel">Réparation ordinateur <span aria-hidden="true">+</span></button>
+        <div id="mobile-repair-panel" class="mobile-repair-panel" hidden>
+          <a href="/services/reparation-ordinateur/" class="mnav-link" title="Réparation ordinateur à Vittel et Contrexéville">À Vittel et Contrexéville</a>
+          <a href="/services/reparation-ordinateur-epinal/" class="mnav-link" title="Réparation ordinateur à Épinal">À Épinal</a>
+        </div>
+      </div>
+      <a href="/services/assistance-a-domicile/" class="mnav-link">Assistance</a>
+      <a href="/services/maintenance-informatique-entreprise/" class="mnav-link">Maintenance entreprise</a>
+      <a href="/services/" class="mnav-link">Tout voir</a>
+    </div>
+  </div>
   <a href="/a-propos/" class="mnav-link">À propos</a>
   <a href="/zones/" class="mnav-link">Secteur</a>
   <a href="/contact/" class="mnav-link">Contact</a>
@@ -193,8 +223,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>Prestations</h3>
         <ul>
           <li><a href="/services/depannage-informatique/">Dépannage</a></li>
-          <li><a href="/services/reparation-ordinateur/">Réparation</a></li>
+          <li><a href="/services/reparation-ordinateur/">Réparation ordinateur Vittel et Contrexéville</a></li>
+          <li><a href="/services/reparation-ordinateur-epinal/">Réparation ordinateur Épinal</a></li>
           <li><a href="/services/assistance-a-domicile/">Assistance</a></li>
+          <li><a href="/services/maintenance-informatique-entreprise/">Maintenance entreprise</a></li>
           <li><a href="/services/">Tout voir</a></li>
         </ul>
       </div>
@@ -258,6 +290,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   },{passive:true});
 })();
 </script>
-<script src="/assets/js/site-enhancements.js?v=20260710-custom-form-errors" defer></script>
+<script src="/assets/js/site-enhancements.js?v=20260902-services-nav-v2" defer></script>
 </body>
 </html>
