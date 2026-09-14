@@ -54,7 +54,7 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Mes fichiers sont-ils conservés pendant la réparation ?",
+          "name": "Les fichiers sont-ils conservés pendant la réparation ?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Ils le sont dès que l'état de la machine le permet. Avant toute opération susceptible d'effacer des données, comme une réinstallation complète, le risque vous est expliqué et votre accord est demandé. Si le disque est endommagé, la récupération des données est évaluée séparément."
@@ -118,16 +118,10 @@ w.addEventListener('load',function(){w.setTimeout(load,3000);});
         <div class="site-services-menu" data-site-services-menu data-open="false">
           <button type="button" class="site-services-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="site-services-panel" aria-current="page">Prestations <span class="site-services-chevron" aria-hidden="true">⌄</span></button>
           <div id="site-services-panel" class="site-services-panel" aria-label="Prestations">
-            <a href="/services/depannage-informatique/">Dépannage</a>
-            <div class="site-repair-menu" data-site-repair-menu data-open="false">
-              <button type="button" class="site-repair-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="site-repair-panel">Réparation ordinateur <span aria-hidden="true">›</span></button>
-              <div id="site-repair-panel" class="site-repair-panel" aria-label="Réparation ordinateur par ville">
-                <a href="/services/reparation-ordinateur/" title="Réparation ordinateur à Vittel et Contrexéville">À Vittel et Contrexéville</a>
-                <a href="/services/reparation-ordinateur-epinal/" title="Réparation ordinateur à Épinal">À Épinal</a>
-              </div>
-            </div>
-            <a href="/services/assistance-a-domicile/">Assistance</a>
-            <a href="/services/maintenance-informatique-entreprise/">Maintenance entreprise</a>
+            <a href="/services/#depannage-reparation">Dépannage &amp; réparation</a>
+            <a href="/services/#assistance-installation">Assistance &amp; installation</a>
+            <a href="/services/#sauvegarde-donnees">Sauvegarde &amp; données</a>
+            <a href="/services/#professionnels">Pour les professionnels</a>
             <a class="site-services-all" href="/services/">Tout voir</a>
           </div>
         </div>
@@ -145,16 +139,10 @@ w.addEventListener('load',function(){w.setTimeout(load,3000);});
   <div class="mobile-services-menu" data-mobile-services>
     <button type="button" class="mobile-services-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-services-panel">Prestations <span aria-hidden="true">+</span></button>
     <div id="mobile-services-panel" class="mobile-services-panel" hidden>
-      <a href="/services/depannage-informatique/" class="mnav-link">Dépannage</a>
-      <div class="mobile-repair-menu" data-mobile-repair>
-        <button type="button" class="mobile-repair-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-repair-panel">Réparation ordinateur <span aria-hidden="true">+</span></button>
-        <div id="mobile-repair-panel" class="mobile-repair-panel" hidden>
-          <a href="/services/reparation-ordinateur/" class="mnav-link" title="Réparation ordinateur à Vittel et Contrexéville">À Vittel et Contrexéville</a>
-          <a href="/services/reparation-ordinateur-epinal/" class="mnav-link" title="Réparation ordinateur à Épinal">À Épinal</a>
-        </div>
-      </div>
-      <a href="/services/assistance-a-domicile/" class="mnav-link">Assistance</a>
-      <a href="/services/maintenance-informatique-entreprise/" class="mnav-link">Maintenance entreprise</a>
+      <a href="/services/#depannage-reparation" class="mnav-link">Dépannage &amp; réparation</a>
+      <a href="/services/#assistance-installation" class="mnav-link">Assistance &amp; installation</a>
+      <a href="/services/#sauvegarde-donnees" class="mnav-link">Sauvegarde &amp; données</a>
+      <a href="/services/#professionnels" class="mnav-link">Pour les professionnels</a>
       <a href="/services/" class="mnav-link">Tout voir</a>
     </div>
   </div>
@@ -223,7 +211,7 @@ w.addEventListener('load',function(){w.setTimeout(load,3000);});
         <p class="section-label">FAQ</p>
         <h2>Questions fréquentes</h2>
         <div class="faq-list">
-          <details class="faq-item"><summary><span>Mes fichiers sont-ils conservés pendant la réparation ?</span></summary><p>Ils le sont dès que l'état de la machine le permet. Avant toute opération susceptible d'effacer des données, comme une réinstallation complète, le risque vous est expliqué et votre accord est demandé. Si le disque est endommagé, la récupération des données est évaluée séparément.</p></details>
+          <details class="faq-item"><summary><span>Les fichiers sont-ils conservés pendant la réparation ?</span></summary><p>Ils le sont dès que l'état de la machine le permet. Avant toute opération susceptible d'effacer des données, comme une réinstallation complète, le risque vous est expliqué et votre accord est demandé. Si le disque est endommagé, la récupération des données est évaluée séparément.</p></details>
           <details class="faq-item"><summary><span>Que faut-il préparer avant le rendez-vous ?</span></summary><p>Gardez à portée de main l'ordinateur, son chargeur et le périphérique concerné par la panne. Si possible, notez les messages d'erreur et le moment où le problème apparaît : ces détails rendent le diagnostic plus rapide.</p></details>
           <details class="faq-item"><summary><span>Sous quel délai intervenez-vous à Épinal ?</span></summary><p>Les interventions sont regroupées par secteur pour limiter les trajets. Le créneau vous est proposé dès l'appel, en fonction de la tournée en cours. Pour une panne logicielle, le dépannage à distance permet souvent d'agir le jour même.</p></details>
           <details class="faq-item"><summary><span>Faut-il acheter une pièce avant l'intervention ?</span></summary><p>Non. Le diagnostic permet d'abord d'identifier la référence compatible. Le prix et le délai de la pièce vous sont ensuite annoncés, et rien n'est commandé sans votre accord.</p></details>

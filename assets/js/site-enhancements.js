@@ -410,40 +410,22 @@
 (function(){
   var services=document.querySelector('[data-site-services-menu]');
   var servicesButton=services&&services.querySelector(':scope > .site-services-trigger');
-  var repair=services&&services.querySelector('[data-site-repair-menu]');
-  var repairButton=repair&&repair.querySelector(':scope > .site-repair-trigger');
   var mobileServices=document.querySelector('[data-mobile-services]');
   var mobileServicesButton=mobileServices&&mobileServices.querySelector(':scope > .mobile-services-trigger');
   var mobileServicesPanel=mobileServices&&mobileServices.querySelector(':scope > .mobile-services-panel');
-  var mobileRepair=mobileServices&&mobileServices.querySelector('[data-mobile-repair]');
-  var mobileRepairButton=mobileRepair&&mobileRepair.querySelector(':scope > .mobile-repair-trigger');
-  var mobileRepairPanel=mobileRepair&&mobileRepair.querySelector(':scope > .mobile-repair-panel');
   var ham=document.querySelector('.ham');
   var mobileMenu=document.getElementById('mobile-menu');
   var servicesCloseTimer=null;
-  var repairCloseTimer=null;
 
   function setServices(open){
     if(!services||!servicesButton)return;
     services.dataset.open=open?'true':'false';
     servicesButton.setAttribute('aria-expanded',open?'true':'false');
-    if(!open)setRepair(false);
-  }
-  function setRepair(open){
-    if(!repair||!repairButton)return;
-    repair.dataset.open=open?'true':'false';
-    repairButton.setAttribute('aria-expanded',open?'true':'false');
   }
   function setMobileServices(open){
     if(!mobileServicesButton||!mobileServicesPanel)return;
     mobileServicesButton.setAttribute('aria-expanded',open?'true':'false');
     mobileServicesPanel.hidden=!open;
-    if(!open)setMobileRepair(false);
-  }
-  function setMobileRepair(open){
-    if(!mobileRepairButton||!mobileRepairPanel)return;
-    mobileRepairButton.setAttribute('aria-expanded',open?'true':'false');
-    mobileRepairPanel.hidden=!open;
   }
   function closeMobileMenu(){
     if(!ham||!mobileMenu)return;
@@ -471,31 +453,9 @@
       setServices(true);
     });
   }
-  if(repair&&repairButton){
-    repair.addEventListener('mouseenter',function(){
-      if(repairCloseTimer)window.clearTimeout(repairCloseTimer);
-      setRepair(true);
-    });
-    repair.addEventListener('mouseleave',function(){
-      if(repairCloseTimer)window.clearTimeout(repairCloseTimer);
-      repairCloseTimer=window.setTimeout(function(){setRepair(false);},180);
-    });
-    repair.addEventListener('focusin',function(){setRepair(true);});
-    repair.addEventListener('focusout',function(event){
-      if(!repair.contains(event.relatedTarget))setRepair(false);
-    });
-    repairButton.addEventListener('click',function(){
-      setRepair(true);
-    });
-  }
   if(mobileServicesButton){
     mobileServicesButton.addEventListener('click',function(){
       setMobileServices(mobileServicesButton.getAttribute('aria-expanded')!=='true');
-    });
-  }
-  if(mobileRepairButton){
-    mobileRepairButton.addEventListener('click',function(){
-      setMobileRepair(mobileRepairButton.getAttribute('aria-expanded')!=='true');
     });
   }
   document.addEventListener('click',function(event){
