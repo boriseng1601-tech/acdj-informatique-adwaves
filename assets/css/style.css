@@ -1044,3 +1044,56 @@ html,body{max-width:100%;overflow-x:clip}
   .static-service-page .content-section .audit-timeline.audit-timeline-ready .tl-item{opacity:1;transform:none;transition:none}
   .static-service-page .content-section .audit-timeline .tl-num{background:var(--prune)!important;color:#fff!important;border-color:var(--prune)!important}
 }
+
+/* ===== CÂBLAGE RÉSEAU ENTREPRISE ===== */
+.service-page-network .page-head{padding-block:34px 58px}
+.service-network-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.86fr);align-items:center;gap:50px}
+.service-page-network .page-head h1{max-width:16ch}
+.service-page-network .page-head .lead{max-width:670px}
+.service-network-hero-visual{position:relative;overflow:hidden;margin:0;border:1px solid var(--border);border-radius:var(--r);background:var(--zone-bg);aspect-ratio:3/2;box-shadow:0 24px 52px rgba(17,19,24,.1);animation:networkHeroIn .7s cubic-bezier(.22,1,.36,1) both}
+.service-network-hero-visual img{display:block;width:100%;height:100%;object-fit:cover}
+@keyframes networkHeroIn{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+
+.network-benefit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 2px}
+.network-benefit-card{min-width:0;padding:18px 16px;border:1px solid var(--border);border-radius:var(--r);background:#fff;box-shadow:0 7px 22px rgba(17,19,24,.035);animation:softRise .42s ease both;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.network-benefit-card:nth-child(2){animation-delay:90ms}
+.network-benefit-card:nth-child(3){animation-delay:180ms}
+.network-benefit-card:hover{transform:translateY(-3px);border-color:#ddb4bf;box-shadow:0 14px 28px rgba(17,19,24,.07)}
+.network-benefit-icon{display:grid;place-items:center;width:34px;height:34px;margin-bottom:15px;border-radius:50%;background:var(--icon-bg);color:var(--prune);font-family:var(--display);font-size:.72rem;font-weight:850}
+.static-service-page .network-benefit-card h3{margin:0 0 7px;font-size:.96rem}
+.static-service-page .network-benefit-card p{margin:0;color:var(--gray);font-size:.82rem;line-height:1.55}
+
+.network-opening-section{position:relative}
+.network-opening-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:23px 0!important}
+.static-service-page .content-section .network-opening-list li{display:flex;flex-direction:column;gap:7px;min-height:132px;margin:0;padding:17px;border:1px solid var(--border);border-radius:var(--r);background:var(--zone-bg)}
+.static-service-page .content-section .network-opening-list li::before{display:none}
+.network-opening-list strong{color:var(--ink);font-family:var(--display);font-size:.9rem}
+.network-opening-list span{color:var(--gray);font-size:.8rem;line-height:1.52}
+
+.network-mid-cta{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:-6px 0 42px!important;padding:22px 24px;border:1px solid #e2b2be;border-radius:var(--r);background:#fff8fa}
+.network-mid-cta>div{display:flex;flex-direction:column;gap:4px}
+.network-mid-cta strong{color:var(--prune);font-family:var(--display);font-size:1rem}
+.network-mid-cta span{color:var(--gray);font-size:.82rem}
+.network-mid-cta .btn{flex:0 0 auto}
+
+/* Les séparateurs commencent après les numéros pour ne pas couper la ligne animée. */
+.service-page-network .service-point:not(:last-child){border-bottom:0}
+.service-page-network .service-point:not(:last-child)::after{content:"";position:absolute;right:0;bottom:0;left:50px;border-bottom:1px dashed var(--border)}
+
+@media(max-width:920px){
+  .service-network-hero-grid{grid-template-columns:1fr;gap:30px}
+  .service-page-network .page-head h1{max-width:20ch}
+  .service-network-hero-visual{max-width:680px}
+}
+@media(max-width:680px){
+  .service-page-network .page-head{padding-block:28px 45px}
+  .network-benefit-grid,.network-opening-list{grid-template-columns:1fr}
+  .static-service-page .content-section .network-opening-list li{min-height:0}
+  .network-mid-cta{align-items:stretch;flex-direction:column;padding:20px}
+  .network-mid-cta .btn{justify-content:center}
+  .service-page-network .service-point:not(:last-child)::after{left:43px}
+}
+@media(prefers-reduced-motion:reduce){
+  .service-network-hero-visual,.network-benefit-card{animation:none!important}
+  .network-benefit-card{transition:none!important}
+}
