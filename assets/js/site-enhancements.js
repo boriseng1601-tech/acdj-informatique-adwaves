@@ -425,7 +425,10 @@
   function setMobileServices(open){
     if(!mobileServicesButton||!mobileServicesPanel)return;
     mobileServicesButton.setAttribute('aria-expanded',open?'true':'false');
-    mobileServicesPanel.hidden=!open;
+    mobileServices.dataset.open=open?'true':'false';
+    mobileServicesPanel.setAttribute('aria-hidden',open?'false':'true');
+    var icon=mobileServicesButton.querySelector('span[aria-hidden="true"]');
+    if(icon)icon.textContent=open?'−':'+';
   }
   function closeMobileMenu(){
     if(!ham||!mobileMenu)return;
@@ -454,6 +457,8 @@
     });
   }
   if(mobileServicesButton){
+    mobileServicesPanel.hidden=false;
+    setMobileServices(false);
     mobileServicesButton.addEventListener('click',function(){
       setMobileServices(mobileServicesButton.getAttribute('aria-expanded')!=='true');
     });

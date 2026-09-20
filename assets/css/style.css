@@ -866,14 +866,14 @@ html,body{max-width:100%;overflow-x:clip}
 .site-services-all{margin-top:5px;border-top:1px solid var(--border);border-radius:0 0 8px 8px!important;color:var(--prune)!important;font-weight:800}
 .mobile-services-trigger{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 0;font-weight:750;text-align:left}
 .mobile-services-trigger{font-size:1.1rem}
-.mobile-services-panel{display:grid;padding-left:14px;border-left:2px solid rgba(196,41,77,.18)}
-.mobile-services-panel[hidden]{display:none}
+.mobile-services-panel{display:grid;max-height:0;overflow:hidden;padding-left:14px;border-left:2px solid rgba(196,41,77,.18);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:max-height .3s cubic-bezier(.22,1,.36,1),opacity .2s ease,transform .3s cubic-bezier(.22,1,.36,1),visibility 0s linear .3s}
+.mobile-services-menu[data-open="true"]>.mobile-services-panel{max-height:320px;opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition-delay:0s}
 .mobile-services-panel .mnav-link{font-size:.92rem}
 @media(max-width:900px){
   .nav .links,.nav>.btn-ghost{display:none}
   .ham{display:block}
 }
-@media(prefers-reduced-motion:reduce){.site-services-chevron,.site-services-panel{transition:none}}
+@media(prefers-reduced-motion:reduce){.site-services-chevron,.site-services-panel,.mobile-services-panel{transition:none}}
 
 /* ===== LIENS CONTEXTUELS DES NOUVELLES PRESTATIONS ===== */
 .epinal-service-link,.business-service-link{margin:18px 0;padding:15px 17px;border-left:4px solid var(--prune);border-radius:0 10px 10px 0;background:var(--zone-bg);color:var(--gray)}
