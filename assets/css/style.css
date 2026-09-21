@@ -105,7 +105,6 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 .km-tag{position:absolute;left:-18px;bottom:34px;z-index:3;background:var(--ink);color:#fff;border-radius:var(--r);padding:14px 18px;max-width:215px}
 .km-tag .k{font-family:var(--display);font-weight:800;font-size:1.4rem;color:var(--rose);line-height:1}
 .km-tag .t{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:5px}
-
 /* VOIX */
 .voix{background:var(--zone-bg);padding:84px 0;border-top:var(--line);border-bottom:var(--line)}
 .voix-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
