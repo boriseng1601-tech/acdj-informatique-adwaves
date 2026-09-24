@@ -239,13 +239,25 @@ h1 .hand{font-family:"Inter",sans-serif;font-style:normal;font-weight:700;color:
 
 /* FOOTER */
 footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;font-size:.92rem;margin-top:0}
-.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.ft-grid{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,2.3fr) minmax(150px,.62fr) minmax(190px,.72fr);gap:38px}
 .ft-grid h3,.ft-grid h4{font-family:var(--display);color:#fff;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;font-weight:700}
 .ft-grid a:hover{color:var(--rose)}.ft-grid li{list-style:none;margin-bottom:9px}
 .ft-brand .brand{color:#fff;margin-bottom:14px}.ft-brand .brand .mark{background:var(--rose);color:var(--prune-hover)}
 .ft-brand p{max-width:30ch;line-height:1.55}
+.ft-service-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 30px}
+.ft-service-group h4{margin:0 0 9px;color:var(--rose);font-size:.82rem;line-height:1.4;letter-spacing:.025em;text-transform:none}
+.ft-service-group li{margin-bottom:5px}
+.ft-services-all{display:inline-block;margin-top:20px;color:#fff;font-weight:700}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.84rem;color:rgba(255,255,255,.5)}
 .ft-bottom a:hover{color:var(--rose)}
+@media(max-width:1100px){
+  .ft-grid-categorized{grid-template-columns:minmax(0,2fr) minmax(150px,.65fr) minmax(190px,.75fr)}
+  .ft-grid-categorized>.ft-brand{grid-column:1 / -1}
+}
+@media(max-width:900px){
+  .ft-grid-categorized{grid-template-columns:1fr 1fr}
+  .ft-grid-categorized>.ft-brand,.ft-grid-categorized>.ft-services{grid-column:1 / -1}
+}
 
 /* ---- BREADCRUMB + PAGE HEAD ---- */
 .crumb{font-size:.85rem;color:var(--gray);padding-top:34px}
@@ -439,8 +451,9 @@ footer{background:var(--ink);color:rgba(255,255,255,.72);padding:64px 0 30px;fon
   .detail-grid > aside .photo-block{max-height:300px;overflow:hidden}
   .zlist,.form .two{grid-template-columns:1fr}
   .count{white-space:nowrap;font-size:.75rem}
-  .ft-grid{grid-template-columns:1fr 1fr;gap:24px 16px}
-  .ft-brand{grid-column:1 / -1}
+  .ft-grid{grid-template-columns:1fr;gap:30px 16px}
+  .ft-brand,.ft-services{grid-column:1 / -1}
+  .ft-service-groups{grid-template-columns:1fr}
   .ft-bottom{grid-column:1 / -1}
   footer{margin-top:0}
   .tarifs{margin-top:0;padding-top:40px}

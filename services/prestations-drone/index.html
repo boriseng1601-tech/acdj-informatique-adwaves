@@ -6533,6 +6533,15 @@
   syntax: "*";
   inherits: false;
 }
+@media (max-width: 560px) {
+  .footer-grid-categorized,
+  .footer-service-groups {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid-categorized > * {
+    grid-column: 1 / -1;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .shimmer {
     animation: none;
@@ -8259,10 +8268,10 @@ h1 {
   color: white;
   font-size: 18px;
 }
-.footer-grid {
+.footer-grid-categorized {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.35fr;
-  gap: 44px;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2.3fr) minmax(150px, 0.62fr) minmax(190px, 0.72fr);
+  gap: 38px;
 }
 .footer-brand p {
   max-width: 350px;
@@ -8273,6 +8282,27 @@ h1 {
   color: white;
   font-size: 15px;
   line-height: 1.4;
+}
+.footer-service-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 30px;
+}
+.footer-service-group h3 {
+  margin: 0 0 9px;
+  color: var(--rose);
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.025em;
+}
+.footer-service-group li {
+  margin: 5px 0;
+}
+.footer-all-services {
+  display: inline-block;
+  margin-top: 20px;
+  color: white;
+  font-weight: 800;
 }
 .site-footer ul {
   margin: 0;
@@ -8420,10 +8450,10 @@ h1 {
   .simple-grid {
     grid-template-columns: 1fr;
   }
-  .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr;
+  .footer-grid-categorized {
+    grid-template-columns: minmax(0, 2fr) minmax(150px, 0.65fr) minmax(190px, 0.75fr);
   }
-  .footer-grid > div:last-child {
+  .footer-grid-categorized > .footer-brand {
     grid-column: 1 / -1;
   }
 }
@@ -8749,12 +8779,12 @@ h1 {
   .service-tile {
     min-height: 0;
   }
-  .footer-grid {
+  .footer-grid-categorized {
     grid-template-columns: 1fr 1fr;
     gap: 34px 24px;
   }
   .footer-brand,
-  .footer-grid > div:last-child {
+  .footer-services {
     grid-column: 1 / -1;
   }
   .footer-bottom {
@@ -9691,58 +9721,51 @@ Votre navigateur ne prend pas en charge la lecture vidéo. <a href="../../assets
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<div class="footer-grid">
+<div class="footer-grid footer-grid-categorized">
 <div class="footer-brand">
 <a href="https://www.acdj-informatique.com/" class="brand">
 <img src="data:image/webp;base64,UklGRi4FAABXRUJQVlA4WAoAAAAQAAAAVwAAVwAAQUxQSBsCAAABkAMAkCFJ1fO2bRuR/zPb9qf2R5/Ztm3btm3/2b6bmapkFtU1HV4QERMAuZwrVaCIGaxCFaq2bN9j7MS5K9YcuHz7XXScbb9Y0K+8r6zTd95HxOcgsdpPlw0s458kYkYK7DxeM6CUL/Kmc4We8259/1LiCjlsGIrX/riub3VR+XLYWPHD2iFVlZS8WYFQhBffbxxTVUS+nEBEiC4i6vO673eNrqKtqBssKIZIRMjkdT/uHlnF0lHYCStET2AMhKF58d/OETUVVxERYWIIiESIv7dPaKA4Csrjnc9RyDbCRo5SrhF2cJRBI+zmKO4aYQuLY4Q9HCXQCEc5KhG/K+kIR3kNKOkgRzkznOQog0a4yFGFjHCVo6YZznJU00CEcq5xVNVCKOY+RzU9RCjkHkc5WxOhjLMccEeXzNhKLFNNMARYaxvgKDC/lIE6IspzzZOhE/sDdxMxyLUb2K3PUoiQ5U9pPlgihwjDw56gsb0kxh2g0/rro9/FtMBm/7idQG9XcRhsHWjOFy8t+LdiuuCIH5DI7QjaZ/qBCJeD/o7+uF9QQFHbDx/LgsSXPoiuBSK3yEtrBTLHinMGgNAm4qaA1LypwpaA3OuyDuURtFDUvYIgeLCkr+VAcuWE+MzUuISMpJiI+ISY/xEJ0RGRsVH/vkVE/vkW8f/X98//fn/58u/nx/ffX9YF2UpZSlmWUqCUAlAKQCkABbmtAwBWUDgg7AIAABASAJ0BKlgAWAA+MRaJQqIhIRat3SQgAwSgDTIdX+wa9X3r8QOh0gvgY7Z7zG/rT1LfQA/V3rD/QA8tn2OP3B9HG0AMugj29AD9M90AQQqh1PVyt3qHm0F1jm/qWcSUiNx8x3oG55gZ6Q26o6bXQcan24bSXGxPj0fGkexk6++I5aY4x8ezkQasMyvW7FzP2glPBNvQ63yPwAD+/u6qAU3//Lnc/grGpvjtwRQyr9M2zH2vuinONbmLZll1ufWb8xQZmp+HJgbe2cf9h3Sn7jbhi4nyfcM/0++v3yMv6781iU/c/2GQCf+5Po7Deyf8spAF80qeNX5cvcPEge3r9icGycTFdNtqFExxLY+ed452qt3CkTX0+LhMmn4K4U7aZUTNdmiXztz3wuLZjtV6jOXPPSJWQDkyXaWq94Kk7jUm4QCOH/Xbt4OyWdVFSj3HUqVktOKn/E3B5Wo++IZUYtD9Srjnq6HGFStSTIuLj7zfVj146JiKK491baT/oQVcTgCx+G4xvNCbPbq3695aGcAJwYVpG73rp+vs0Y0EAbJP1JfBvcgb7sMQ+JmaUU3VpaKxyLaVnka3buzOaz2wTxfJU2eNDjD2ooQTZou+JdCSVx6k7rtggR5v/GZHlZ7bBXW22iIPx1jj+GdRKxTxj8mf0txNARU+7K0BUnxZU865E6b+isMu3F6b9mh8uKu7Dn8yi6l1oIgN/54m1FsB65l996EEonTIqQcTVyJDVxV++ZFFS2fOI7Pe96H5p+QPJf+cL9reH50Fn9ZY2KZ94afolUXP08T3pdnM3NUp1JEX2a9+FPwXVPweHyLhu5Plm/cCD4XLksH1y3Fh3qGAfsPMN4cqP3Ifjg9LjdKj7+zffmuNyJi7Vvw7kPpvUhcAaIiNw8w/zrlh8bu1UsT1k59AlsAtzlp1dhxO1Dvh71FTcKQKrp0+rs//7Vn//ak3//tMm2OOmPhuhlCWLf+BiZGtMvw/dV8RcshQAAA=" alt="" width="32" height="32" loading="lazy" decoding="async"/>ACDJ Informatique</a>
 <p>Dépannage, réparation et assistance informatique à domicile à Vittel, Contrexéville et dans l&#x27;ouest des Vosges.</p>
 </div>
-<div>
+<div class="footer-services">
 <h2>Prestations</h2>
+<div class="footer-service-groups">
+<section class="footer-service-group">
+<h3>Dépannage &amp; réparation</h3>
 <ul>
-<li>
-<a href="https://www.acdj-informatique.com/services/depannage-informatique">Dépannage</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/reparation-ordinateur">Réparation ordinateur Vittel et Contrexéville</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/reparation-ordinateur-epinal">Réparation ordinateur Épinal</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/reparation-smartphone">Réparation smartphone</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/assistance-a-domicile">Assistance</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/installation-ordinateur">Installation d’ordinateur</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/installation-imprimante">Installation d’imprimante</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/recuperation-de-donnees">Récupération de données</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/maintenance-informatique-entreprise">Maintenance entreprise</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/cablage-reseau-entreprise">Câblage et installation réseau</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/creation-site-web">Création de sites web</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/installation-de-caisse">Installation de caisse</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services/prestations-drone">Prestations de drone</a>
-</li>
-<li>
-<a href="https://www.acdj-informatique.com/services">Tout voir</a>
-</li>
+<li><a href="/services/depannage-informatique/">Dépannage informatique</a></li>
+<li><a href="/services/reparation-ordinateur/">Réparation ordinateur Vittel et Contrexéville</a></li>
+<li><a href="/services/reparation-ordinateur-epinal/">Réparation ordinateur Épinal</a></li>
+<li><a href="/services/reparation-smartphone/">Réparation smartphone</a></li>
 </ul>
+</section>
+<section class="footer-service-group">
+<h3>Assistance &amp; installation</h3>
+<ul>
+<li><a href="/services/assistance-a-domicile/">Assistance à domicile</a></li>
+<li><a href="/services/installation-ordinateur/">Installation d’ordinateur</a></li>
+<li><a href="/services/installation-imprimante/">Installation d’imprimante</a></li>
+</ul>
+</section>
+<section class="footer-service-group">
+<h3>Sauvegarde &amp; données</h3>
+<ul>
+<li><a href="/services/recuperation-de-donnees/">Récupération de données</a></li>
+</ul>
+</section>
+<section class="footer-service-group">
+<h3>Pour les professionnels</h3>
+<ul>
+<li><a href="/services/maintenance-informatique-entreprise/">Maintenance informatique entreprise</a></li>
+<li><a href="/services/cablage-reseau-entreprise/">Câblage et installation réseau</a></li>
+<li><a href="/services/creation-site-web/">Création de sites web</a></li>
+<li><a href="/services/installation-de-caisse/">Installation de caisse</a></li>
+<li><a href="/services/prestations-drone/">Prestations de drone</a></li>
+<li><a href="/contact/">Autres prestations</a></li>
+</ul>
+</section>
+</div>
+<a class="footer-all-services" href="/services/">Voir toutes les prestations →</a>
 </div>
 <div>
 <h2>Secteur</h2>
