@@ -3,7 +3,7 @@
 .wifi-hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
 .wifi-hero h1{font-size:clamp(2rem,3.4vw,3.2rem);line-height:1.13}
 .wifi-actions{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:24px}.wifi-actions .btn{min-height:46px;justify-content:center}
-.wifi-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.wifi-badges span{padding:6px 10px;border:1px solid var(--border);border-radius:20px;font-size:.75rem;color:var(--prune)}
+
 .wifi-hero-illustration{display:grid;place-items:center;min-height:320px;color:var(--prune)}.wifi-hero-illustration svg{width:min(100%,320px);height:270px}.wifi-center{transform-origin:50px 69px;}
 
 .wifi-page .detail{padding-bottom:28px}.wifi-content{min-width:0}.wifi-content .content-section{padding-bottom:32px;margin-bottom:32px;border-bottom:1px solid var(--border)}.wifi-content .content-section:last-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
