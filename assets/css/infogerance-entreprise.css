@@ -2,3 +2,11 @@
 @media(max-width:1000px){.info-grid-four{grid-template-columns:repeat(2,minmax(0,1fr))}.info-hero-grid{gap:16px}.info-network text{font-size:17px}}
 @media(max-width:600px){.infogerance-page .wrap{width:calc(100% - 32px);max-width:none}.info-hero-grid,.info-grid-four,.info-grid-two{grid-template-columns:minmax(0,1fr)}.info-hero{padding:24px 0}.info-network{max-width:420px;margin:auto}.info-actions{align-items:stretch}.info-actions .btn{justify-content:center}.infogerance-page .info-section{padding:30px 0}.info-card-small{padding:20px}.info-audience{padding:12px}.info-definition{padding-left:16px}.infogerance-page .cta-band{padding:28px 22px;display:block}.cta-band .info-actions{margin-top:24px}.info-step{padding-left:62px}.infogerance-page .mobile-nav[aria-hidden="true"]{visibility:hidden}}
 @media(prefers-reduced-motion:reduce){.infogerance-page *,.infogerance-page *:before,.infogerance-page *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal.is-pending,.reveal.from-left.is-pending,.reveal.from-right.is-pending{opacity:1;transform:none}.info-card-small:hover{transform:none}.info-steps:after{transform:scaleY(1)}}
+
+/* Shared service information card, sticky beside the page content. */
+.info-detail-grid{padding-top:32px;grid-template-columns:minmax(0,1fr) 330px;gap:40px}
+.infogerance-page .info-content>.info-section>.wrap,.infogerance-page .info-content>.wrap{width:100%;max-width:none;padding-inline:0}
+.info-content .info-grid-four{grid-template-columns:repeat(2,minmax(0,1fr))}
+.info-detail-grid>aside{padding-top:44px}
+@media(max-width:920px){.info-detail-grid{grid-template-columns:minmax(0,1fr);gap:0}.info-detail-grid>aside{grid-row:1;padding-top:0;padding-bottom:12px}.infogerance-page .info-card .ic-cta{position:static;display:grid!important;box-shadow:none;border-top:0}.infogerance-page .info-card .ic-cta .btn{width:100%;padding:13px 12px;font-size:.94rem}}
+@media(max-width:600px){.info-content .info-grid-four{grid-template-columns:minmax(0,1fr)}}
