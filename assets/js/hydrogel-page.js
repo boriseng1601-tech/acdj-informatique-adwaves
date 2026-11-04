@@ -64,6 +64,7 @@
         '<a href="/services/#assistance-installation">Assistance &amp; installation</a>' +
         '<a href="/services/#sauvegarde-donnees">Sauvegarde &amp; données</a>' +
         '<a href="/services/#professionnels">Services pour professionnels</a>' +
+        '<a href="/services/infogerance-entreprise/">Infogérance</a>' +
         '<a href="/services/">Toutes les prestations</a>' +
         '</div>' +
         '<a href="/a-propos/">À propos</a>' +

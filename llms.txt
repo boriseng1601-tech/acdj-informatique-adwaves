@@ -11,6 +11,8 @@
 
 ## Services
 
+- [Infogérance pour les entreprises](https://www.acdj-informatique.com/services/infogerance-entreprise/) : gestion du parc informatique, sauvegardes, mises à jour, sécurité et reprise de votre installation existante à Épinal et dans les Vosges, sur devis.
+
 - [Dépannage informatique à domicile](https://www.acdj-informatique.com/services/depannage-informatique/) : virus, lenteurs, Wi-Fi, plantages, aussi à distance. Forfaits de 25 € à 75 €.
 - [Réparation d'ordinateur](https://www.acdj-informatique.com/services/reparation-ordinateur/) : PC fixe ou portable, disque dur/SSD, réinstallation de Windows, sauvegarde.
 - [Réparation de téléphone et smartphone](https://www.acdj-informatique.com/services/reparation-smartphone/) : écran cassé, batterie, configuration d'un nouveau téléphone.
